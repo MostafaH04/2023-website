@@ -1,0 +1,442 @@
+/**----------------- Dark Mode ---------------**/
+
+.backdrop-dark{
+    width:100vw;
+    height:100vh;
+    background-color: #02111B;
+    overflow: hidden;
+}
+
+.circle{
+    position: fixed;
+    border-radius: 50%;
+    background-color: #BEBEBE;
+    
+}
+
+.circle:nth-child(1){
+    -webkit-animation: starsGlow 4s ease-in-out infinite alternate;
+    -moz-animation: starsGlow 4s ease-in-out infinite alternate;
+    animation: starsGlow 4s ease-in-out infinite alternate;
+    animation-delay: 0.4s;
+}
+.circle:nth-child(2){
+    -webkit-animation: starsGlow 5s ease-in-out infinite alternate;
+    -moz-animation: starsGlow 5s ease-in-out infinite alternate;
+    animation: starsGlow 5s ease-in-out infinite alternate;
+    animation-delay: 0s;
+}
+.circle:nth-child(3){
+    -webkit-animation: starsGlow 6s ease-in-out infinite alternate;
+    -moz-animation: starsGlow 6s ease-in-out infinite alternate;
+    animation: starsGlow 6s ease-in-out infinite alternate;
+    animation-delay: 1s;
+}
+.circle:nth-child(4){
+    -webkit-animation: starsGlow 4s ease-in-out infinite alternate;
+    -moz-animation: starsGlow 4s ease-in-out infinite alternate;
+    animation: starsGlow 4s ease-in-out infinite alternate;
+    animation-delay: 3s;
+}
+.circle:nth-child(5){
+    -webkit-animation: starsGlow 5s ease-in-out infinite alternate;
+    -moz-animation: starsGlow 5s ease-in-out infinite alternate;
+    animation: starsGlow 5s ease-in-out infinite alternate;
+    animation-delay: 0.6s;
+}
+.circle:nth-child(6){
+    -webkit-animation: starsGlow 6s ease-in-out infinite alternate;
+    -moz-animation: starsGlow 6s ease-in-out infinite alternate;
+    animation: starsGlow 6s ease-in-out infinite alternate;
+    animation-delay: 2.2s;
+}
+.circle:nth-child(7){
+    -webkit-animation: starsGlow 4s ease-in-out infinite alternate;
+    -moz-animation: starsGlow 4s ease-in-out infinite alternate;
+    animation: starsGlow 4s ease-in-out infinite alternate;
+    animation-delay: 4s;
+}
+.circle:nth-child(8){
+    -webkit-animation: starsGlow 5s ease-in-out infinite alternate;
+    -moz-animation: starsGlow 5s ease-in-out infinite alternate;
+    animation: starsGlow 5s ease-in-out infinite alternate;
+    animation-delay: 1.5s;
+}
+.circle:nth-child(9){
+    -webkit-animation: starsGlow 6s ease-in-out infinite alternate;
+    -moz-animation: starsGlow 6s ease-in-out infinite alternate;
+    animation: starsGlow 6s ease-in-out infinite alternate;
+    animation-delay: 2.5s;
+}
+.circle:nth-child(10){
+    -webkit-animation: starsGlow 5s ease-in-out infinite alternate;
+    -moz-animation: starsGlow 5s ease-in-out infinite alternate;
+    animation: starsGlow 5s ease-in-out infinite alternate;
+    animation-delay: 3s;
+}
+.circle:nth-child(11){
+    -webkit-animation: starsGlow 7s ease-in-out infinite alternate;
+    -moz-animation: starsGlow 7s ease-in-out infinite alternate;
+    animation: starsGlow 7s ease-in-out infinite alternate;
+    animation-delay: 4s;
+}
+
+@keyframes starsGlow{
+    from{
+        -webkit-box-shadow: 0px 0px 50px 5px #ffffff08; 
+        box-shadow: 0px 0px 50px 5px #ffffff08;
+    }
+    to{
+        -webkit-box-shadow: 0px 0px 50px 25px #ffffff25; 
+        box-shadow: 0px 0px 50px 25px #ffffff25;
+    }
+}
+
+.moon{
+    position:fixed;
+    overflow: hidden;
+}
+
+.moon-group:hover{
+    cursor: pointer;
+}
+
+.moon-group.menu-animate:hover{
+    cursor: default;
+}
+
+.moon.fog-menu-animate{
+    animation-name: fog;
+    animation-duration:1s; 
+    animation-fill-mode: forwards;
+}
+
+.moon-group .menu-animate:nth-child(1){
+    animation-name: openMenu;
+    animation-duration:0.8s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.2s;
+}
+
+.moon-group .menu-animate:nth-child(2){
+    animation-name: openMenu;
+    animation-duration:0.6s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.4s;
+}
+
+.moon-group .menu-animate:nth-child(3){
+    animation-name: openMenu;
+    animation-duration:0.4s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.5s;
+}
+
+.moon-group .menu-animate:nth-child(4){
+    animation-name: openMenu;
+    animation-duration:0.3s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.55s;
+}
+
+@keyframes openMenu {
+    100% {
+        width: 50vw;
+        height: 300vh;
+        right: -25vw;
+        border-radius: 0%;
+    }
+}
+
+@keyframes fog {
+    90% {
+        width: 600vw;
+        height: 600vh;
+        right: -300vw;
+        top: -300vh;
+    }
+    100%{
+        width: 600vw;
+        height: 600vh;
+        right: -300vw;
+        top: -300vh;
+        background: rgba(217, 217, 217, 0.36);
+    }
+}
+
+.exitImg{
+    display:none;
+    position: fixed;
+    z-index: 11;
+    padding:10px;
+    border-radius: 50%;
+    top: 26px;
+    right: 24px;
+}
+
+.exitImg.exitStyle:hover{
+    transition: 0.4s ease-in-out;
+    background-color:#3f40453f;
+}
+
+.exitImg.exitStyle {
+    transition: 0.2s ease-in-out;
+    display:block;
+    opacity: 0;
+    animation-name: exitShow;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.7s
+}
+
+.menu{
+    z-index: 10;
+    display:none;
+    flex-direction: column;
+    position: absolute;
+    width: 25vw;
+    height:100vh;
+    right: 0;
+    top: 0;
+    overflow: hidden;
+}
+
+.menu.exitStyle{
+    display:block;
+}
+
+
+.menu-selector{
+    display:none;
+}
+
+.options{
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    font-family: 'Nunito Sans';
+    font-weight: 700;
+    font-size: 2.5rem;
+    line-height: 61px;
+    margin:20px;
+    color: #FFFFFF;
+    margin-top:15vh;
+}
+
+.options a{
+    transition: 0.1s ease-in-out;
+    margin-top:3vh;
+}
+
+.options a:hover{
+    transition: 0.2s ease-in-out;
+    color: #3F4045;
+}
+
+.menu-selector.exitStyle:nth-child(1){
+    display:block;
+    opacity: 0;
+    animation-name: exitShow;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    animation-delay: 1s
+}
+.menu-selector.exitStyle:nth-child(2){
+    display:block;
+    opacity: 0;
+    animation-name: exitShow;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    animation-delay: 1.1s
+}
+.menu-selector.exitStyle:nth-child(3){
+    display:block;
+    opacity: 0;
+    animation-name: exitShow;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    animation-delay: 1.2s
+}
+.menu-selector.exitStyle:nth-child(4){
+    display:block;
+    opacity: 0;
+    animation-name: exitShow;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    animation-delay: 1.3s
+}
+.menu-selector.exitStyle:nth-child(5){
+    display:block;
+    opacity: 0;
+    animation-name: exitShow;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    animation-delay: 1.4s
+}
+.menu-selector.exitStyle:nth-child(6){
+    display:block;
+    opacity: 0;
+    animation-name: exitShow;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    animation-delay: 1.5s
+}
+
+.menu .socials{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top:7vh;
+}
+
+.socials a{
+    padding: 6px;
+    margin-right:15px;
+    margin-left:15px;
+}
+
+.socials a svg{
+    width:35px;
+    height:35px;
+    transition: 0.1s ease-in-out;
+    fill: #FFFFFF;
+}
+
+.socials a:hover svg{
+    transition: 0.2s ease-in-out;
+    fill: #3F4045;
+}
+
+
+.socials .menu-selector.exitStyle:nth-child(1){
+    display:block;
+    opacity: 0;
+    animation-name: exitShow;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    animation-delay: 1.8s
+}
+.socials .menu-selector.exitStyle:nth-child(2){
+    display:block;
+    opacity: 0;
+    animation-name: exitShow;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    animation-delay: 1.9s
+}
+.socials .menu-selector.exitStyle:nth-child(3){
+    display:block;
+    opacity: 0;
+    animation-name: exitShow;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    animation-delay: 2s
+}
+
+@keyframes exitShow {
+    100%{
+        opacity: 1;
+    }
+}
+
+a.exitStyle:hover{
+    cursor:pointer;
+}
+
+/**----------------- Light Mode ---------------**/
+
+.backdrop-light{
+    width:100vw;
+    height:100vh;
+    background: radial-gradient(141.67% 280.15% at 100% 4.25%, #FAF0CA 0%, #AFECFF 82.74%);
+    overflow: hidden;
+}
+
+.sun{
+    position:fixed;
+    overflow: hidden;
+}
+
+.sun-group:hover{
+    cursor: pointer;
+}
+
+.sun-group.menu-animate:hover{
+    cursor: default;
+}
+
+.sunfog-menu-animate{
+    animation-name: sunfog;
+    animation-duration:1s; 
+    animation-fill-mode: forwards;
+}
+
+.sun-group .menu-animate:nth-child(1){
+    animation-name: openMenu;
+    animation-duration:0.8s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.2s;
+}
+
+.sun-group .menu-animate:nth-child(2){
+    animation-name: openMenu;
+    animation-duration:0.6s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.4s;
+}
+
+.sun-group .menu-animate:nth-child(3){
+    animation-name: openMenu;
+    animation-duration:0.4s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.5s;
+}
+
+.sun-group .menu-animate:nth-child(4){
+    animation-name: openMenu;
+    animation-duration:0.3s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.55s;
+}
+
+@keyframes sunfog {
+    90% {
+        width: 600vw;
+        height: 600vh;
+        right: -300vw;
+        top: -300vh;
+    }
+    100%{
+        width: 600vw;
+        height: 600vh;
+        right: -300vw;
+        top: -300vh;
+        background: rgba(244, 211, 94, 0.36);;
+    }
+}
+
+
+.backdrop-light .exitImg.exitStyle:hover{
+    transition: 0.4s ease-in-out;
+    background-color:rgb(252, 213, 58);
+}
+
+.backdrop-light .socials a:hover svg{
+    transition: 0.2s ease-in-out;
+    fill: rgb(252, 213, 58);
+}
+
+.backdrop-light .options a:hover{
+    transition: 0.2s ease-in-out;
+    color: rgb(252, 213, 58);
+}
+
+.backdrop-light .socials a svg{
+    transition: 0.2s ease-in-out;
+    fill: #FAF0CA;
+}
+
+.backdrop-light .options a{
+    transition: 0.2s ease-in-out;
+    color: #FAF0CA;
+}
