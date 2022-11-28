@@ -8,21 +8,22 @@ function Home(props) {
         width: "100vw",
         bottom: "-60px"
     }
-    
+
+    let currentScenery;
+
     if (props.darkMode){
-        return (
-        <div className = "Home">
-            <img src = {sceneryDark} style = {sceneryStyle}/>
+        currentScenery = sceneryDark;
+    }
+    else{
+        currentScenery = sceneryLight;
+    }
+
+    return (
+        <div>
+            <img src = {currentScenery} style = {sceneryStyle} />
         </div>
-        );  
-    }
-    else {
-        return(
-            <div className = "Home">
-                <img src = {sceneryLight} style = {sceneryStyle}/>
-            </div>
-        );
-    }
+    );
+    
 }
 
 export default Home;
