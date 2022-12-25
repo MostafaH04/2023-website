@@ -269,6 +269,53 @@
     animation-delay: 0.7s
 }
 
+.darkMode{
+    position: fixed;
+    width: 75px;
+    height:36px;
+    background-color: #fcfcfc;
+    border-radius: 33px;
+    display: none;
+    z-index: 11;
+    margin:20px;
+    top: 12px;
+    padding:5px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.darkMode:hover{
+    cursor: pointer;
+}
+
+.darkMode .buttonCircle{
+    width: 39px;
+    height: 39px;
+    position: relative;
+    background-color: #7E7E7E;
+    border-radius: 50%;
+}
+
+.backdrop-dark.darkMode{
+    justify-content: flex-end !important;
+}
+
+.darkMode.exitStyle{
+    transition: 0.2s ease-in-out;
+    opacity: 0;
+    animation-name: exitShow;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    animation-delay: 1s
+}
+
+.buttonCircle img{
+    user-select: none;
+}
+
 .menu{
     z-index: 10;
     display:none;
@@ -519,4 +566,48 @@ a.exitStyle:hover{
 .backdrop-light .options a{
     transition: 0.2s ease-in-out;
     color: #FAF0CA;
+}
+
+.lightMode{
+    position: fixed;
+    width: 75px;
+    height:36px;
+    background-color: #fcfcfc;
+    border-radius: 33px;
+    display: none;
+    z-index: 11;
+    margin:20px;
+    top: 12px;
+    padding:5px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.lightMode:hover{
+    cursor: pointer;
+}
+
+.lightMode .buttonCircle{
+    width: 39px;
+    height: 39px;
+    position: relative;
+    background-color: #F86E40;
+    border-radius: 50%;
+}
+
+.lightMode .buttonCircle img{
+    padding:4px;
+    user-select:none;
+}
+
+.lightMode.exitStyle{
+    transition: 0.2s ease-in-out;
+    opacity: 0;
+    animation-name: exitShow;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    animation-delay: 1s
 }

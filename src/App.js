@@ -4,12 +4,12 @@ import Home from "./components/Home/Home.js"
 import { useState } from "react";
 
 function App() {
-  const [darkMode, setdarkMode] = useState(false);
+  const [darkMode, setdarkMode] = useState(true);
 
   return (
     <div className="App">
       <Home darkMode = {darkMode}/>
-      <Backdrop darkMode = {darkMode}/>
+      <Backdrop darkMode = {darkMode} changeDarkMode = {setdarkMode}/>
     </div>
   );
 }

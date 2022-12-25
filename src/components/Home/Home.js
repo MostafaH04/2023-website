@@ -4,12 +4,16 @@ import './Home.css';
 
 function Home(props) {
 
-    var arabicTextStyle = {
+    let arabicTextStyle = {
         color: "#3F4045"
     }
     
-    var englishTextStyle = {
+    let englishTextStyle = {
         color: "#FCFCFC"
+    }
+
+    let subTitleStyle = {
+        color: "#feb31d"
     }
 
     const sceneryStyle = {
@@ -29,6 +33,9 @@ function Home(props) {
         arabicTextStyle = {
             color: "#3F4045"
         }
+        subTitleStyle = {
+            color: "#feb31d"
+        }
     }
     else{
         currentScenery = sceneryLight;
@@ -38,17 +45,24 @@ function Home(props) {
         arabicTextStyle = {
             color: "#FFAD67"
         }
+        subTitleStyle = {
+            color: "#0D3B66"
+        }
     }
 
     return (
         <div>
-            <div className = "name">
-                <div className = "english" style = {englishTextStyle}>
-                    MOSTAFA<br/>HUSSEIN
+            <div className = "textHolder">
+                <div className = "name">
+                    <div className = "english" style = {englishTextStyle}>
+                        <p>MOSTAFA<br/>HUSSEIN</p>
+                    </div>
+                    <div classname = "arabic">
+                        <p className = "typeArabic" style = {arabicTextStyle}>مصطفى <br/>حسين</p>
+                    </div>
+                    
                 </div>
-                <div classname = "arabic">
-                    <p className = "typeArabic" style = {arabicTextStyle}>مصطفى <br/>حسين</p>
-                </div>
+                <p className = "subTitle" style = {subTitleStyle}>Click the moon for more info!</p>
             </div>
             <img src = {currentScenery} style = {sceneryStyle} />
         </div>

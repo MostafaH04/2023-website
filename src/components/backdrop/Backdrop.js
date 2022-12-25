@@ -5,6 +5,9 @@ import { useState } from 'react';
 import { GrGithub, GrInstagram } from "react-icons/gr";
 import { FaLinkedin } from "react-icons/fa";
 
+import lightMode from "./lightMode.svg";
+import darkMode from "./darkMode.svg";
+
 import birdImg1 from "./bird 2.png";
 import birdImg2 from "./bird 6.png";
 import birdImg3 from "./bird 9.png";
@@ -260,6 +263,11 @@ function Backdrop(props) {
         }
     }
 
+    function changeMode()
+    {
+        props.changeDarkMode(!props.darkMode);
+    }
+
 
     if (props.darkMode){
         // Dark mode
@@ -269,6 +277,11 @@ function Backdrop(props) {
                     <a onClick = {closeMenu} className = {`exitImg ${exitStyle}`}>
                         <img src = {exitMenu}/>
                     </a>
+                    <div onClick = {changeMode} className = {`darkMode ${exitStyle}`}>
+                        <div className = {`buttonCircle ${exitStyle}`}>
+                            <img src = {darkMode}/>
+                        </div>
+                    </div>
                     <div className="options">
                         <a className={`Home-page menu-selector ${exitStyle}`}>Home</a>
                         <a className={`About-page menu-selector ${exitStyle}`}>About Me</a>
@@ -310,11 +323,15 @@ function Backdrop(props) {
         // Light mode
         return (
             <div className ="backdrop-light">
-
                 <div className = {`menu ${exitStyle}`}> 
                     <a onClick = {closeMenu} className = {`exitImg ${exitStyle}`}>
                         <img src = {exitMenu}/>
                     </a>
+                    <div onClick = {changeMode} className = {`lightMode ${exitStyle}`}>
+                        <div className = {`buttonCircle ${exitStyle}`}>
+                            <img src = {lightMode}/>
+                        </div>
+                    </div>
                     <div className="options">
                         <a className={`Home-page menu-selector ${exitStyle}`}>Home</a>
                         <a className={`About-page menu-selector ${exitStyle}`}>About Me</a>
