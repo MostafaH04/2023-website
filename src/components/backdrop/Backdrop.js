@@ -8,9 +8,9 @@ import { FaLinkedin } from "react-icons/fa";
 import lightMode from "./lightMode.svg";
 import darkMode from "./darkMode.svg";
 
-import birdImg1 from "./bird 2.png";
-import birdImg2 from "./bird 6.png";
-import birdImg3 from "./bird 9.png";
+import birdImg1 from "./bird 2.svg";
+import birdImg2 from "./bird 6.svg";
+import birdImg3 from "./bird 9.svg";
 
 function Backdrop(props) {
     const [menuAnimation, setMenuAnimation] = useState("");

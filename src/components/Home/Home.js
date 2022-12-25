@@ -54,8 +54,8 @@ function Home(props) {
         <div>
             <div className = "textHolder">
                 <div className = "name">
-                    <div className = "english" style = {englishTextStyle}>
-                        <p>MOSTAFA<br/>HUSSEIN</p>
+                    <div className = "english">
+                        <p style = {englishTextStyle}>MOSTAFA<br/>HUSSEIN</p>
                     </div>
                     <div classname = "arabic">
                         <p className = "typeArabic" style = {arabicTextStyle}>مصطفى <br/>حسين</p>

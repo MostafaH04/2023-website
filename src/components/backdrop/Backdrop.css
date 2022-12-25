@@ -278,6 +278,7 @@
     display: none;
     z-index: 11;
     margin:20px;
+    margin-left:30px;
     top: 12px;
     padding:5px;
     overflow: hidden;
@@ -579,6 +580,7 @@ a.exitStyle:hover{
     margin:20px;
     top: 12px;
     padding:5px;
+    margin-left:30px;
     overflow: hidden;
     display: flex;
     flex-direction: row;
