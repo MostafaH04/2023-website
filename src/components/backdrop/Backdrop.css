@@ -2,20 +2,20 @@
 
 .backdrop-dark{
     width:100vw;
-    height:100vh;
+    height: auto;
     background-color: #02111B;
     overflow: hidden;
 }
 
 .circle{
-    position: fixed;
+    position:absolute;
     border-radius: 50%;
     background-color: #BEBEBE;
     
 }
 
 .bird {
-    position: fixed;
+    position:absolute;
 }
 
 .bird:nth-child(1){
@@ -173,7 +173,7 @@
 }
 
 .moon{
-    position:fixed;
+    position:absolute;
     overflow: hidden;
 }
 
@@ -246,7 +246,7 @@
 
 .exitImg{
     display:none;
-    position: fixed;
+    position:absolute;
     z-index: 11;
     padding:10px;
     border-radius: 50%;
@@ -270,7 +270,7 @@
 }
 
 .darkMode{
-    position: fixed;
+    position:absolute;
     width: 75px;
     height:36px;
     background-color: #fcfcfc;
@@ -475,13 +475,11 @@ a.exitStyle:hover{
 
 .backdrop-light{
     width:100vw;
-    height:100vh;
-    background: radial-gradient(141.67% 280.15% at 100% 4.25%, #FAF0CA 0%, #AFECFF 82.74%);
     overflow: hidden;
 }
 
 .sun{
-    position:fixed;
+    position:absolute;
     overflow: hidden;
 }
 
@@ -570,7 +568,7 @@ a.exitStyle:hover{
 }
 
 .lightMode{
-    position: fixed;
+    position:absolute;
     width: 75px;
     height:36px;
     background-color: #fcfcfc;
@@ -612,4 +610,8 @@ a.exitStyle:hover{
     animation-duration: 0.3s;
     animation-fill-mode: forwards;
     animation-delay: 1s
+}
+
+.menu{
+    position: fixed;
 }

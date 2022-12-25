@@ -51,7 +51,7 @@ function Home(props) {
     }
 
     return (
-        <div>
+        <div className = "home">
             <div className = "textHolder">
                 <div className = "name">
                     <div className = "english">
