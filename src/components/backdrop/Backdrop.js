@@ -5,10 +5,18 @@ import { useState } from 'react';
 import { GrGithub, GrInstagram } from "react-icons/gr";
 import { FaLinkedin } from "react-icons/fa";
 
+import birdImg1 from "./bird 2.png";
+import birdImg2 from "./bird 6.png";
+import birdImg3 from "./bird 9.png";
+
 function Backdrop(props) {
     const [menuAnimation, setMenuAnimation] = useState("");
     const [menuOpen, setMenuOpen] = useState(false);
     const [exitStyle, setExitStyle] = useState("");
+
+    const birdImgs = [
+        birdImg1, birdImg2, birdImg3
+    ];
 
     const circles = [
         {
@@ -75,6 +83,65 @@ function Backdrop(props) {
         {
             width: `${9/14.4}vw`,
             height: `${9/14.4}vw`,
+            left: `${1072/14.4}vw`,
+            top: `${(51-15)/10.24}vh`
+        }
+    ];
+
+    const birds = [
+        {
+            width: `${35/14.4}vw`,
+            left: `${72/14.4}vw`,
+            top: `${110/10.24}vh`
+        },
+        {
+            width: `${29/14.4}vw`,
+            left: `${259/14.4}vw`,
+            top: `${(61-15)/10.24}vh`
+        },
+        {
+            width: `${28/14.4}vw`,
+            left: `${365/14.4}vw`,
+            top: `${(182-15)/10.24}vh`
+        }
+        ,
+        {
+            width: `${31/14.4}vw`,
+            left: `${553/14.4}vw`,
+            top: `${(106-15)/10.24}vh`
+        },
+        {
+            width: `${72/14.4}vw`,
+            left: `${150/14.4}vw`,
+            top: `${(240-15)/10.24}vh`
+        },
+        {
+            width: `${67/14.4}vw`,
+            left: `${641/14.4}vw`,
+            top: `${(263-15)/10.24}vh`
+        },
+        {
+            width: `${24/14.4}vw`,
+            left: `${965/14.4}vw`,
+            top: `${(121-15)/10.24}vh`
+        },
+        {
+            width: `${40/14.4}vw`,
+            left: `${874/14.4}vw`,
+            top: `${(212-15)/10.24}vh`
+        },
+        {
+            width: `${52/14.4}vw`,
+            left: `${764/14.4}vw`,
+            top: `${(88-15)/10.24}vh`
+        },
+        {
+            width: `${39/14.4}vw`,
+            left: `${1129/14.4}vw`,
+            top: `${(246-15)/10.24}vh`
+        },
+        {
+            width: `${49/14.4}vw`,
             left: `${1072/14.4}vw`,
             top: `${(51-15)/10.24}vh`
         }
@@ -196,7 +263,6 @@ function Backdrop(props) {
 
     if (props.darkMode){
         // Dark mode
-
         return (
             <div className="backdrop-dark">
                 <div className = {`menu ${exitStyle}`}> 
@@ -242,7 +308,6 @@ function Backdrop(props) {
     }
     else{
         // Light mode
-
         return (
             <div className ="backdrop-light">
 
@@ -278,6 +343,12 @@ function Backdrop(props) {
                         <div className = {`sun ${menuAnimation}`} style = {style}></div>)
                     }
                 </a>
+                <div className="stars">
+                    {
+                        birds.map((style, i) => 
+                        <img className = 'bird' style = {style} src = {birdImgs[Math.floor(Math.random() * 2+1)]}></img>)
+                    }
+                </div>
             </div>
         )
     }
