@@ -25,6 +25,8 @@ function Home(props) {
 
     let currentScenery;
 
+    let menuType;
+
     if (props.darkMode){
         currentScenery = sceneryDark;
         englishTextStyle = {
@@ -36,6 +38,7 @@ function Home(props) {
         subTitleStyle = {
             color: "#feb31d"
         }
+        menuType = "moon";
     }
     else{
         currentScenery = sceneryLight;
@@ -48,7 +51,9 @@ function Home(props) {
         subTitleStyle = {
             color: "#0D3B66"
         }
+        menuType = "sun";
     }
+    
 
     return (
         <div className = "home">
@@ -62,7 +67,7 @@ function Home(props) {
                     </div>
                     
                 </div>
-                <p className = "subTitle" style = {subTitleStyle}>Click the moon for more info!</p>
+                <p className = "subTitle" style = {subTitleStyle}>Click the {menuType} for more info!</p>
             </div>
             <img src = {currentScenery} style = {sceneryStyle} />
         </div>
