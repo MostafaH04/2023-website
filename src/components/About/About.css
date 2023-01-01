@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+
+.about-section{
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    width: 90vw;
+    margin-left: 5vw;
+    align-items: center;
+    height: 100vh;
+    color: #FCFCFC;
+    font-family: 'Montserrat';
+    z-index: 10;
+}
+
+.about-section .text{
+    padding-top:70px;
+}
+
+h1 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 80px;
+    line-height: 105px;
+    margin-bottom: -40px;
+}
+
+h3 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 43px; 
+}
+
+.extra-text{
+    color: #5D737E;
+}
+
+.about-section .text a{
+    transition: 0.2s ease-in-out;
+    background-color: #5D737E;
+    padding-top: 14px;
+    padding-right: 28px;
+    padding-bottom: 14px;
+    padding-left: 28px;
+    border-radius: 40px;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+}
+
+.about-section .text .lightMode-color{
+    background-color: #EE964B;
+    color: #FAF0CA;
+}
+
+.about-section .text a:hover{
+    transition: 0.3s ease-in-out;
+    background-color: #FCFCFC;
+    color: #5D737E;
+}
+
+.about-section .text .lightMode-color:hover{
+    background-color: #FAF0CA;
+    color: #EE964B;
+}
+
+.picture{
+    user-select: none;
+    margin-top: 80px;
+    display: flex;
+    align-items: baseline;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    background: rgba(63, 64, 69, 0.54);
+    overflow: hidden;
+    z-index: 2;
+}
+
+.picture .personal-image{
+    z-index: 4;
+}
+
+.picture .image-background{
+    z-index: 3;
+    margin-left:-420px;
+}

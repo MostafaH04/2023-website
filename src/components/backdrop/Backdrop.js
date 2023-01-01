@@ -12,6 +12,8 @@ import birdImg1 from "./bird 2.svg";
 import birdImg2 from "./bird 6.svg";
 import birdImg3 from "./bird 9.svg";
 
+import { Link } from "react-router-dom";
+
 function Backdrop(props) {
     const [menuAnimation, setMenuAnimation] = useState("");
     const [menuOpen, setMenuOpen] = useState(false);
@@ -151,7 +153,7 @@ function Backdrop(props) {
     ];
 
     let moonLightStyle = {
-        zIndex: 8,
+        zIndex: 1,
         width: `${2531/14.4}vw`,
         height:`${2531/14.4}vw`,
         right: `-${2531/28.8}vw`,
@@ -160,7 +162,7 @@ function Backdrop(props) {
     };
 
     let sunLightStyle = {
-        zIndex: 8,
+        zIndex: 1,
         width: `${2531/14.4}vw`,
         height:`${2531/14.4}vw`,
         right: `-${2531/28.8}vw`,
@@ -170,7 +172,7 @@ function Backdrop(props) {
 
     let moon = [
         {
-            zIndex: 9,
+            zIndex: 15,
             width: `${424/14.4}vw`,
             height:`${424/14.4}vw`,
             right: `-${424/28.8}vw`,
@@ -179,7 +181,7 @@ function Backdrop(props) {
             borderRadius: "50%"
         },
         {
-            zIndex: 9,
+            zIndex: 15,
             width: `${348/14.4}vw`,
             height:`${348/14.4}vw`,
             right: `-${348/28.8}vw`,
@@ -188,7 +190,7 @@ function Backdrop(props) {
             borderRadius: "50%"
         },
         {
-            zIndex: 9,
+            zIndex: 15,
             width: `${305/14.4}vw`,
             height:`${305/14.4}vw`,
             right: `-${305/28.8}vw`,
@@ -197,7 +199,7 @@ function Backdrop(props) {
             borderRadius: "50%"
         },
         {
-            zIndex: 9,
+            zIndex: 15,
             width: `${185/14.4}vw`,
             height:`${185/14.4}vw`,
             right: `-${185/28.8}vw`,
@@ -209,7 +211,7 @@ function Backdrop(props) {
 
     let sun = [
         {
-            zIndex: 9,
+            zIndex: 15,
             width: `${424/14.4}vw`,
             height:`${424/14.4}vw`,
             right: `-${424/28.8}vw`,
@@ -218,7 +220,7 @@ function Backdrop(props) {
             borderRadius: "50%"
         },
         {
-            zIndex: 9,
+            zIndex: 15,
             width: `${348/14.4}vw`,
             height:`${348/14.4}vw`,
             right: `-${348/28.8}vw`,
@@ -227,7 +229,7 @@ function Backdrop(props) {
             borderRadius: "50%"
         },
         {
-            zIndex: 9,
+            zIndex: 15,
             width: `${305/14.4}vw`,
             height:`${305/14.4}vw`,
             right: `-${305/28.8}vw`,
@@ -236,7 +238,7 @@ function Backdrop(props) {
             borderRadius: "50%"
         },
         {
-            zIndex: 9,
+            zIndex: 15,
             width: `${185/14.4}vw`,
             height:`${185/14.4}vw`,
             right: `-${185/28.8}vw`,
@@ -283,12 +285,12 @@ function Backdrop(props) {
                         </div>
                     </div>
                     <div className="options">
-                        <a className={`Home-page menu-selector ${exitStyle}`}>Home</a>
-                        <a className={`About-page menu-selector ${exitStyle}`}>About Me</a>
-                        <a className={`Resume-page menu-selector ${exitStyle}`}>Resume</a>
-                        <a className={`Projects-page menu-selector ${exitStyle}`}>Projects</a>
-                        <a className={`Interests-page menu-selector ${exitStyle}`}>Interests</a>
-                        <a className={`Contact-page menu-selector ${exitStyle}`}>Contact Me</a>
+                        <Link to = "" className={`Home-page menu-selector ${exitStyle}`}>Home</Link>
+                        <Link to = "about" className={`About-page menu-selector ${exitStyle}`}>About Me</Link>
+                        <a href = "https://drive.google.com/file/d/1a3I1CHtxwZnfcyMbPvrXwMktkEdkgcpv/view?usp=sharing" target = "_blank" className={`Resume-page menu-selector ${exitStyle}`}>Resume</a>
+                        <Link to = "projects" className={`Projects-page menu-selector ${exitStyle}`}>Projects</Link>
+                        <Link to = "interest" className={`Interests-page menu-selector ${exitStyle}`}>Interests</Link>
+                        <Link to = "contact" className={`Contact-page menu-selector ${exitStyle}`}>Contact Me</Link>
                     </div>
                     <div className="socials">
                         <a className = {`menu-git menu-selector ${exitStyle}`} href = "https://github.com/MostafaH04" target = "_blank">
@@ -303,7 +305,7 @@ function Backdrop(props) {
                     </div>
                 </div>
                 
-                <div className = {`moon fog-${menuAnimation}-t fog-${menuAnimation.substring(0,12)}`} style = {moonLightStyle}></div>
+                <div className = {`moon fog-${menuAnimation}-t fog-${menuAnimation.substring(0,12)}`} style = {moonLightStyle} onClick = {closeMenu}></div>
                 <a className={`moon-group ${menuAnimation}`} onClick = {openMenu}>
                     {
                         moon.map((style, i) => 
@@ -333,12 +335,12 @@ function Backdrop(props) {
                         </div>
                     </div>
                     <div className="options">
-                        <a className={`Home-page menu-selector ${exitStyle}`}>Home</a>
-                        <a className={`About-page menu-selector ${exitStyle}`}>About Me</a>
-                        <a className={`Resume-page menu-selector ${exitStyle}`}>Resume</a>
-                        <a className={`Projects-page menu-selector ${exitStyle}`}>Projects</a>
-                        <a className={`Interests-page menu-selector ${exitStyle}`}>Interests</a>
-                        <a className={`Contact-page menu-selector ${exitStyle}`}>Contact Me</a>
+                        <Link to = "" className={`Home-page menu-selector ${exitStyle}`}>Home</Link>
+                        <Link to = "about" className={`About-page menu-selector ${exitStyle}`}>About Me</Link>
+                        <a href = "https://drive.google.com/file/d/1a3I1CHtxwZnfcyMbPvrXwMktkEdkgcpv/view?usp=sharing" target = "_blank" className={`Resume-page menu-selector ${exitStyle}`}>Resume</a>
+                        <Link to = "projects" className={`Projects-page menu-selector ${exitStyle}`}>Projects</Link>
+                        <Link to = "interest" className={`Interests-page menu-selector ${exitStyle}`}>Interests</Link>
+                        <Link to = "contact" className={`Contact-page menu-selector ${exitStyle}`}>Contact Me</Link>
                     </div>
                     <div className="socials">
                         <a className = {`menu-git menu-selector ${exitStyle}`} href = "https://github.com/MostafaH04" target = "_blank">
@@ -353,7 +355,7 @@ function Backdrop(props) {
                     </div>
                 </div>
 
-                <div className = {`sun fog-${menuAnimation}-t sunfog-${menuAnimation.substring(0,12)}`} style = {sunLightStyle}></div>
+                <div className = {`sun fog-${menuAnimation}-t sunfog-${menuAnimation.substring(0,12)}`} style = {sunLightStyle} onClick = {closeMenu}></div>
                 <a className = {`sun-group ${menuAnimation}`} onClick = {openMenu}>
                     {
                         sun.map((style, i) =>

@@ -56,7 +56,7 @@ function Home(props) {
     
 
     return (
-        <div className = "home">
+        <div className = "home-section">
             <div className = "textHolder">
                 <div className = "name">
                     <div className = "english">
