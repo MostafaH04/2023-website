@@ -2,6 +2,7 @@ import './App.css';
 import Backdrop from "./components/backdrop/Backdrop.js"
 import Home from "./components/Home/Home.js" 
 import About from "./components/About/About.js"
+import Project from "./components/Projects/Projects.js"
 import { useState } from "react";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -33,7 +34,7 @@ function App() {
         <Route path="/">
           <Route index element={<Home darkMode = {darkMode}/>} /> // home route
           <Route path = "about" element={<About darkMode = {darkMode}/>} /> // about route
-          <Route path = "projects" element={<Home darkMode = {darkMode}/>} /> // projects route
+          <Route path = "projects" element={<Project darkMode = {darkMode}/>} /> // projects route
           <Route path = "interest" element={<Home darkMode = {darkMode}/>} /> // interests route
           <Route path = "contact" element={<Home darkMode = {darkMode}/>} /> // contact me route
           

@@ -1,0 +1,117 @@
+.projects
+{
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 13;
+}
+
+.dot-selection{
+    transition: 0.2s ease-in-out;
+    display:block;
+    position: relative;
+    
+}
+
+.dotCollection
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.projects h1{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 82px;
+
+    color: #FFFFFF;
+}
+
+.projects p{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 27px;
+    line-height: 39px;
+    width: 486px;
+
+    color: #FFFFFF;
+    margin-top:70px;
+
+}
+
+.projectCard{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin:70px;
+    
+}  
+
+.projectCard div{
+    margin-right: 4vw;
+}
+.projectCard img{
+    margin-left: 4vw;
+}
+
+.projects-container
+{
+    z-index: 10;
+    padding:20px;
+    background: linear-gradient(180.01deg, rgba(217, 217, 217, 0.1786) -9.62%, rgba(61, 61, 61, 0.94) 111.45%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), -25px 25px 105px -8px #000000;
+    border-radius: 19px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.projects-container img{
+    height: 45vh;
+    width: 45vh;
+    object-fit: contain;
+    
+}
+
+.dot-selection.selected{
+    transition: 0.3s ease-in-out;
+}
+
+.one{
+    z-index: 11;
+    transition: 0.3s ease-in-out;
+    margin-right: -50px;
+    padding:30px;
+    filter: drop-shadow(-7px 3px 8px rgba(0, 0, 0, 0.39));
+}
+
+.two{
+    z-index: 11;
+    transition: 0.3s ease-in-out;
+    margin-left: -50px;
+    padding: 30px;
+    filter: drop-shadow(-7px 3px 8px rgba(0, 0, 0, 0.39));
+}
+
+.two:hover{
+    transition: 0.3s ease-in-out;
+    margin-left: -30px;
+    padding: 20px;
+    filter: drop-shadow(-7px 3px 8px rgba(0, 0, 0, 0.39)) brightness(130%);
+}
+
+.one:hover{
+    transition: 0.3s ease-in-out;
+    margin-right: -30px;
+    padding: 20px;
+    filter: drop-shadow(-7px 3px 8px rgba(0, 0, 0, 0.39)) brightness(130%);
+}

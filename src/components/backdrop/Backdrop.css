@@ -21,67 +21,67 @@
 .bird:nth-child(1){
     -webkit-animation: birdFlap 4s ease-in-out infinite alternate;
     -moz-animation: birdFlap 4s ease-in-out infinite alternate;
-    animation: birdFlap 4s ease-in-out infinite alternate;
+    animation: birdFlap 3s ease-in-out infinite alternate;
     animation-delay: 0.4s;
 }
 .bird:nth-child(2){
     -webkit-animation: birdFlap 5s ease-in-out infinite alternate;
     -moz-animation: birdFlap 5s ease-in-out infinite alternate;
-    animation: birdFlap 5s ease-in-out infinite alternate;
+    animation: birdFlap 4s ease-in-out infinite alternate;
     animation-delay: 0s;
 }
 .bird:nth-child(3){
     -webkit-animation: birdFlap 6s ease-in-out infinite alternate;
     -moz-animation: birdFlap 6s ease-in-out infinite alternate;
-    animation: birdFlap 6s ease-in-out infinite alternate;
+    animation: birdFlap 5s ease-in-out infinite alternate;
     animation-delay: 1s;
 }
 .bird:nth-child(4){
     -webkit-animation: birdFlap 4s ease-in-out infinite alternate;
     -moz-animation: birdFlap 4s ease-in-out infinite alternate;
-    animation: birdFlap 4s ease-in-out infinite alternate;
+    animation: birdFlap 3s ease-in-out infinite alternate;
     animation-delay: 3s;
 }
 .bird:nth-child(5){
     -webkit-animation: birdFlap 5s ease-in-out infinite alternate;
     -moz-animation: birdFlap 5s ease-in-out infinite alternate;
-    animation: birdFlap 5s ease-in-out infinite alternate;
+    animation: birdFlap 4s ease-in-out infinite alternate;
     animation-delay: 0.6s;
 }
 .bird:nth-child(6){
     -webkit-animation: birdFlap 6s ease-in-out infinite alternate;
     -moz-animation: birdFlap 6s ease-in-out infinite alternate;
-    animation: birdFlap 6s ease-in-out infinite alternate;
+    animation: birdFlap 5s ease-in-out infinite alternate;
     animation-delay: 2.2s;
 }
 .bird:nth-child(7){
     -webkit-animation: birdFlap 4s ease-in-out infinite alternate;
     -moz-animation: birdFlap 4s ease-in-out infinite alternate;
-    animation: birdFlap 4s ease-in-out infinite alternate;
+    animation: birdFlap 3s ease-in-out infinite alternate;
     animation-delay: 4s;
 }
 .bird:nth-child(8){
     -webkit-animation: birdFlap 5s ease-in-out infinite alternate;
     -moz-animation: birdFlap 5s ease-in-out infinite alternate;
-    animation: birdFlap 5s ease-in-out infinite alternate;
+    animation: birdFlap 4s ease-in-out infinite alternate;
     animation-delay: 1.5s;
 }
 .bird:nth-child(9){
     -webkit-animation: birdFlap 6s ease-in-out infinite alternate;
     -moz-animation: birdFlap 6s ease-in-out infinite alternate;
-    animation: birdFlap 6s ease-in-out infinite alternate;
+    animation: birdFlap 5s ease-in-out infinite alternate;
     animation-delay: 2.5s;
 }
 .bird:nth-child(10){
     -webkit-animation: birdFlap 5s ease-in-out infinite alternate;
     -moz-animation: birdFlap 5s ease-in-out infinite alternate;
-    animation: birdFlap 5s ease-in-out infinite alternate;
+    animation: birdFlap 4s ease-in-out infinite alternate;
     animation-delay: 3s;
 }
 .bird:nth-child(11){
     -webkit-animation: birdFlap 7s ease-in-out infinite alternate;
     -moz-animation: birdFlap 7s ease-in-out infinite alternate;
-    animation: birdFlap 7s ease-in-out infinite alternate;
+    animation: birdFlap 6s ease-in-out infinite alternate;
     animation-delay: 4s;
 }
 
@@ -322,7 +322,7 @@
 }
 
 .menu{
-    z-index: 19;
+    z-index: 30;
     display:none;
     flex-direction: column;
     position: absolute;
