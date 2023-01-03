@@ -27,7 +27,7 @@
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
-    font-size: 64px;
+    font-size: 54px;
     line-height: 82px;
 
     color: #FFFFFF;
@@ -37,12 +37,12 @@
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 500;
-    font-size: 27px;
+    font-size: 20px;
     line-height: 39px;
     width: 486px;
 
     color: #FFFFFF;
-    margin-top:70px;
+    margin-top:50px;
 
 }
 
@@ -76,9 +76,10 @@
 }
 
 .projects-container img{
-    height: 45vh;
-    width: 45vh;
+    width: 500px;
     object-fit: contain;
+    border-radius: 18px;
+    filter: drop-shadow(-22px 22px 20px rgba(0, 0, 0, 0.553));
     
 }
 
@@ -114,4 +115,32 @@
     margin-right: -30px;
     padding: 20px;
     filter: drop-shadow(-7px 3px 8px rgba(0, 0, 0, 0.39)) brightness(130%);
+}
+
+.viewButton
+{
+    transition: 0.2s ease-in-out;
+    background-color: #5D737E;
+    padding-top: 10px;
+    padding-right: 28px;
+    padding-bottom: 10px;
+    padding-left: 28px;
+    border-radius: 40px;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 29px;
+}
+
+.viewButton:hover
+{
+    padding-left:35px;
+    padding-right:35px;
+    margin-left:-8px;
+    margin-right:-8px;
+    background-color: white;
+    color: #5D737E;
+    cursor: pointer;
 }
