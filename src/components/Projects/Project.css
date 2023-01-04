@@ -105,15 +105,13 @@
 
 .two:hover{
     transition: 0.3s ease-in-out;
-    margin-left: -30px;
-    padding: 20px;
+    translate: 10px;
     filter: drop-shadow(-7px 3px 8px rgba(0, 0, 0, 0.39)) brightness(130%);
 }
 
 .one:hover{
     transition: 0.3s ease-in-out;
-    margin-right: -30px;
-    padding: 20px;
+    translate: -10px;
     filter: drop-shadow(-7px 3px 8px rgba(0, 0, 0, 0.39)) brightness(130%);
 }
 
@@ -143,4 +141,74 @@
     background-color: white;
     color: #5D737E;
     cursor: pointer;
+}
+
+.imgCont
+{
+    display: block;
+    width: 600px;
+}
+
+.imgCont #three
+{
+    transition: 0.3s ease-in-out !important;
+    z-index: 14;
+    position: relative;
+}
+
+.imgCont #three:hover
+{
+    transform: scale(1.1);
+}
+
+.imgCont #two:hover
+{
+    transition: 0.3s ease-in-out !important;
+    transform: scale(1.08);
+    animation: none !important;
+    cursor: pointer;
+}
+.imgCont #one:hover
+{
+    transition: 0.3s ease-in-out !important;
+    transform: scale(1.08);
+    animation: none !important;
+    cursor: pointer;
+}
+
+.imgCont #two
+{
+    transition: 0.3s ease-in-out !important;
+    position: absolute;
+    width: 300px;
+    z-index: 12;
+    margin-top: 70px;
+    margin-left: 400px;    
+    animation: coolEffect1 4s infinite alternate;
+}
+
+.imgCont #one
+{
+    transition: 0.3s ease-in-out !important;
+    position: absolute;
+    width: 400px;
+    z-index: 12;
+    margin-top: -140px;
+    margin-left: 170px;
+    animation: coolEffect1 5s ease-in-out infinite alternate;
+    animation-delay: 0.2s;
+}
+
+@keyframes coolEffect1 {
+    to
+    {
+        transform: scale(1.08);
+    }
+}
+
+@keyframes coolEffect2 {
+    to
+    {
+        transform: translate(8px,-12px);
+    }
 }

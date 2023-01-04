@@ -288,7 +288,8 @@ function Backdrop(props) {
                         <Link to = "" className={`Home-page menu-selector ${exitStyle}`}>Home</Link>
                         <Link to = "about" className={`About-page menu-selector ${exitStyle}`}>About Me</Link>
                         <a href = "https://drive.google.com/file/d/1a3I1CHtxwZnfcyMbPvrXwMktkEdkgcpv/view?usp=sharing" target = "_blank" className={`Resume-page menu-selector ${exitStyle}`}>Resume</a>
-                        <Link to = "projects" className={`Projects-page menu-selector ${exitStyle}`}>Projects</Link>
+                        <Link to = "projects/software" className={`Projects-page menu-selector ${exitStyle}`}>Software</Link>
+                        <Link to = "projects/harwdare" className={`Projects-page menu-selector ${exitStyle}`}>Hardware</Link>
                         <Link to = "interest" className={`Interests-page menu-selector ${exitStyle}`}>Interests</Link>
                         <Link to = "contact" className={`Contact-page menu-selector ${exitStyle}`}>Contact Me</Link>
                     </div>
@@ -338,7 +339,8 @@ function Backdrop(props) {
                         <Link to = "" className={`Home-page menu-selector ${exitStyle}`}>Home</Link>
                         <Link to = "about" className={`About-page menu-selector ${exitStyle}`}>About Me</Link>
                         <a href = "https://drive.google.com/file/d/1a3I1CHtxwZnfcyMbPvrXwMktkEdkgcpv/view?usp=sharing" target = "_blank" className={`Resume-page menu-selector ${exitStyle}`}>Resume</a>
-                        <Link to = "projects" className={`Projects-page menu-selector ${exitStyle}`}>Projects</Link>
+                        <Link to = "projects/software" className={`Projects-page menu-selector ${exitStyle}`}>Software</Link>
+                        <Link to = "projects/harwdare" className={`Projects-page menu-selector ${exitStyle}`}>Hardware</Link>
                         <Link to = "interest" className={`Interests-page menu-selector ${exitStyle}`}>Interests</Link>
                         <Link to = "contact" className={`Contact-page menu-selector ${exitStyle}`}>Contact Me</Link>
                     </div>
