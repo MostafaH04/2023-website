@@ -3,6 +3,7 @@ import Backdrop from "./components/backdrop/Backdrop.js"
 import Home from "./components/Home/Home.js" 
 import About from "./components/About/About.js"
 import Project from "./components/Projects/Projects.js"
+import Interest from "./components/interest/Interest.js"
 import { useState } from "react";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -36,8 +37,6 @@ function App() {
           <Route path = "about" element={<About darkMode = {darkMode}/>} /> // about route
           <Route path = "projects/software" element={<Project darkMode = {darkMode}/>} /> // projects route
           <Route path = "projects/hardware" element={<Project darkMode = {darkMode} hardware = {true}/>} /> // projects route
-          <Route path = "interest" element={<Home darkMode = {darkMode}/>} /> // interests route
-          <Route path = "contact" element={<Home darkMode = {darkMode}/>} /> // contact me route
           
           <Route path="*" element={<Home darkMode = {darkMode}/>} /> // page-not-found route
         </Route>

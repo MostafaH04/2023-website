@@ -24,7 +24,7 @@ function Projects(props)
             description: "Managing a team of 6 students in the design and prototyping of an autonomous cleaning robot, currently built around three Arduinos that communicate over SPI and I2C.",
             imgSrcs: ["https://cdn.discordapp.com/attachments/1034262061577945100/1059751895985565746/image.png",
             "https://media.discordapp.net/attachments/388874244102160385/1059983629251518494/image.png",
-            "https://camo.githubusercontent.com/8c6526bf2791554590ac7e709761d4910e24407605d47e1fdeaaea4dd196e9a9/68747470733a2f2f63646e2e646973636f72646170702e636f6d2f6174746163686d656e74732f3838353630313439373133343533343639362f3933303833303736323333313232363134322f756e6b6e6f776e2e706e67"
+            "https://cdn.discordapp.com/attachments/388874244102160385/1060341301146562690/image.png"
             ],
             link: "https://github.com/MostafaH04/V8-Roomba"
         },
@@ -136,7 +136,7 @@ function Projects(props)
                 description: "Managing a team of 6 students in the design and prototyping of an autonomous cleaning robot, currently built around three Arduinos that communicate over SPI and I2C.",
                 imgSrcs: ["https://cdn.discordapp.com/attachments/1034262061577945100/1059751895985565746/image.png",
                 "https://media.discordapp.net/attachments/388874244102160385/1059983629251518494/image.png",
-                "https://camo.githubusercontent.com/8c6526bf2791554590ac7e709761d4910e24407605d47e1fdeaaea4dd196e9a9/68747470733a2f2f63646e2e646973636f72646170702e636f6d2f6174746163686d656e74732f3838353630313439373133343533343639362f3933303833303736323333313232363134322f756e6b6e6f776e2e706e67"
+                "https://cdn.discordapp.com/attachments/388874244102160385/1060341301146562690/image.png"
                 ],
                 link: "https://github.com/MostafaH04/V8-Roomba"
             },
