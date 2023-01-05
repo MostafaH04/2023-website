@@ -49,7 +49,7 @@ function About(props)
                     systems and automation.
                 </h3>
                 <h3 className = "extra-text" style = {subTextColor}>
-                    Keep scrolling to learn more<br/>about me!
+                    Check ther other pages to learn more<br/>about me!
                 </h3>
                 <a href = "https://drive.google.com/file/d/1a3I1CHtxwZnfcyMbPvrXwMktkEdkgcpv/view?usp=sharing" target = "_blank" className= {buttonColor}>my resume</a>
             </div>
