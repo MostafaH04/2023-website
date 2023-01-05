@@ -243,7 +243,7 @@ function Backdrop(props) {
             height:`${185/14.4}vw`,
             right: `-${185/28.8}vw`,
             top: `-${185/28.8}vw`,
-            background: "#F95738",
+            background: "#ff7345",
             borderRadius: "50%"
         }
     ];
