@@ -14,7 +14,7 @@ function Projects(props)
             name: "Chess Bot",
             description: "An autonomous chess playing robot built for the MTE 100/121 robot project that is relies on the stockfish 15 chess engine to make the best move.",
             imgSrcs: [
-            "https://media.discordapp.net/attachments/388874244102160385/1059981342634410054/image.png",
+            "https://media.discordapp.net/attachments/388874244102160385/1061527575396094034/chessbot3.png?width=1074&height=671",
             "https://mir-s3-cdn-cf.behance.net/project_modules/disp/06dae3160377969.63b3a575570f1.jpg",
             "https://media.discordapp.net/attachments/772956476200583208/1060003763978506300/image.png?width=697&height=671"],
             link: "https://github.com/MostafaH04/Chess-Bot/wiki"
@@ -126,7 +126,7 @@ function Projects(props)
                 name: "Chess Bot",
                 description: "An autonomous chess playing robot built for the MTE 100/121 robot project that is relies on the stockfish 15 chess engine to make the best move.",
                 imgSrcs: [
-                "https://media.discordapp.net/attachments/388874244102160385/1059981342634410054/image.png",
+                "https://media.discordapp.net/attachments/388874244102160385/1061527575396094034/chessbot3.png?width=1074&height=671",
                 "https://mir-s3-cdn-cf.behance.net/project_modules/disp/06dae3160377969.63b3a575570f1.jpg",
                 "https://media.discordapp.net/attachments/772956476200583208/1060003763978506300/image.png?width=697&height=671"],
                 link: "https://github.com/MostafaH04/Chess-Bot/wiki"
