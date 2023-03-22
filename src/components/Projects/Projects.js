@@ -22,7 +22,7 @@ function Projects(props)
         {
             name: "V8 Roomba",
             description: "Managing a team of 6 students in the design and prototyping of an autonomous cleaning robot, currently built around three Arduinos that communicate over SPI and I2C.",
-            imgSrcs: ["https://cdn.discordapp.com/attachments/1034262061577945100/1059751895985565746/image.png",
+            imgSrcs: ["https://media.discordapp.net/attachments/388874244102160385/1088151072335466516/Render.jpg?width=2304&height=1058",
             "https://media.discordapp.net/attachments/388874244102160385/1059983629251518494/image.png",
             "https://cdn.discordapp.com/attachments/388874244102160385/1060341301146562690/image.png"
             ],
@@ -134,7 +134,7 @@ function Projects(props)
             {
                 name: "V8 Roomba",
                 description: "Managing a team of 6 students in the design and prototyping of an autonomous cleaning robot, currently built around three Arduinos that communicate over SPI and I2C.",
-                imgSrcs: ["https://cdn.discordapp.com/attachments/1034262061577945100/1059751895985565746/image.png",
+                imgSrcs: ["https://media.discordapp.net/attachments/388874244102160385/1088151072335466516/Render.jpg?width=2304&height=1058",
                 "https://media.discordapp.net/attachments/388874244102160385/1059983629251518494/image.png",
                 "https://cdn.discordapp.com/attachments/388874244102160385/1060341301146562690/image.png"
                 ],
