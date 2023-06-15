@@ -99,9 +99,9 @@ function Projects(props)
             },
             {
                 name: "V8 Roomba",
-                description: "Managing a team of 6 students in the design and prototyping of an autonomous cleaning robot, currently built around three Arduinos that communicate over SPI and I2C.",
+                description: "Building an autonomous cleaning robot, using techniques like sensor fusion and pose estimation.",
                 imgSrcs: ["https://media.discordapp.net/attachments/388874244102160385/1088151072335466516/Render.jpg?width=2304&height=1058",
-                "https://media.discordapp.net/attachments/388874244102160385/1059983629251518494/image.png",
+                "https://media.discordapp.net/attachments/388874244102160385/1118584890875719861/image.png?width=898&height=766",
                 "https://cdn.discordapp.com/attachments/388874244102160385/1060341301146562690/image.png"
                 ],
                 link: "https://github.com/MostafaH04/V8-Roomba"
