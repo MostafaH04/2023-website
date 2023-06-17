@@ -20,7 +20,8 @@ function Home(props) {
         position: "fixed",
         width: "100vw",
         bottom: "-60px",
-        userSelect: "none"
+        userSelect: "none",
+        userDrag: "none"
     }
 
     let currentScenery;
@@ -69,7 +70,7 @@ function Home(props) {
                 </div>
                 <p className = "subTitle" style = {subTitleStyle}>Click the {menuType} for more info!</p>
             </div>
-            <img src = {currentScenery} style = {sceneryStyle} />
+            <img src = {currentScenery} style = {sceneryStyle} className = "sceneryDrag"/>
         </div>
     );
     
