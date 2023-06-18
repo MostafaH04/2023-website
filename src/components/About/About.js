@@ -43,10 +43,12 @@ function About(props)
                 <h1 style = {mainTextColor}>HEY👋</h1>
                 <h3 style = {mainTextColor}>
                     I am Mostafa, a Mechatronics<br />
-                    Engineering student at the<br />
-                    University of Waterloo<br />
-                    interested in electromechnical<br />
-                    systems and automation.
+                    Engineering student at the University<br />
+                    of Waterloo, passionate about<br />
+                    automation and electromechanical<br />
+                    systems and dedicated to shaping<br />
+                    the future of robotics. <br />
+                    
                 </h3>
                 <h3 className = "extra-text" style = {subTextColor}>
                     Check the other pages to <br/>learn more about me!

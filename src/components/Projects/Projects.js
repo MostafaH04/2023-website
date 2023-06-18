@@ -8,6 +8,18 @@ import buttonRight from './Polygon 2.svg'
 function Projects(props)
 {
     const [selector, setSelector] = useState(0);
+    const [softwareState, setSoftwareState] = useState(false);
+
+    if (props.hardware && softwareState)
+    {
+        setSelector(0);
+        setSoftwareState(!props.hardware);
+    }
+    else if (!softwareState && !props.hardware)
+    {
+        setSelector(0);
+        setSoftwareState(!props.hardware);
+    }
 
     let projectList = [
         {
@@ -22,9 +34,9 @@ function Projects(props)
         {
             name: "V8 Roomba",
             description: "Currently working on the development of an autonomous cleaning robot utilizing advanced techniques such as sensor fusion and pose estimation. Demonstrating expertise in robotics, perception, and control systems, with a focus on creating an efficient cleaning solution.",
-            imgSrcs: ["https://media.discordapp.net/attachments/388874244102160385/1088151072335466516/Render.jpg?width=2304&height=1058",
-            "https://media.discordapp.net/attachments/388874244102160385/1118584890875719861/image.png?width=898&height=766",
-            "https://cdn.discordapp.com/attachments/388874244102160385/1060341301146562690/image.png"
+            imgSrcs: ["https://media.discordapp.net/attachments/388874244102160385/1119784114434867210/image.png?width=587&height=562",
+            "https://media.discordapp.net/attachments/388874244102160385/1088151072335466516/Render.jpg?width=2304&height=1058",
+            "https://media.discordapp.net/attachments/388874244102160385/1118584890875719861/image.png?width=898&height=766"            
             ],
             link: "https://github.com/MostafaH04/V8-Roomba"
         },
@@ -55,16 +67,13 @@ function Projects(props)
         {
             name: "PyBlock-3D",
             description: "Developed a game using Pygame to simulate 3D rendering in Python and replicate aspects of the game Minecraft. Demonstrated proficiency in game development, graphics programming, and simulation.",
-            imgSrcs: ["https://media.discordapp.net/attachments/388874244102160385/954098374938886215/unknown.png?width=1145&height=671",
-            "https://media.discordapp.net/attachments/388874244102160385/954098374938886215/unknown.png?width=1145&height=671",
-            "https://media.discordapp.net/attachments/388874244102160385/954098374938886215/unknown.png?width=1145&height=671"],
+            imgSrcs: ["https://media.discordapp.net/attachments/388874244102160385/954098374938886215/unknown.png?width=1145&height=671"],
             link: "https://github.com/MostafaH04/3d-block-game"
         },
         {
             name: "Work Flow",
             description: "Created an application, developed for JAMHacks V, that measures productivity in terms of time spent on a computer. Demonstrated proficiency in application development, data tracking, and productivity analysis.",
-            imgSrcs: ["https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_thumbnail_photos/001/542/279/datas/medium.png",
-            "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/001/542/657/datas/gallery.jpg",
+            imgSrcs: ["https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/001/542/657/datas/gallery.jpg",
             "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/001/542/658/datas/gallery.jpg"],
             link: "https://devpost.com/software/time-flow"
         },
@@ -100,9 +109,9 @@ function Projects(props)
             {
                 name: "V8 Roomba",
                 description: "Currently working on the development of an autonomous cleaning robot utilizing advanced techniques such as sensor fusion and pose estimation. Demonstrating expertise in robotics, perception, and control systems, with a focus on creating an efficient cleaning solution.",
-                imgSrcs: ["https://media.discordapp.net/attachments/388874244102160385/1088151072335466516/Render.jpg?width=2304&height=1058",
-                "https://media.discordapp.net/attachments/388874244102160385/1118584890875719861/image.png?width=898&height=766",
-                "https://cdn.discordapp.com/attachments/388874244102160385/1060341301146562690/image.png"
+                imgSrcs: ["https://media.discordapp.net/attachments/388874244102160385/1119784114434867210/image.png?width=587&height=562",
+                "https://media.discordapp.net/attachments/388874244102160385/1088151072335466516/Render.jpg?width=2304&height=1058",
+                "https://media.discordapp.net/attachments/388874244102160385/1118584890875719861/image.png?width=898&height=766"            
                 ],
                 link: "https://github.com/MostafaH04/V8-Roomba"
             },
