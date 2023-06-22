@@ -59,12 +59,15 @@
     font-weight: 400;
     font-size: 16px;
     margin-bottom: 30px;
-    animation: showSub 3s ease-in-out infinite alternate;
+    animation: showSub 1.5s ease-in-out infinite alternate;
 }
 
 @keyframes showSub {
-    to{
+    70%{
         opacity: 100% ;
+    }
+    100%{
+        opacity: 100%;
     }
 }
 

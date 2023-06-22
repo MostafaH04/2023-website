@@ -192,12 +192,28 @@
     z-index: 14!important;
     cursor: pointer;
 }
+.moon-group .moon:nth-child(1){
+    animation: breathingSun 2.5s ease-in-out infinite alternate;
+}
+
+.moon-group .moon:nth-child(2){
+    animation: breathingSun 2.5s 0.2s ease-in-out infinite alternate;
+}
+
+.moon-group .moon:nth-child(3){
+    animation: breathingSun 2.5s 0.4s ease-in-out infinite alternate;
+}
+
+.moon-group .moon:nth-child(4){
+    animation: breathingSun 2.5s 0.6s ease-in-out infinite alternate;
+}
 
 .moon-group .menu-animate:nth-child(1){
     animation-name: openMenu;
     animation-duration:0.8s;
     animation-fill-mode: forwards;
     animation-delay: 0.2s;
+    animation-iteration-count: 1;
 }
 
 .moon-group .menu-animate:nth-child(2){
@@ -205,6 +221,7 @@
     animation-duration:0.6s;
     animation-fill-mode: forwards;
     animation-delay: 0.4s;
+    animation-iteration-count: 1;
 }
 
 .moon-group .menu-animate:nth-child(3){
@@ -212,6 +229,7 @@
     animation-duration:0.4s;
     animation-fill-mode: forwards;
     animation-delay: 0.5s;
+    animation-iteration-count: 1;
 }
 
 .moon-group .menu-animate:nth-child(4){
@@ -219,7 +237,10 @@
     animation-duration:0.3s;
     animation-fill-mode: forwards;
     animation-delay: 0.55s;
+    animation-iteration-count: 1;
 }
+
+
 
 @keyframes openMenu {
     100% {
@@ -227,6 +248,12 @@
         height: 300vh;
         right: -25vw;
         border-radius: 0%;
+    }
+}
+
+@keyframes breathingSun {
+    100% {
+        scale: 1.1;
     }
 }
 
@@ -503,11 +530,29 @@ a.exitStyle:hover{
     cursor: pointer;
 }
 
+.sun-group .sun:nth-child(1){
+    animation: breathingSun 2.5s ease-in-out infinite alternate;
+}
+
+.sun-group .sun:nth-child(2){
+    animation: breathingSun 2.5s 0.2s ease-in-out infinite alternate;
+}
+
+.sun-group .sun:nth-child(3){
+    animation: breathingSun 2.5s 0.4s ease-in-out infinite alternate;
+}
+
+.sun-group .sun:nth-child(4){
+    animation: breathingSun 2.5s 0.6s ease-in-out infinite alternate;
+}
+
+
 .sun-group .menu-animate:nth-child(1){
     animation-name: openMenu;
     animation-duration:0.8s;
     animation-fill-mode: forwards;
     animation-delay: 0.2s;
+    animation-iteration-count: 1;
 }
 
 .sun-group .menu-animate:nth-child(2){
@@ -515,6 +560,7 @@ a.exitStyle:hover{
     animation-duration:0.6s;
     animation-fill-mode: forwards;
     animation-delay: 0.4s;
+    animation-iteration-count: 1;
 }
 
 .sun-group .menu-animate:nth-child(3){
@@ -522,6 +568,7 @@ a.exitStyle:hover{
     animation-duration:0.4s;
     animation-fill-mode: forwards;
     animation-delay: 0.5s;
+    animation-iteration-count: 1;
 }
 
 .sun-group .menu-animate:nth-child(4){
@@ -529,7 +576,10 @@ a.exitStyle:hover{
     animation-duration:0.3s;
     animation-fill-mode: forwards;
     animation-delay: 0.55s;
+    animation-iteration-count: 1;
 }
+
+
 
 @keyframes sunfog {
     90% {
