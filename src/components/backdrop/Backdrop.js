@@ -285,11 +285,11 @@ function Backdrop(props) {
                         </div>
                     </div>
                     <div className="options">
-                        <Link to = "" className={`Home-page menu-selector ${exitStyle}`}>Home</Link>
-                        <Link to = "about" className={`About-page menu-selector ${exitStyle}`}>About Me</Link>
-                        <a href = "https://drive.google.com/file/d/1a3I1CHtxwZnfcyMbPvrXwMktkEdkgcpv/view?usp=sharing" target = "_blank" className={`Resume-page menu-selector ${exitStyle}`}>Resume</a>
-                        <Link to = "projects/software" className={`Projects-page menu-selector ${exitStyle}`}>Software</Link>
-                        <Link to = "projects/hardware" className={`Projects-page menu-selector ${exitStyle}`}>Hardware</Link>
+                        <Link onClick = {closeMenu} to = "" className={`Home-page menu-selector ${exitStyle}`}>Home</Link>
+                        <Link onClick = {closeMenu} to = "about" className={`About-page menu-selector ${exitStyle}`}>About Me</Link>
+                        <a onClick = {closeMenu} href = "https://drive.google.com/file/d/1a3I1CHtxwZnfcyMbPvrXwMktkEdkgcpv/view?usp=sharing" target = "_blank" className={`Resume-page menu-selector ${exitStyle}`}>Resume</a>
+                        <Link onClick = {closeMenu} to = "projects/software" className={`Projects-page menu-selector ${exitStyle}`}>Software</Link>
+                        <Link onClick = {closeMenu} to = "projects/hardware" className={`Projects-page menu-selector ${exitStyle}`}>Hardware</Link>
                     </div>
                     <div className="socials">
                         <a className = {`menu-git menu-selector ${exitStyle}`} href = "https://github.com/MostafaH04" target = "_blank">
@@ -334,11 +334,11 @@ function Backdrop(props) {
                         </div>
                     </div>
                     <div className="options">
-                        <Link to = "" className={`Home-page menu-selector ${exitStyle}`}>Home</Link>
-                        <Link to = "about" className={`About-page menu-selector ${exitStyle}`}>About Me</Link>
-                        <a href = "https://drive.google.com/file/d/1a3I1CHtxwZnfcyMbPvrXwMktkEdkgcpv/view?usp=sharing" target = "_blank" className={`Resume-page menu-selector ${exitStyle}`}>Resume</a>
-                        <Link to = "projects/software" className={`Projects-page menu-selector ${exitStyle}`}>Software</Link>
-                        <Link to = "projects/hardware" className={`Projects-page menu-selector ${exitStyle}`}>Hardware</Link>
+                        <Link onClick = {closeMenu} to = "" className={`Home-page menu-selector ${exitStyle}`}>Home</Link>
+                        <Link onClick = {closeMenu} to = "about" className={`About-page menu-selector ${exitStyle}`}>About Me</Link>
+                        <a onClick = {closeMenu} href = "https://drive.google.com/file/d/1a3I1CHtxwZnfcyMbPvrXwMktkEdkgcpv/view?usp=sharing" target = "_blank" className={`Resume-page menu-selector ${exitStyle}`}>Resume</a>
+                        <Link onClick = {closeMenu} to = "projects/software" className={`Projects-page menu-selector ${exitStyle}`}>Software</Link>
+                        <Link  onClick = {closeMenu}to = "projects/hardware" className={`Projects-page menu-selector ${exitStyle}`}>Hardware</Link>
                     </div>
                     <div className="socials">
                         <a className = {`menu-git menu-selector ${exitStyle}`} href = "https://github.com/MostafaH04" target = "_blank">

@@ -62,7 +62,7 @@ function Projects(props)
             imgSrcs: ["https://camo.githubusercontent.com/8c6526bf2791554590ac7e709761d4910e24407605d47e1fdeaaea4dd196e9a9/68747470733a2f2f63646e2e646973636f72646170702e636f6d2f6174746163686d656e74732f3838353630313439373133343533343639362f3933303833303736323333313232363134322f756e6b6e6f776e2e706e67",
             "https://media.discordapp.net/attachments/388874244102160385/1059992127926452334/image.png",
             "https://camo.githubusercontent.com/b72bdfa5cb7372c64afa3231985a819224f493a07dfa62eba41c8c0cba068a1b/68747470733a2f2f63646e2e646973636f72646170702e636f6d2f6174746163686d656e74732f3838353630313439373133343533343639362f3933303833343039373939343038343433322f756e6b6e6f776e2e706e67"],
-            link: "https://github.com/SiddharthN16/Guber/wiki"
+            link: "https://guber.pages.dev/"
         },
         {
             name: "PyBlock-3D",
@@ -129,7 +129,7 @@ function Projects(props)
                 imgSrcs: ["https://media.discordapp.net/attachments/388874244102160385/1060025387813458021/image.png",
                 "https://media.discordapp.net/attachments/388874244102160385/954134698395828234/unknown.png?width=906&height=671",
                 "https://media.discordapp.net/attachments/388874244102160385/1060024631119061012/image.png"],
-                link: "https://github.com/MostafaH04/Projectile-Launcher"
+                link: "https://github.com/MostafaH04/ESQ-Sound-Vision"
             }
         ];
     }
