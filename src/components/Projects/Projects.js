@@ -86,7 +86,7 @@ function Projects(props)
                 "https://media.discordapp.net/attachments/388874244102160385/1088151072335466516/Render.jpg?width=2304&height=1058",
                 "https://media.discordapp.net/attachments/388874244102160385/1118584890875719861/image.png?width=898&height=766"            
                 ],
-                link: "https://github.com/MostafaH04/V8-Roomba"
+                link: "https://github.com/MostafaH04/V8-Roomba/wiki"
             },
             {
                 name: "6-DOF Arm",
@@ -95,7 +95,7 @@ function Projects(props)
                 "https://media.discordapp.net/attachments/1034262061577945100/1142468102035099690/image.png?width=979&height=881",
                 "https://media.discordapp.net/attachments/1034262061577945100/1148243622295261254/image.png?width=1087&height=1182",
                 "https://media.discordapp.net/attachments/1034262061577945100/1148243432406519828/image.png?width=1373&height=1184"],
-                link: "https://github.com/MostafaH04/Chess-Bot/wiki"
+                link: "https://github.com/MostafaH04/6-DOF-ARM/wiki"
             },
             {
                 name: "Chess Bot",
@@ -105,14 +105,6 @@ function Projects(props)
                 "https://mir-s3-cdn-cf.behance.net/project_modules/disp/06dae3160377969.63b3a575570f1.jpg",
                 "https://media.discordapp.net/attachments/772956476200583208/1060003763978506300/image.png?width=697&height=671"],
                 link: "https://github.com/MostafaH04/Chess-Bot/wiki"
-            },
-            {
-                name: "Sumo Bot",
-                description: "Developed a sumo bot based on the Parallax Sumo Bot kit, incorporating a microbit for control. Demonstrated expertise in hardware integration, microcontroller programming, and control systems. Implemented robust strategies for competitive sumo robot battles.",
-                imgSrcs: ["https://cdn.discordapp.com/attachments/388874244102160385/990624711597768714/unknown.png",
-                "https://cdn.discordapp.com/attachments/388874244102160385/1060021407767068783/image.png",
-                "https://media.discordapp.net/attachments/388874244102160385/1060021437206888578/image.png"],
-                link: "https://github.com/MostafaH04/Sumo-Bot"
             }
         ];
     }
