@@ -84,7 +84,7 @@ function Projects(props)
                 description: "Currently working on the development of an autonomous cleaning robot utilizing advanced techniques such as sensor fusion and pose estimation. Demonstrating expertise in robotics, perception, and control systems, with a focus on creating an efficient cleaning solution.",
                 imgSrcs: ["https://media.discordapp.net/attachments/1034262061577945100/1148242776849391616/image.png?width=1578&height=1184",
                 "https://media.discordapp.net/attachments/388874244102160385/1088151072335466516/Render.jpg?width=2304&height=1058",
-                "https://media.discordapp.net/attachments/388874244102160385/1118584890875719861/image.png?width=898&height=766"            
+                "https://media.discordapp.net/attachments/779417429126152203/1152750586933026817/Untitled_Diagram.drawio_3.png?width=2296&height=1184"            
                 ],
                 link: "https://github.com/MostafaH04/V8-Roomba/wiki"
             },
