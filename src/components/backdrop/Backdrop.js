@@ -287,7 +287,6 @@ function Backdrop(props) {
                     <div className="options">
                         <Link onClick = {closeMenu} to = "" className={`Home-page menu-selector ${exitStyle}`}>Home</Link>
                         <Link onClick = {closeMenu} to = "about" className={`About-page menu-selector ${exitStyle}`}>About Me</Link>
-                        <a onClick = {closeMenu} href = "https://drive.google.com/file/d/1a3I1CHtxwZnfcyMbPvrXwMktkEdkgcpv/view?usp=sharing" target = "_blank" className={`Resume-page menu-selector ${exitStyle}`}>Resume</a>
                         <Link onClick = {closeMenu} to = "projects/software" className={`Projects-page menu-selector ${exitStyle}`}>Software</Link>
                         <Link onClick = {closeMenu} to = "projects/hardware" className={`Projects-page menu-selector ${exitStyle}`}>Hardware</Link>
                     </div>
@@ -336,7 +335,6 @@ function Backdrop(props) {
                     <div className="options">
                         <Link onClick = {closeMenu} to = "" className={`Home-page menu-selector ${exitStyle}`}>Home</Link>
                         <Link onClick = {closeMenu} to = "about" className={`About-page menu-selector ${exitStyle}`}>About Me</Link>
-                        <a onClick = {closeMenu} href = "https://drive.google.com/file/d/1a3I1CHtxwZnfcyMbPvrXwMktkEdkgcpv/view?usp=sharing" target = "_blank" className={`Resume-page menu-selector ${exitStyle}`}>Resume</a>
                         <Link onClick = {closeMenu} to = "projects/software" className={`Projects-page menu-selector ${exitStyle}`}>Software</Link>
                         <Link  onClick = {closeMenu}to = "projects/hardware" className={`Projects-page menu-selector ${exitStyle}`}>Hardware</Link>
                     </div>
