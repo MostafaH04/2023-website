@@ -25,15 +25,15 @@ function Projects(props)
         {
             name: "Guber",
             description: "Developed a web application using React for the frontend and Firebase for the backend, aimed at providing more community cleanups and volunteering opportunities. Demonstrated proficiency in frontend development, backend management, and creating interactive web experiences.",
-            imgSrcs: ["https://camo.githubusercontent.com/8c6526bf2791554590ac7e709761d4910e24407605d47e1fdeaaea4dd196e9a9/68747470733a2f2f63646e2e646973636f72646170702e636f6d2f6174746163686d656e74732f3838353630313439373133343533343639362f3933303833303736323333313232363134322f756e6b6e6f776e2e706e67",
-            "https://media.discordapp.net/attachments/388874244102160385/1059992127926452334/image.png",
-            "https://camo.githubusercontent.com/b72bdfa5cb7372c64afa3231985a819224f493a07dfa62eba41c8c0cba068a1b/68747470733a2f2f63646e2e646973636f72646170702e636f6d2f6174746163686d656e74732f3838353630313439373133343533343639362f3933303833343039373939343038343433322f756e6b6e6f776e2e706e67"],
+            imgSrcs: ["https://media.discordapp.net/attachments/1034262061577945100/1282442329185194097/image.png?ex=66df5efd&is=66de0d7d&hm=bb433dfbd965e966e57ca4db30551280e837462047d00802617226bb7d4af382&=&format=webp&quality=lossless&width=398&height=671",
+            "https://cdn.discordapp.com/attachments/1034262061577945100/1282442832241623142/image.png?ex=66df5f75&is=66de0df5&hm=20b7bad3fd2c43b69aa82e0045d31daff92f4a4682ba58ee0fb9de13c4bdddbf&",
+            "https://media.discordapp.net/attachments/1034262061577945100/1282443321779945482/image.png?ex=66df5fea&is=66de0e6a&hm=b3b54f0d6234b6b6fed7eb7504ceee680d2aca50467fdff92c83efc60c7c242e&=&format=webp&quality=lossless&width=306&height=670"],
             link: "https://guber.pages.dev/"
         },
         {
             name: "PyBlock-3D",
             description: "Developed a game using Pygame to simulate 3D rendering in Python and replicate aspects of the game Minecraft. Demonstrated proficiency in game development, graphics programming, and simulation.",
-            imgSrcs: ["https://media.discordapp.net/attachments/388874244102160385/954098374938886215/unknown.png?width=1145&height=671"],
+            imgSrcs: ["https://cdn.discordapp.com/attachments/1034262061577945100/1282444358947442760/image.png?ex=66df60e1&is=66de0f61&hm=82323df9c8722cd1fac4084febc7b183c6130c52336f3d9cfedfe7b2040ec37f&"],
             link: "https://github.com/MostafaH04/PyBlock-3D/wiki"
         },
         {
@@ -44,35 +44,10 @@ function Projects(props)
             link: "https://devpost.com/software/time-flow"
         },
         {
-            name: "Pong Launcher",
-            description: "Designed and constructed a projectile launcher for a grade 12 physics class, capable of shooting a ping pong ball between 2 and 10 meters. Developed a custom predictive model using gradient descent to approximate distance based on launch angle. Showcased proficiency in physics principles, modeling, and experimental design.",
-            imgSrcs: ["https://media.discordapp.net/attachments/388874244102160385/990621019578449960/unknown.png",
-            "https://cdn.discordapp.com/attachments/388874244102160385/1060012607630741644/image.png",
-            "https://media.discordapp.net/attachments/388874244102160385/1060012398649552966/image.png"],
-            link: "https://github.com/MostafaH04/Projectile-Launcher/wiki"
-        },
-        {
-            name: "Monkey Host",
-            description: "Developed a Discord bot integrated with computer vision and hardware sensors to assist in hosting events while maintaining safety measures. Demonstrated expertise in bot development, computer vision, and hardware integration.",
-            imgSrcs: ["https://media.discordapp.net/attachments/853016980004929577/853347111755972698/unknown.png",
-            "https://media.discordapp.net/attachments/853016980004929577/853346930809372732/unknown.png",
-            "https://media.discordapp.net/attachments/853016980004929577/853115612833382420/unknown.png?width=946&height=671"],
-            link: "https://devpost.com/software/monkey-host"
-        },
-        {
-            name: "Movie System",
-            description: "Developed a mock ticketing system using Pygame and Firebase, allowing users to sign up and log in to book fake movie tickets. Demonstrated proficiency in application development, user interface design, and backend integration.",
-            imgSrcs: ["https://media.discordapp.net/attachments/388874244102160385/1060013115665829918/image.png?width=1151&height=671",
-            "https://media.discordapp.net/attachments/388874244102160385/1060013257382952970/image.png",
-            "https://media.discordapp.net/attachments/388874244102160385/1060013370885034004/image.png"],
-            link: "https://github.com/MostafaH04/Theatre-Ticketing-system/wiki"
-        },
-        {
             name: "Magic Mouse",
             description: "Developed a computer vision-based solution, submitted for Hack the North 2020++, that enables mouse control through hand movements. Demonstrated proficiency in computer vision, gesture recognition, and hardware interfacing.",
             imgSrcs: ["https://raw.githubusercontent.com/MostafaH04/MagicMouse-HTN2021/master/magicmouse.png",
-            "https://media.discordapp.net/attachments/388874244102160385/1059754878894866532/image.png",
-            "https://media.discordapp.net/attachments/388874244102160385/1059995259221848084/image.png?width=947&height=671"],
+            "https://cdn.discordapp.com/attachments/1034262061577945100/1282444989074374697/image.png?ex=66df6178&is=66de0ff8&hm=a7cb7893b42a8f322a4fb3ec241b575bf198c1b1a7f518218d2eba2caac31d9a&"],
             link: "https://magic-mouse.netlify.app/"
         }
     ];
@@ -80,30 +55,40 @@ function Projects(props)
     {
         projectList = [
             {
-                name: "V8 - Roomba",
-                description: "Currently working on the development of an autonomous cleaning robot utilizing advanced techniques such as sensor fusion and pose estimation. Demonstrating expertise in robotics, perception, and control systems, with a focus on creating an efficient cleaning solution.",
-                imgSrcs: ["https://media.discordapp.net/attachments/1034262061577945100/1148242776849391616/image.png?width=1578&height=1184",
-                "https://media.discordapp.net/attachments/388874244102160385/1088151072335466516/Render.jpg?width=2304&height=1058",
-                "https://media.discordapp.net/attachments/779417429126152203/1152750586933026817/Untitled_Diagram.drawio_3.png?width=2296&height=1184"            
+                name: "Robot Dog",
+                description: "Building a robot dog that aims to utilize onboard cameras, LiDAR and sensors to navigate closed spaces autonomously.",
+                imgSrcs: ["https://cdn.discordapp.com/attachments/1034262061577945100/1282435706181910639/image.png?ex=66df58d2&is=66de0752&hm=8f62e2308f7e9ed37adea2ffdc953cc17ef60642a766ff1bbb1ceb6f1ad4ed0c&",
+                "https://cdn.discordapp.com/attachments/1034262061577945100/1282435816001372282/image.png?ex=66df58ed&is=66de076d&hm=3e547789ecc78750c9c7f7a69972e9d21e659061f07ca64763c91727bec7e8eb&",
+                "https://cdn.discordapp.com/attachments/1034262061577945100/1282427175080824905/image.png?ex=66df50e0&is=66ddff60&hm=2e21908dbc6c79cfe0149fcc87aa3c9e372ed657303fc8d2787ef8344755869f&"            
                 ],
                 link: "https://github.com/MostafaH04/V8-Roomba/wiki"
             },
             {
-                name: "6-DOF Arm",
-                description: "Designing a 6 DOF Robot Arm. Learning about and applying robot kinematics paired with writting custom libraries for stepper control, showcasing expertise in robotics, control systems, and embedded development.",
+                name: "Mobile Robot",
+                description: "Currently working on the development of an autonomous cleaning robot utilizing advanced techniques such as sensor fusion and pose estimation. Demonstrating expertise in robotics, perception, and control systems, with a focus on creating an efficient cleaning solution.",
                 imgSrcs: [
-                "https://media.discordapp.net/attachments/1034262061577945100/1142468102035099690/image.png?width=979&height=881",
-                "https://media.discordapp.net/attachments/1034262061577945100/1148243622295261254/image.png?width=1087&height=1182",
-                "https://media.discordapp.net/attachments/1034262061577945100/1148243432406519828/image.png?width=1373&height=1184"],
+                "https://cdn.discordapp.com/attachments/1034262061577945100/1282437397228945440/image.png?ex=66df5a66&is=66de08e6&hm=f86bebbb2b0cffc92d6bedc58c98bfda7df28c55902b0a3fae6db6297b4f722f&",
+                "https://cdn.discordapp.com/attachments/1034262061577945100/1282437078172303390/Roomba_Diagram.jpg?ex=66df5a19&is=66de0899&hm=48d6e7b1b2e8f4bf1be1f13455f80c288fa5d69dac153401391bd252ff438e8a&"
+                ],
+                link: "https://github.com/MostafaH04/V8-Roomba/wiki"
+            },
+            {
+                name: "6‐DOFenshmirtz Arm",
+                description: "Designed a 6 DOF Robot Arm. Applied robot kinematics and wrote custom libraries for multiaxis stepper control, showcasing expertise in robotics, control systems, and embedded development.",
+                imgSrcs: [
+                "https://github.com/MostafaH04/6-DOF-ARM/raw/main/artifacts/other/meme.png",
+                "https://github.com/MostafaH04/6-DOF-ARM/raw/main/artifacts/altium/pcb_2.png",
+                "https://media.discordapp.net/attachments/1034262061577945100/1282440949875740792/image.png?ex=66df5db5&is=66de0c35&hm=b81cce4918b6c8c2c4b418fd46618525c3232fb73c63bbf029950d1b07d689b2&=&format=webp&quality=lossless&width=557&height=671"],
                 link: "https://github.com/MostafaH04/6-DOF-ARM/wiki"
             },
             {
                 name: "Chess Bot",
                 description: "Developed an autonomous chess-playing robot for the MTE 100/121 robot project. Leveraged the powerful Stockfish 15 chess engine to make optimal moves, showcasing expertise in robotics, control systems, and integration of hardware and software.",
                 imgSrcs: [
-                "https://media.discordapp.net/attachments/388874244102160385/1061527575396094034/chessbot3.png?width=1074&height=671",
-                "https://mir-s3-cdn-cf.behance.net/project_modules/disp/06dae3160377969.63b3a575570f1.jpg",
-                "https://media.discordapp.net/attachments/772956476200583208/1060003763978506300/image.png?width=697&height=671"],
+                "https://cdn.discordapp.com/attachments/1035715232624025641/1045867913061605456/IMG_7551.jpg?ex=66def2a5&is=66dda125&hm=5d02c010a279889b2946b26ab85ac7f02ebe0cbc2a2805ce0142d676bdc1d0ab&",
+                "https://cdn.discordapp.com/attachments/1034262061577945100/1282439224431476757/image.png?ex=66df5c19&is=66de0a99&hm=19981e680524f0d1c445d093f2b61bf7ce88f3eea0d88d036b41f61f05ac11a9&",
+                "https://mir-s3-cdn-cf.behance.net/project_modules/disp/06dae3160377969.63b3a575570f1.jpg"]
+                ,
                 link: "https://github.com/MostafaH04/Chess-Bot/wiki"
             }
         ];
