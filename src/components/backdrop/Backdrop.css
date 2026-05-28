@@ -301,16 +301,21 @@
 }
 
 .modeToggle{
+    --toggle-track-width: 64px;
+    --toggle-track-height: 32px;
+    --toggle-padding: 4px;
+    --knob-size: 24px;
     position:absolute;
-    width: 75px;
-    height:36px;
+    width: var(--toggle-track-width);
+    height: var(--toggle-track-height);
     background-color: #fcfcfc;
-    border-radius: 33px;
+    border-radius: 999px;
     z-index: 13;
     margin:20px;
     margin-left:30px;
     top: 12px;
-    padding:5px;
+    padding: var(--toggle-padding);
+    box-sizing: border-box;
     overflow: hidden;
     display: flex;
     flex-direction: row;
@@ -322,8 +327,8 @@
 }
 
 .modeToggle .buttonCircle{
-    width: 39px;
-    height: 39px;
+    width: var(--knob-size);
+    height: var(--knob-size);
     position: relative;
     border-radius: 50%;
     display: flex;
@@ -339,7 +344,7 @@
 }
 
 .modeToggle.light .buttonCircle{
-    transform: translateX(36px);
+    transform: translateX(calc(var(--toggle-track-width) - (2 * var(--toggle-padding)) - var(--knob-size)));
     background-color: #F86E40;
 }
 
@@ -357,8 +362,8 @@
 }
 
 .modeToggle .lightIcon{
-    width: 30px;
-    height: 30px;
+    width: 18px;
+    height: 18px;
 }
 
 .modeToggle.dark .darkIcon{
@@ -705,18 +710,16 @@ a{
     }
 
     .modeToggle{
-        width: 68px;
-        height: 32px;
+        --toggle-track-width: 58px;
+        --toggle-track-height: 30px;
+        --toggle-padding: 3px;
+        --knob-size: 24px;
         margin-left: 18px;
     }
 
-    .modeToggle .buttonCircle{
-        width: 35px;
-        height: 35px;
-    }
-
-    .modeToggle.light .buttonCircle{
-        transform: translateX(31px);
+    .modeToggle .lightIcon{
+        width: 17px;
+        height: 17px;
     }
 
     .exitImg{

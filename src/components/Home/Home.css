@@ -107,6 +107,8 @@
     max-width: 100%;
     height: auto;
     left: 0;
+    bottom: -60px;
+    z-index: 1;
     user-drag: none;
     -webkit-user-drag: none;
     user-select: none;
@@ -128,15 +130,22 @@
     }
 
     .textHolder{
-        padding-top: 8vh;
-        padding-bottom: 28vh;
+        padding-top: 7vh;
+        padding-bottom: 0;
+        justify-content: center;
+    }
+
+    .subTitle{
+        margin-bottom: 0.35rem;
     }
 
     .sceneryDrag{
-        bottom: -28px !important;
-        width: 140%;
+        left: 50%;
+        width: 210%;
         max-width: none;
-        left: -20%;
+        bottom: 18vh;
+        transform: translateX(-50%);
+        transform-origin: center bottom;
     }
 }
 
@@ -149,5 +158,15 @@
 
     .subTitle{
         margin-top: 0.75rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .textHolder{
+        padding-top: 6vh;
+    }
+
+    .sceneryDrag{
+        width: 250%;
+        bottom: 14vh;
     }
 }

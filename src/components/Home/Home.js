@@ -18,7 +18,6 @@ function Home(props) {
 
     const sceneryStyle = {
         position: "fixed",
-        bottom: "-60px",
         userSelect: "none",
         userDrag: "none"
     }

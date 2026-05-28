@@ -96,43 +96,49 @@ function Projects(props)
         }
     }
 
-    function switchNum()
-    {   
-        if ((selector + 1) < projectList.length)
-        {
-            setSelector(selector+1);
-        }
-        else
-        {
-            setSelector(0);
-        }
+    function goToProject(index)
+    {
+        setSelector(index);
     }
 
-    function switchNumB()
-    {   
-        if ((selector - 1) >= 0)
-        {
-            setSelector(selector-1);
-        }
-        else
-        {
-            setSelector(projectList.length-1);
-        }
+    function goToNextProject()
+    {
+        setSelector((current) => (current + 1) % projectList.length);
+    }
+
+    function goToPreviousProject()
+    {
+        setSelector((current) => (current - 1 + projectList.length) % projectList.length);
     }
 
     return (
         <div className = "projects">
             <div className = "projects-shell">
-                <img className = "one nav-arrow" style = {{zIndex: '30'}} onClick={switchNumB} src = {buttonLeft} alt = "Previous project" />
+                <img
+                    className = "one nav-arrow"
+                    onClick = {goToPreviousProject}
+                    src = {buttonLeft}
+                    alt = "Previous project"
+                />
                 <div className = "projects-container" style = {contStyle}>
                     <ProjectCard currProject = {projectList[selector]}/>
                     <div className = "dotCollection">
                     {projectList.map((user, i)=> (
-                        <Dot key = {user.name} selected = {i === selector}/>
+                        <Dot
+                            key = {user.name}
+                            label = {`Show ${user.name}`}
+                            selected = {i === selector}
+                            onClick = {() => goToProject(i)}
+                        />
                     ))}
                     </div>
                 </div>
-                <img className = "two nav-arrow" style = {{zIndex: '30'}} onClick={switchNum} src = {buttonRight} alt = "Next project" />
+                <img
+                    className = "two nav-arrow"
+                    onClick = {goToNextProject}
+                    src = {buttonRight}
+                    alt = "Next project"
+                />
             </div>
         </div>
     );
