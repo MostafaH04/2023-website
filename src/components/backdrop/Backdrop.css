@@ -240,6 +240,56 @@
     animation-iteration-count: 1;
 }
 
+.moon-group.menu-close-animate:hover{
+    cursor: default;
+}
+
+.moon.fog-menu-close-animate{
+    animation-name: fog;
+    animation-direction: reverse;
+    animation-duration: 0.9s;
+    animation-fill-mode: both;
+    animation-delay: 0.25s;
+    z-index: 14!important;
+    cursor: pointer;
+}
+
+.moon-group .menu-close-animate:nth-child(4){
+    animation-name: openMenu;
+    animation-direction: reverse;
+    animation-duration: 0.3s;
+    animation-fill-mode: both;
+    animation-delay: 0.35s;
+    animation-iteration-count: 1;
+}
+
+.moon-group .menu-close-animate:nth-child(3){
+    animation-name: openMenu;
+    animation-direction: reverse;
+    animation-duration: 0.4s;
+    animation-fill-mode: both;
+    animation-delay: 0.4s;
+    animation-iteration-count: 1;
+}
+
+.moon-group .menu-close-animate:nth-child(2){
+    animation-name: openMenu;
+    animation-direction: reverse;
+    animation-duration: 0.6s;
+    animation-fill-mode: both;
+    animation-delay: 0.45s;
+    animation-iteration-count: 1;
+}
+
+.moon-group .menu-close-animate:nth-child(1){
+    animation-name: openMenu;
+    animation-direction: reverse;
+    animation-duration: 0.8s;
+    animation-fill-mode: both;
+    animation-delay: 0.5s;
+    animation-iteration-count: 1;
+}
+
 
 
 @keyframes openMenu {
@@ -550,6 +600,78 @@
     }
 }
 
+@keyframes exitHide {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+
+.exitImg.closing.exitStyle {
+    animation-name: exitHide;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.2s;
+}
+
+.modeToggle.closing.exitStyle {
+    animation-name: exitHide;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.15s;
+}
+
+.options .menu-selector.closing.exitStyle:nth-child(4){
+    animation-name: exitHide;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+    animation-delay: 0s;
+}
+
+.options .menu-selector.closing.exitStyle:nth-child(3){
+    animation-name: exitHide;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.05s;
+}
+
+.options .menu-selector.closing.exitStyle:nth-child(2){
+    animation-name: exitHide;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.1s;
+}
+
+.options .menu-selector.closing.exitStyle:nth-child(1){
+    animation-name: exitHide;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.15s;
+}
+
+.socials .menu-selector.closing.exitStyle:nth-child(3){
+    animation-name: exitHide;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.05s;
+}
+
+.socials .menu-selector.closing.exitStyle:nth-child(2){
+    animation-name: exitHide;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.1s;
+}
+
+.socials .menu-selector.closing.exitStyle:nth-child(1){
+    animation-name: exitHide;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.15s;
+}
+
 a.exitStyle:hover{
     cursor:pointer;
 }
@@ -628,6 +750,56 @@ a.exitStyle:hover{
     animation-duration:0.3s;
     animation-fill-mode: forwards;
     animation-delay: 0.55s;
+    animation-iteration-count: 1;
+}
+
+.sun-group.menu-close-animate:hover{
+    cursor: default;
+}
+
+.sunfog-menu-close-animate{
+    animation-name: sunfog;
+    animation-direction: reverse;
+    animation-duration: 0.9s;
+    animation-fill-mode: both;
+    animation-delay: 0.25s;
+    z-index: 14!important;
+    cursor: pointer;
+}
+
+.sun-group .menu-close-animate:nth-child(4){
+    animation-name: openMenu;
+    animation-direction: reverse;
+    animation-duration: 0.3s;
+    animation-fill-mode: both;
+    animation-delay: 0.35s;
+    animation-iteration-count: 1;
+}
+
+.sun-group .menu-close-animate:nth-child(3){
+    animation-name: openMenu;
+    animation-direction: reverse;
+    animation-duration: 0.4s;
+    animation-fill-mode: both;
+    animation-delay: 0.4s;
+    animation-iteration-count: 1;
+}
+
+.sun-group .menu-close-animate:nth-child(2){
+    animation-name: openMenu;
+    animation-direction: reverse;
+    animation-duration: 0.6s;
+    animation-fill-mode: both;
+    animation-delay: 0.45s;
+    animation-iteration-count: 1;
+}
+
+.sun-group .menu-close-animate:nth-child(1){
+    animation-name: openMenu;
+    animation-direction: reverse;
+    animation-duration: 0.8s;
+    animation-fill-mode: both;
+    animation-delay: 0.5s;
     animation-iteration-count: 1;
 }
 

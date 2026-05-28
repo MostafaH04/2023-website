@@ -18,6 +18,9 @@ function Backdrop(props) {
     const [menuAnimation, setMenuAnimation] = useState("");
     const [menuOpen, setMenuOpen] = useState(false);
     const [exitStyle, setExitStyle] = useState("");
+    const [isClosing, setIsClosing] = useState(false);
+
+    const MENU_CLOSE_MS = 1400;
 
     const birdImgs = [
         birdImg1, birdImg2, birdImg3
@@ -248,8 +251,28 @@ function Backdrop(props) {
         }
     ];
 
+    function getMoonFogClass(animation) {
+        if (animation === "menu-animate") {
+            return "moon fog-menu-animate-t fog-menu-animate";
+        }
+        if (animation === "menu-close-animate") {
+            return "moon fog-menu-close-animate-t fog-menu-close-animate";
+        }
+        return "moon fog--t fog-";
+    }
+
+    function getSunFogClass(animation) {
+        if (animation === "menu-animate") {
+            return "sun fog-menu-animate-t sunfog-menu-animate";
+        }
+        if (animation === "menu-close-animate") {
+            return "sun fog-menu-close-animate-t sunfog-menu-close-animate";
+        }
+        return "sun fog--t fog-";
+    }
+
     function openMenu(){
-        if (!menuOpen) {
+        if (!menuOpen && !isClosing) {
             setMenuAnimation("menu-animate");
             setMenuOpen(true);
             setExitStyle("exitStyle");
@@ -257,11 +280,20 @@ function Backdrop(props) {
     }
 
     function closeMenu(){
-        if (menuOpen){
-            setMenuAnimation("menu-animate revert");
-            setMenuOpen(false);
-            setExitStyle("");
-            setMenuAnimation("")
+        if (menuOpen && !isClosing){
+            setIsClosing(true);
+            setExitStyle("exitStyle closing");
+
+            window.setTimeout(() => {
+                setMenuAnimation("menu-close-animate");
+            }, 250);
+
+            window.setTimeout(() => {
+                setMenuOpen(false);
+                setExitStyle("");
+                setMenuAnimation("");
+                setIsClosing(false);
+            }, MENU_CLOSE_MS);
         }
     }
 
@@ -307,7 +339,7 @@ function Backdrop(props) {
 
             {props.darkMode ? (
                 <>
-                    <div className={`moon fog-${menuAnimation}-t fog-${menuAnimation.substring(0, 12)}`} style={moonLightStyle} onClick={closeMenu}></div>
+                    <div className={getMoonFogClass(menuAnimation)} style={moonLightStyle} onClick={closeMenu}></div>
                     <a className={`moon-group ${menuAnimation}`} onClick={openMenu}>
                         {moon.map((style, i) =>
                             <div key={i} className={`moon ${menuAnimation}`} style={style}></div>
@@ -321,7 +353,7 @@ function Backdrop(props) {
                 </>
             ) : (
                 <>
-                    <div className={`sun fog-${menuAnimation}-t sunfog-${menuAnimation.substring(0, 12)}`} style={sunLightStyle} onClick={closeMenu}></div>
+                    <div className={getSunFogClass(menuAnimation)} style={sunLightStyle} onClick={closeMenu}></div>
                     <a className={`sun-group ${menuAnimation}`} onClick={openMenu}>
                         {sun.map((style, i) =>
                             <div key={i} className={`sun ${menuAnimation}`} style={style}></div>
