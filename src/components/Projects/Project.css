@@ -1,19 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap');
+
 .projects
 {
     position: relative;
-    height: 100vh;
+    min-height: 100vh;
+    min-height: 100dvh;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 13;
+    padding: clamp(4rem, 8vh, 6rem) 1rem 2rem;
+    overflow-x: hidden;
+}
+
+.projects-shell
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: min(100%, 1180px);
     transform: scale(0.8);
+    transform-origin: center;
 }
 
 .dot-selection{
-    transition: 0.2s ease-in-out;
+    transition: width 0.2s ease-in-out, background-color 0.2s ease-in-out;
     display:block;
     position: relative;
-    
+    flex-shrink: 0;
 }
 
 .dotCollection
@@ -22,29 +37,29 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.15rem;
 }
 
 .projects h1{
-    font-family: 'Montserrat';
+    font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: 600;
-    font-size: 54px;
-    line-height: 82px;
-
+    font-size: clamp(2rem, 4vw, 54px);
+    line-height: 1.15;
     color: #FFFFFF;
+    margin: 0;
 }
 
 .projects p{
-    font-family: 'Montserrat';
+    font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: 500;
-    font-size: 20px;
-    line-height: 39px;
-    width: 486px;
-
+    font-size: clamp(1rem, 2vw, 20px);
+    line-height: 1.65;
+    width: min(486px, 100%);
     color: #FFFFFF;
-    margin-top:50px;
-
+    margin-top: clamp(1rem, 4vw, 50px);
 }
 
 .projectCard{
@@ -52,21 +67,20 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin:70px;
-    
+    gap: clamp(1rem, 4vw, 4rem);
+    margin: clamp(1.25rem, 5vw, 70px);
+    width: 100%;
 }  
 
-.projectCard div{
-    margin-right: 4vw;
-}
-.projectCard img{
-    margin-left: 4vw;
+.projectCard .content{
+    flex: 1 1 280px;
+    min-width: 0;
 }
 
 .projects-container
 {
     z-index: 10;
-    padding:20px;
+    padding: clamp(1rem, 3vw, 20px);
     background: linear-gradient(180.01deg, rgba(217, 217, 217, 0.1786) -9.62%, rgba(61, 61, 61, 0.94) 111.45%);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), -25px 25px 105px -8px #000000;
     border-radius: 19px;
@@ -74,104 +88,101 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+    width: min(100%, 980px);
+    min-width: 0;
 }
 
 .projects-container img{
-    width: 500px;
+    width: min(500px, 100%);
+    height: auto;
     object-fit: contain;
     border-radius: 18px;
-    filter: drop-shadow(-22px 22px 20px rgba(0, 0, 0, 0.553));
-    
+    box-shadow: -22px 22px 20px rgba(0, 0, 0, 0.35);
 }
 
 .dot-selection.selected{
-    transition: 0.3s ease-in-out;
+    transition: width 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.nav-arrow,
+.one,
+.two{
+    z-index: 11;
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+    padding: clamp(0.75rem, 2vw, 30px);
+    filter: drop-shadow(-7px 3px 8px rgba(0, 0, 0, 0.39));
+    flex: 0 0 auto;
+    touch-action: manipulation;
+    cursor: pointer;
 }
 
 .one{
-    z-index: 11;
-    transition: 0.3s ease-in-out;
     margin-right: -50px;
-    padding:30px;
-    filter: drop-shadow(-7px 3px 8px rgba(0, 0, 0, 0.39));
 }
 
 .two{
-    z-index: 11;
-    transition: 0.3s ease-in-out;
     margin-left: -50px;
-    padding: 30px;
-    filter: drop-shadow(-7px 3px 8px rgba(0, 0, 0, 0.39));
 }
 
 .two:hover{
-    transition: 0.3s ease-in-out;
-    translate: 10px;
+    transform: translate3d(10px, 0, 0);
     filter: drop-shadow(-7px 3px 8px rgba(0, 0, 0, 0.39)) brightness(130%);
 }
 
 .one:hover{
-    transition: 0.3s ease-in-out;
-    translate: -10px;
+    transform: translate3d(-10px, 0, 0);
     filter: drop-shadow(-7px 3px 8px rgba(0, 0, 0, 0.39)) brightness(130%);
 }
 
 .viewButton
 {
-    transition: 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, transform 0.2s ease-in-out;
     background-color: #5D737E;
-    padding-top: 10px;
-    padding-right: 28px;
-    padding-bottom: 10px;
-    padding-left: 28px;
+    padding: 10px 28px;
     border-radius: 40px;
-
-    font-family: 'Montserrat';
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: 600;
-    font-size: 20px;
-    line-height: 29px;
+    font-size: clamp(1rem, 2vw, 20px);
+    line-height: 1.45;
 }
 
 .viewButton:hover
 {
-    padding-left:35px;
-    padding-right:35px;
-    margin-left:-8px;
-    margin-right:-8px;
     background-color: white;
     color: #5D737E;
     cursor: pointer;
+    transform: scale(1.04);
 }
 
 .imgCont
 {
+    position: relative;
     display: block;
-    width: 600px;
+    width: min(600px, 100%);
+    flex: 1 1 320px;
+    min-height: 220px;
 }
 
 .imgCont #three
 {
-    transition: 0.3s ease-in-out !important;
+    transition: transform 0.3s ease-in-out !important;
     z-index: 14;
     position: relative;
+    display: block;
+    margin: 0 auto;
 }
 
 .imgCont #three:hover
 {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
-.imgCont #two:hover
-{
-    transition: 0.3s ease-in-out !important;
-    transform: scale(1.08);
-    animation: none !important;
-    cursor: pointer;
-}
+.imgCont #two:hover,
 .imgCont #one:hover
 {
-    transition: 0.3s ease-in-out !important;
+    transition: transform 0.3s ease-in-out !important;
     transform: scale(1.08);
     animation: none !important;
     cursor: pointer;
@@ -179,37 +190,139 @@
 
 .imgCont #two
 {
-    transition: 0.3s ease-in-out !important;
+    transition: transform 0.3s ease-in-out !important;
     position: absolute;
-    width: 300px;
+    width: min(300px, 50%);
     z-index: 12;
-    margin-top: 70px;
-    margin-left: 400px;    
+    margin-top: 12%;
+    margin-left: 65%;    
     animation: coolEffect1 4s infinite alternate;
+    will-change: transform;
 }
 
 .imgCont #one
 {
-    transition: 0.3s ease-in-out !important;
+    transition: transform 0.3s ease-in-out !important;
     position: absolute;
-    width: 400px;
+    width: min(400px, 66%);
     z-index: 12;
-    margin-top: -140px;
-    margin-left: 170px;
+    margin-top: -22%;
+    margin-left: 28%;
     animation: coolEffect1 5s ease-in-out infinite alternate;
     animation-delay: 0.2s;
+    will-change: transform;
 }
 
 @keyframes coolEffect1 {
     to
     {
-        transform: scale(1.08);
+        transform: scale(1.06);
     }
 }
 
-@keyframes coolEffect2 {
-    to
-    {
-        transform: translate(8px,-12px);
+@media (max-width: 1024px) {
+    .projects{
+        align-items: flex-start;
+        padding: 5rem 0.75rem 1.5rem;
+    }
+
+    .projects-shell{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        gap: 0.75rem;
+        transform: none;
+        width: 100%;
+    }
+
+    .projects-container{
+        grid-column: 1 / -1;
+        grid-row: 1;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .one{
+        grid-column: 1;
+        grid-row: 2;
+        justify-self: end;
+        margin: 0 0.5rem 0 0;
+    }
+
+    .two{
+        grid-column: 2;
+        grid-row: 2;
+        justify-self: start;
+        margin: 0 0 0 0.5rem;
+    }
+
+    .projectCard{
+        flex-direction: column;
+        text-align: center;
+        margin: 0.75rem 0.25rem;
+        gap: 1rem;
+    }
+
+    .projects p{
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .imgCont{
+        width: 100%;
+        min-height: auto;
+        flex-basis: auto;
+    }
+
+    .imgCont #one,
+    .imgCont #two{
+        display: none !important;
+    }
+
+    .imgCont #three{
+        width: 100%;
+        max-width: 620px;
+    }
+}
+
+@media (max-width: 520px) {
+    .projects{
+        padding: 4.5rem 0.5rem 1rem;
+    }
+
+    .projects-container{
+        border-radius: 14px;
+        padding: 0.875rem;
+    }
+
+    .projects h1{
+        font-size: clamp(1.7rem, 9vw, 2.25rem);
+    }
+
+    .projects p{
+        line-height: 1.45;
+        margin-top: 0.75rem;
+    }
+
+    .nav-arrow,
+    .one,
+    .two{
+        width: 44px;
+        padding: 0.5rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .dot-selection,
+    .dot-selection.selected,
+    .nav-arrow,
+    .one,
+    .two,
+    .viewButton,
+    .imgCont #one,
+    .imgCont #two,
+    .imgCont #three{
+        transition: none !important;
+        animation: none !important;
     }
 }

@@ -56,8 +56,8 @@ function About(props)
                 <a href = "https://drive.google.com/file/d/1a3I1CHtxwZnfcyMbPvrXwMktkEdkgcpv/view?usp=sharing" target = "_blank" className= {buttonColor}>my resume</a>
             </div>
             <div className = "picture" style = {imageBackgroundStyle}>
-                <img className = "personal-image" src = {personalImg} />
-                <img className = "image-background" src = {sceneryImg} />
+                <img className = "personal-image" src = {personalImg} alt = "Mostafa Hussein" />
+                <img className = "image-background" src = {sceneryImg} alt = "" />
             </div>
         </div>
     );

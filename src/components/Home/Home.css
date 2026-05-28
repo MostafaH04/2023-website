@@ -2,16 +2,21 @@
 
 .home-section{
     position: relative;
-    height: 100vh;
+    min-height: 100vh;
+    min-height: 100dvh;
+    width: 100%;
+    overflow: hidden;
 }
 
 .name{
     display:flex;
     width: 100%;
+    max-width: 100%;
     align-items: center;
     justify-content: center;
     user-select:none;
     margin-block-end: 0;
+    flex-wrap: wrap;
 }
 
 @keyframes moveEnglish {
@@ -31,7 +36,7 @@
         transform: translate(-8vw);
     }
     to{
-        opacity: 100;
+        opacity: 1;
         transform: translate(0vw);
     }
 }
@@ -39,9 +44,9 @@
 .english p{
     color: #FFFFFF;
     text-align: right;
-    font-size: 85px;
+    font-size: clamp(2.5rem, 10vw, 85px);
     font-weight: 700;
-    padding: 15px;
+    padding: clamp(0.4rem, 2vw, 15px);
     line-height: 1;
     margin-block-end: -10px;
     margin-block-start: 5px;
@@ -49,7 +54,7 @@
 }
 
 .typeArabic {
-    opacity: 100;
+    opacity: 1;
     animation: moveArabic 2s;
 }
 
@@ -57,17 +62,19 @@
     opacity: 0;
     letter-spacing: 1.2px;
     font-weight: 400;
-    font-size: 16px;
+    font-size: clamp(0.875rem, 3vw, 16px);
     margin-bottom: 30px;
+    padding: 0 1rem;
+    text-align: center;
     animation: showSub 1.5s ease-in-out infinite alternate;
 }
 
 @keyframes showSub {
     70%{
-        opacity: 100% ;
+        opacity: 1;
     }
     100%{
-        opacity: 100%;
+        opacity: 1;
     }
 }
 
@@ -75,9 +82,9 @@
     color: #3F4045;
     font-family: 'Noto Sans Arabic', sans-serif !important;
     line-height: 1;
-    font-size: 90px;
+    font-size: clamp(2.5rem, 10.5vw, 90px);
     font-weight: 700;
-    padding: 15px;
+    padding: clamp(0.4rem, 2vw, 15px);
     margin-block-end: -10px;
     margin-block-start: 5px;
 }
@@ -91,13 +98,56 @@
     justify-content: center;
     user-select:none;
     flex-direction: column;
+    padding: 0 1rem;
+    z-index: 2;
 }
 
 .sceneryDrag{
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    left: 0;
     user-drag: none;
     -webkit-user-drag: none;
     user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
+}
+
+@media (max-width: 700px) {
+    .name{
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .english p,
+    .typeArabic{
+        text-align: center;
+        margin-block-end: 0;
+    }
+
+    .textHolder{
+        padding-top: 8vh;
+        padding-bottom: 28vh;
+    }
+
+    .sceneryDrag{
+        bottom: -28px !important;
+        width: 140%;
+        max-width: none;
+        left: -20%;
+    }
+}
+
+@media (max-width: 420px) {
+    .english p,
+    .typeArabic{
+        font-size: clamp(2rem, 11vw, 2.75rem);
+        padding: 0.25rem;
+    }
+
+    .subTitle{
+        margin-top: 0.75rem;
+    }
 }

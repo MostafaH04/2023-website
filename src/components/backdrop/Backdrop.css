@@ -1,7 +1,7 @@
 /**----------------- Dark Mode ---------------**/
 
 .backdrop-dark{
-    width:100vw;
+    width:100%;
     height: auto;
     background-color: #02111B;
     overflow: hidden;
@@ -401,6 +401,7 @@
     position: absolute;
     width: 25vw;
     height:100vh;
+    height:100dvh;
     right: 0;
     top: 0;
     overflow: hidden;
@@ -551,7 +552,7 @@ a.exitStyle:hover{
 /**----------------- Light Mode ---------------**/
 
 .backdrop-light{
-    width:100vw;
+    width:100%;
     overflow: hidden;
 }
 
@@ -676,4 +677,79 @@ a.exitStyle:hover{
 a{
     text-decoration: none;
     color: #FFFFFF;
+}
+
+@media (max-width: 768px) {
+    .menu{
+        width: min(320px, 86vw);
+    }
+
+    .options{
+        font-size: clamp(1.5rem, 7vw, 2rem);
+        line-height: 1.35;
+        margin: 5rem 1rem 1rem;
+    }
+
+    .options a{
+        margin-top: 2vh;
+        padding: 0.25rem 0;
+    }
+
+    .menu .socials{
+        margin-top: 4vh;
+    }
+
+    .socials a{
+        margin-left: 0.6rem;
+        margin-right: 0.6rem;
+    }
+
+    .modeToggle{
+        width: 68px;
+        height: 32px;
+        margin-left: 18px;
+    }
+
+    .modeToggle .buttonCircle{
+        width: 35px;
+        height: 35px;
+    }
+
+    .modeToggle.light .buttonCircle{
+        transform: translateX(31px);
+    }
+
+    .exitImg{
+        top: 22px;
+        right: 16px;
+    }
+
+    @keyframes openMenu {
+        100% {
+            width: 172vw;
+            height: 300vh;
+            right: -86vw;
+            border-radius: 0%;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .menu{
+        width: 100vw;
+    }
+
+    .options{
+        font-size: clamp(1.35rem, 8vw, 1.85rem);
+        margin-top: 5.25rem;
+    }
+
+    @keyframes openMenu {
+        100% {
+            width: 200vw;
+            height: 300vh;
+            right: -100vw;
+            border-radius: 0%;
+        }
+    }
 }

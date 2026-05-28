@@ -18,7 +18,6 @@ function Home(props) {
 
     const sceneryStyle = {
         position: "fixed",
-        width: "100vw",
         bottom: "-60px",
         userSelect: "none",
         userDrag: "none"
@@ -63,7 +62,7 @@ function Home(props) {
                     <div className = "english">
                         <p style = {englishTextStyle}>MOSTAFA<br/>HUSSEIN</p>
                     </div>
-                    <div classname = "arabic">
+                    <div className = "arabic">
                         <p className = "typeArabic" style = {arabicTextStyle}>مصطفى <br/>حسين</p>
                     </div>
                     

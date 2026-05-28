@@ -1,15 +1,12 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 function ProjectCard(props)
 {
     const [selector, setSelector] = useState(0);
-    const [projectSave, setProjectSave] = useState(props.currProject.name);
 
-    if (projectSave != props.currProject.name)
-    {
-        setSelector((0));
-        setProjectSave(props.currProject.name)
-    }
+    useEffect(() => {
+        setSelector(0);
+    }, [props.currProject.name]);
 
     function add()
     {
@@ -22,6 +19,7 @@ function ProjectCard(props)
     }
 
     let numImgs = props.currProject.imgSrcs.length;
+    const getImage = (offset) => props.currProject.imgSrcs[(selector + offset) % numImgs];
 
     let styles = [{},{},{}];
 
@@ -52,12 +50,12 @@ function ProjectCard(props)
             <div className = "content">
                 <h1>{props.currProject.name}</h1>
                 <p>{props.currProject.description}</p>
-                <a className = "viewButton" href = {props.currProject.link} target = "_blank">View</a>
+                <a className = "viewButton" href = {props.currProject.link} target = "_blank" rel = "noreferrer">View</a>
             </div>
             <div className = "imgCont">
-                <img id = "one" onClick = {add} style = {styles[(selector+1)%3]} src = {props.currProject.imgSrcs[(selector+1)%3]}/>
-                <img id = "two" onClick = {add2} style = {styles[(selector+2)%3]} src = {props.currProject.imgSrcs[(selector+2)%3]}/>
-                <img id = "three" src = {props.currProject.imgSrcs[(selector)%3]}/>
+                <img id = "one" onClick = {add} style = {styles[1]} src = {getImage(1)} alt = "" loading = "lazy" decoding = "async"/>
+                <img id = "two" onClick = {add2} style = {styles[2]} src = {getImage(2)} alt = "" loading = "lazy" decoding = "async"/>
+                <img id = "three" src = {getImage(0)} alt = {props.currProject.name} loading = "lazy" decoding = "async"/>
             </div>
         </div>
     );

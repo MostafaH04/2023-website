@@ -1,5 +1,5 @@
 import './Project.css';
-import {useState} from 'react'
+import { useEffect, useState } from 'react'
 import ProjectCard from './ProjectCard.js';
 import Dot from './dot.js'
 import buttonLeft from './Polygon 1.svg'
@@ -8,18 +8,10 @@ import buttonRight from './Polygon 2.svg'
 function Projects(props)
 {
     const [selector, setSelector] = useState(0);
-    const [softwareState, setSoftwareState] = useState(false);
 
-    if (props.hardware && softwareState)
-    {
+    useEffect(() => {
         setSelector(0);
-        setSoftwareState(!props.hardware);
-    }
-    else if (!softwareState && !props.hardware)
-    {
-        setSelector(0);
-        setSoftwareState(!props.hardware);
-    }
+    }, [props.hardware]);
 
     let projectList = [
         {
@@ -130,16 +122,18 @@ function Projects(props)
 
     return (
         <div className = "projects">
-            <img className = "one" style = {{zIndex: '30'}} onClick={switchNumB} src = {buttonLeft} />
-            <div className = "projects-container" style = {contStyle}>
-                <ProjectCard currProject = {projectList[selector]}/>
-                <div className = "dotCollection">
-                {projectList.map((user, i)=> (
-                    <Dot selected = {i == selector}/>
-                ))}
+            <div className = "projects-shell">
+                <img className = "one nav-arrow" style = {{zIndex: '30'}} onClick={switchNumB} src = {buttonLeft} alt = "Previous project" />
+                <div className = "projects-container" style = {contStyle}>
+                    <ProjectCard currProject = {projectList[selector]}/>
+                    <div className = "dotCollection">
+                    {projectList.map((user, i)=> (
+                        <Dot key = {user.name} selected = {i === selector}/>
+                    ))}
+                    </div>
                 </div>
+                <img className = "two nav-arrow" style = {{zIndex: '30'}} onClick={switchNum} src = {buttonRight} alt = "Next project" />
             </div>
-            <img className = "two" style = {{zIndex: '30'}} onClick={switchNum} src = {buttonRight}/>
         </div>
     );
 }
