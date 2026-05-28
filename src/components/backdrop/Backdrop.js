@@ -271,102 +271,71 @@ function Backdrop(props) {
     }
 
 
-    if (props.darkMode){
-        // Dark mode
-        return (
-            <div className="backdrop-dark">
-                <div className = {`menu ${exitStyle}`}> 
-                    <a onClick = {closeMenu} className = {`exitImg ${exitStyle}`}>
-                        <img src = {exitMenu}/>
-                    </a>
-                    <div onClick = {changeMode} className = {`darkMode ${exitStyle}`}>
-                        <div className = {`buttonCircle ${exitStyle}`}>
-                            <img src = {darkMode}/>
-                        </div>
-                    </div>
-                    <div className="options">
-                        <Link onClick = {closeMenu} to = "" className={`Home-page menu-selector ${exitStyle}`}>Home</Link>
-                        <Link onClick = {closeMenu} to = "about" className={`About-page menu-selector ${exitStyle}`}>About Me</Link>
-                        <Link onClick = {closeMenu} to = "projects/software" className={`Projects-page menu-selector ${exitStyle}`}>Software</Link>
-                        <Link onClick = {closeMenu} to = "projects/hardware" className={`Projects-page menu-selector ${exitStyle}`}>Hardware</Link>
-                    </div>
-                    <div className="socials">
-                        <a className = {`menu-git menu-selector ${exitStyle}`} href = "https://github.com/MostafaH04" target = "_blank">
-                            <GrGithub />
-                        </a>
-                        <a className = {`menu-linkedin menu-selector ${exitStyle}`} href = "https://www.linkedin.com/in/mostafa-hussein-04/" target = "_blank">
-                            <FaLinkedin />
-                        </a>
-                        <a className = {`menu-ig menu-selector ${exitStyle}`} href = "https://www.instagram.com/mostafah04/" target = "_blank">
-                            <GrInstagram /> 
-                        </a>
+    return (
+        <div className={props.darkMode ? "backdrop-dark" : "backdrop-light"}>
+            <div className={`menu ${exitStyle}`}>
+                <a onClick={closeMenu} className={`exitImg ${exitStyle}`}>
+                    <img src={exitMenu} alt="" />
+                </a>
+                <div
+                    onClick={changeMode}
+                    className={`modeToggle ${exitStyle} ${props.darkMode ? "dark" : "light"}`}
+                >
+                    <div className={`buttonCircle ${exitStyle}`}>
+                        <img className="modeIcon darkIcon" src={darkMode} alt="" />
+                        <img className="modeIcon lightIcon" src={lightMode} alt="" />
                     </div>
                 </div>
-                
-                <div className = {`moon fog-${menuAnimation}-t fog-${menuAnimation.substring(0,12)}`} style = {moonLightStyle} onClick = {closeMenu}></div>
-                <a className={`moon-group ${menuAnimation}`} onClick = {openMenu}>
-                    {
-                        moon.map((style, i) => 
-                        <div className = {`moon ${menuAnimation}`} style = {style}></div>)
-                    }
-                </a>
-                <div className="stars">
-                    {
-                        circles.map((style, i) => 
-                        <div className = 'circle' style = {style}></div>)
-                    }
+                <div className="options">
+                    <Link onClick={closeMenu} to="" className={`Home-page menu-selector ${exitStyle}`}>Home</Link>
+                    <Link onClick={closeMenu} to="about" className={`About-page menu-selector ${exitStyle}`}>About Me</Link>
+                    <Link onClick={closeMenu} to="projects/software" className={`Projects-page menu-selector ${exitStyle}`}>Software</Link>
+                    <Link onClick={closeMenu} to="projects/hardware" className={`Projects-page menu-selector ${exitStyle}`}>Hardware</Link>
+                </div>
+                <div className="socials">
+                    <a className={`menu-git menu-selector ${exitStyle}`} href="https://github.com/MostafaH04" target="_blank" rel="noreferrer">
+                        <GrGithub />
+                    </a>
+                    <a className={`menu-linkedin menu-selector ${exitStyle}`} href="https://www.linkedin.com/in/mostafa-hussein-04/" target="_blank" rel="noreferrer">
+                        <FaLinkedin />
+                    </a>
+                    <a className={`menu-ig menu-selector ${exitStyle}`} href="https://www.instagram.com/mostafah04/" target="_blank" rel="noreferrer">
+                        <GrInstagram />
+                    </a>
                 </div>
             </div>
-        );
-    }
-    else{
-        // Light mode
-        return (
-            <div className ="backdrop-light">
-                <div className = {`menu ${exitStyle}`}> 
-                    <a onClick = {closeMenu} className = {`exitImg ${exitStyle}`}>
-                        <img src = {exitMenu}/>
-                    </a>
-                    <div onClick = {changeMode} className = {`lightMode ${exitStyle}`}>
-                        <div className = {`buttonCircle ${exitStyle}`}>
-                            <img src = {lightMode}/>
-                        </div>
-                    </div>
-                    <div className="options">
-                        <Link onClick = {closeMenu} to = "" className={`Home-page menu-selector ${exitStyle}`}>Home</Link>
-                        <Link onClick = {closeMenu} to = "about" className={`About-page menu-selector ${exitStyle}`}>About Me</Link>
-                        <Link onClick = {closeMenu} to = "projects/software" className={`Projects-page menu-selector ${exitStyle}`}>Software</Link>
-                        <Link  onClick = {closeMenu}to = "projects/hardware" className={`Projects-page menu-selector ${exitStyle}`}>Hardware</Link>
-                    </div>
-                    <div className="socials">
-                        <a className = {`menu-git menu-selector ${exitStyle}`} href = "https://github.com/MostafaH04" target = "_blank">
-                            <GrGithub />
-                        </a>
-                        <a className = {`menu-linkedin menu-selector ${exitStyle}`} href = "https://www.linkedin.com/in/mostafa-hussein-04/" target = "_blank">
-                            <FaLinkedin />
-                        </a>
-                        <a className = {`menu-ig menu-selector ${exitStyle}`} href = "https://www.instagram.com/mostafah04/" target = "_blank">
-                            <GrInstagram /> 
-                        </a>
-                    </div>
-                </div>
 
-                <div className = {`sun fog-${menuAnimation}-t sunfog-${menuAnimation.substring(0,12)}`} style = {sunLightStyle} onClick = {closeMenu}></div>
-                <a className = {`sun-group ${menuAnimation}`} onClick = {openMenu}>
-                    {
-                        sun.map((style, i) =>
-                        <div className = {`sun ${menuAnimation}`} style = {style}></div>)
-                    }
-                </a>
-                <div className="stars">
-                    {
-                        birds.map((style, i) => 
-                        <img className = 'bird' style = {style} src = {birdImgs[Math.floor(Math.random() * 2+1)]}></img>)
-                    }
-                </div>
-            </div>
-        )
-    }
+            {props.darkMode ? (
+                <>
+                    <div className={`moon fog-${menuAnimation}-t fog-${menuAnimation.substring(0, 12)}`} style={moonLightStyle} onClick={closeMenu}></div>
+                    <a className={`moon-group ${menuAnimation}`} onClick={openMenu}>
+                        {moon.map((style, i) =>
+                            <div key={i} className={`moon ${menuAnimation}`} style={style}></div>
+                        )}
+                    </a>
+                    <div className="stars">
+                        {circles.map((style, i) =>
+                            <div key={i} className="circle" style={style}></div>
+                        )}
+                    </div>
+                </>
+            ) : (
+                <>
+                    <div className={`sun fog-${menuAnimation}-t sunfog-${menuAnimation.substring(0, 12)}`} style={sunLightStyle} onClick={closeMenu}></div>
+                    <a className={`sun-group ${menuAnimation}`} onClick={openMenu}>
+                        {sun.map((style, i) =>
+                            <div key={i} className={`sun ${menuAnimation}`} style={style}></div>
+                        )}
+                    </a>
+                    <div className="stars">
+                        {birds.map((style, i) =>
+                            <img key={i} className="bird" style={style} src={birdImgs[Math.floor(Math.random() * 2 + 1)]} alt="" />
+                        )}
+                    </div>
+                </>
+            )}
+        </div>
+    );
 }
 
 export default Backdrop;
