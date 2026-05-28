@@ -19,8 +19,10 @@ function Backdrop(props) {
     const [menuOpen, setMenuOpen] = useState(false);
     const [exitStyle, setExitStyle] = useState("");
     const [isClosing, setIsClosing] = useState(false);
+    const [backgroundGlow, setBackgroundGlow] = useState(false);
 
-    const MENU_CLOSE_MS = 1400;
+    const MENU_CLOSE_MS = 1700;
+    const BACKGROUND_GLOW_MS = 2500;
 
     const birdImgs = [
         birdImg1, birdImg2, birdImg3
@@ -283,16 +285,15 @@ function Backdrop(props) {
         if (menuOpen && !isClosing){
             setIsClosing(true);
             setExitStyle("exitStyle closing");
-
-            window.setTimeout(() => {
-                setMenuAnimation("menu-close-animate");
-            }, 250);
+            setMenuAnimation("menu-close-animate");
 
             window.setTimeout(() => {
                 setMenuOpen(false);
                 setExitStyle("");
                 setMenuAnimation("");
                 setIsClosing(false);
+                setBackgroundGlow(true);
+                window.setTimeout(() => setBackgroundGlow(false), BACKGROUND_GLOW_MS);
             }, MENU_CLOSE_MS);
         }
     }
@@ -304,7 +305,7 @@ function Backdrop(props) {
 
 
     return (
-        <div className={props.darkMode ? "backdrop-dark" : "backdrop-light"}>
+        <div className={`${props.darkMode ? "backdrop-dark" : "backdrop-light"}${backgroundGlow ? " background-glow-active" : ""}`}>
             <div className={`menu ${exitStyle}`}>
                 <a onClick={closeMenu} className={`exitImg ${exitStyle}`}>
                     <img src={exitMenu} alt="" />
@@ -339,7 +340,7 @@ function Backdrop(props) {
 
             {props.darkMode ? (
                 <>
-                    <div className={getMoonFogClass(menuAnimation)} style={moonLightStyle} onClick={closeMenu}></div>
+                    <div className={`${getMoonFogClass(menuAnimation)}${backgroundGlow ? " background-glow" : ""}`} style={moonLightStyle} onClick={closeMenu}></div>
                     <a className={`moon-group ${menuAnimation}`} onClick={openMenu}>
                         {moon.map((style, i) =>
                             <div key={i} className={`moon ${menuAnimation}`} style={style}></div>
@@ -353,7 +354,7 @@ function Backdrop(props) {
                 </>
             ) : (
                 <>
-                    <div className={getSunFogClass(menuAnimation)} style={sunLightStyle} onClick={closeMenu}></div>
+                    <div className={`${getSunFogClass(menuAnimation)}${backgroundGlow ? " background-glow" : ""}`} style={sunLightStyle} onClick={closeMenu}></div>
                     <a className={`sun-group ${menuAnimation}`} onClick={openMenu}>
                         {sun.map((style, i) =>
                             <div key={i} className={`sun ${menuAnimation}`} style={style}></div>

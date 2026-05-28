@@ -5,6 +5,71 @@
     height: auto;
     background-color: #02111B;
     overflow: hidden;
+    position: relative;
+}
+
+.backdrop-dark.background-glow-active::after,
+.backdrop-light.background-glow-active::after{
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0;
+}
+
+.backdrop-dark.background-glow-active::after{
+    animation: ambientMoonGlow 2.5s ease-out;
+    background: radial-gradient(circle at 100% 0%, rgba(233, 233, 233, 0.22) 0%, rgba(233, 233, 233, 0.08) 35%, transparent 62%);
+}
+
+.backdrop-light.background-glow-active::after{
+    animation: ambientSunGlow 2.5s ease-out;
+    background: radial-gradient(circle at 100% 0%, rgba(244, 211, 94, 0.28) 0%, rgba(250, 240, 202, 0.12) 38%, transparent 65%);
+}
+
+@keyframes ambientMoonGlow {
+    0%, 100% {
+        opacity: 0;
+    }
+    35% {
+        opacity: 1;
+    }
+}
+
+@keyframes ambientSunGlow {
+    0%, 100% {
+        opacity: 0;
+    }
+    35% {
+        opacity: 1;
+    }
+}
+
+.moon.background-glow{
+    animation: moonLightPulse 2.5s ease-out;
+}
+
+.sun.background-glow{
+    animation: sunLightPulse 2.5s ease-out;
+}
+
+@keyframes moonLightPulse {
+    0%, 100% {
+        filter: brightness(1);
+    }
+    35% {
+        filter: brightness(2.1);
+    }
+}
+
+@keyframes sunLightPulse {
+    0%, 100% {
+        filter: brightness(1);
+    }
+    35% {
+        filter: brightness(1.7);
+    }
 }
 
 .circle{
@@ -247,9 +312,9 @@
 .moon.fog-menu-close-animate{
     animation-name: fog;
     animation-direction: reverse;
-    animation-duration: 0.9s;
+    animation-duration: 1s;
     animation-fill-mode: both;
-    animation-delay: 0.25s;
+    animation-delay: 0s;
     z-index: 14!important;
     cursor: pointer;
 }
@@ -259,7 +324,7 @@
     animation-direction: reverse;
     animation-duration: 0.3s;
     animation-fill-mode: both;
-    animation-delay: 0.35s;
+    animation-delay: 0.2s;
     animation-iteration-count: 1;
 }
 
@@ -277,7 +342,7 @@
     animation-direction: reverse;
     animation-duration: 0.6s;
     animation-fill-mode: both;
-    animation-delay: 0.45s;
+    animation-delay: 0.5s;
     animation-iteration-count: 1;
 }
 
@@ -286,7 +351,7 @@
     animation-direction: reverse;
     animation-duration: 0.8s;
     animation-fill-mode: both;
-    animation-delay: 0.5s;
+    animation-delay: 0.55s;
     animation-iteration-count: 1;
 }
 
@@ -611,65 +676,65 @@
 
 .exitImg.closing.exitStyle {
     animation-name: exitHide;
-    animation-duration: 0.2s;
+    animation-duration: 0.3s;
     animation-fill-mode: forwards;
-    animation-delay: 0.2s;
+    animation-delay: 1.3s;
 }
 
 .modeToggle.closing.exitStyle {
     animation-name: exitHide;
-    animation-duration: 0.2s;
+    animation-duration: 0.3s;
     animation-fill-mode: forwards;
-    animation-delay: 0.15s;
+    animation-delay: 1s;
 }
 
 .options .menu-selector.closing.exitStyle:nth-child(4){
     animation-name: exitHide;
-    animation-duration: 0.2s;
+    animation-duration: 0.3s;
     animation-fill-mode: forwards;
-    animation-delay: 0s;
+    animation-delay: 0.7s;
 }
 
 .options .menu-selector.closing.exitStyle:nth-child(3){
     animation-name: exitHide;
-    animation-duration: 0.2s;
+    animation-duration: 0.3s;
     animation-fill-mode: forwards;
-    animation-delay: 0.05s;
+    animation-delay: 0.8s;
 }
 
 .options .menu-selector.closing.exitStyle:nth-child(2){
     animation-name: exitHide;
-    animation-duration: 0.2s;
+    animation-duration: 0.3s;
     animation-fill-mode: forwards;
-    animation-delay: 0.1s;
+    animation-delay: 0.9s;
 }
 
 .options .menu-selector.closing.exitStyle:nth-child(1){
     animation-name: exitHide;
-    animation-duration: 0.2s;
+    animation-duration: 0.3s;
     animation-fill-mode: forwards;
-    animation-delay: 0.15s;
+    animation-delay: 1s;
 }
 
 .socials .menu-selector.closing.exitStyle:nth-child(3){
     animation-name: exitHide;
-    animation-duration: 0.2s;
+    animation-duration: 0.3s;
     animation-fill-mode: forwards;
-    animation-delay: 0.05s;
+    animation-delay: 0s;
 }
 
 .socials .menu-selector.closing.exitStyle:nth-child(2){
     animation-name: exitHide;
-    animation-duration: 0.2s;
+    animation-duration: 0.3s;
     animation-fill-mode: forwards;
     animation-delay: 0.1s;
 }
 
 .socials .menu-selector.closing.exitStyle:nth-child(1){
     animation-name: exitHide;
-    animation-duration: 0.2s;
+    animation-duration: 0.3s;
     animation-fill-mode: forwards;
-    animation-delay: 0.15s;
+    animation-delay: 0.2s;
 }
 
 a.exitStyle:hover{
@@ -681,6 +746,7 @@ a.exitStyle:hover{
 .backdrop-light{
     width:100%;
     overflow: hidden;
+    position: relative;
 }
 
 .sun{
@@ -760,9 +826,9 @@ a.exitStyle:hover{
 .sunfog-menu-close-animate{
     animation-name: sunfog;
     animation-direction: reverse;
-    animation-duration: 0.9s;
+    animation-duration: 1s;
     animation-fill-mode: both;
-    animation-delay: 0.25s;
+    animation-delay: 0s;
     z-index: 14!important;
     cursor: pointer;
 }
@@ -772,7 +838,7 @@ a.exitStyle:hover{
     animation-direction: reverse;
     animation-duration: 0.3s;
     animation-fill-mode: both;
-    animation-delay: 0.35s;
+    animation-delay: 0.2s;
     animation-iteration-count: 1;
 }
 
@@ -790,7 +856,7 @@ a.exitStyle:hover{
     animation-direction: reverse;
     animation-duration: 0.6s;
     animation-fill-mode: both;
-    animation-delay: 0.45s;
+    animation-delay: 0.5s;
     animation-iteration-count: 1;
 }
 
@@ -799,7 +865,7 @@ a.exitStyle:hover{
     animation-direction: reverse;
     animation-duration: 0.8s;
     animation-fill-mode: both;
-    animation-delay: 0.5s;
+    animation-delay: 0.55s;
     animation-iteration-count: 1;
 }
 
