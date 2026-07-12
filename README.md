@@ -1,12 +1,5 @@
 # Mostafa Hussein Portfolio
 
-A static Astro portfolio for Mostafa Hussein, built around two independently art-directed themes:
-
-- Canada night in dark mode
-- Egypt daylight in light mode
-
-The shared layout uses a bilingual `MOSTAFA HUSSEIN / مصطفى حسين` identity, recruiter-focused project summaries, accessible navigation, and a filterable eight-project grid.
-
 ## Local development
 
 Requirements: Node 24 and npm 11.
