@@ -38,6 +38,6 @@ The site is emitted as static HTML. `/projects/hardware` and `/projects/software
 
 ## Cloudflare Pages
 
-Use `npm run build` as the build command and `dist` as the build output directory. Cloudflare Pages can read the pinned Node version from `.nvmrc`; set `PUBLIC_SITE_URL` in the production environment to the public site origin for canonical URLs and the sitemap.
+Use `npm run build` as the build command. `wrangler.jsonc` declares `dist` as the Cloudflare Pages output directory, so it cannot retain the old Create React App `build` setting. Set `PUBLIC_SITE_URL` in the production environment to the public site origin for canonical URLs and the sitemap.
 
 The pre-migration CRA component files with existing uncommitted edits are intentionally outside Astro's build graph so that work is preserved for review; the production entry points are exclusively in `src/pages/`.
