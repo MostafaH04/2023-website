@@ -92,7 +92,6 @@ jobs:
             "/icon-dark-512.png"
             "/icon-light-192.png"
             "/icon-light-512.png"
-            "/Mostafa-Hussein-Resume.pdf"
           )
 
           for route in "${routes[@]}"; do
