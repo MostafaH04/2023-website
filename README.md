@@ -2,7 +2,7 @@
 
 ## Local development
 
-Requirements: Node 24 and npm 11.
+Requirements: Node 22.12+ and npm 10+.
 
 ```sh
 nvm use
@@ -35,5 +35,9 @@ The browser suite covers the primary routes, theme persistence, mobile dialog be
 - Responsive project media: `public/images/projects/`
 
 The site is emitted as static HTML. `/projects/hardware` and `/projects/software` are compatibility redirects to the unified filtered grid.
+
+## Cloudflare Pages
+
+Use `npm run build` as the build command and `dist` as the build output directory. Cloudflare Pages can read the pinned Node version from `.nvmrc`; set `PUBLIC_SITE_URL` in the production environment to the public site origin for canonical URLs and the sitemap.
 
 The pre-migration CRA component files with existing uncommitted edits are intentionally outside Astro's build graph so that work is preserved for review; the production entry points are exclusively in `src/pages/`.
