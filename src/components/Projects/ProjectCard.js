@@ -1,65 +1,52 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react';
 
-function ProjectCard(props)
-{
-    const [selector, setSelector] = useState(0);
-    const [projectSave, setProjectSave] = useState(props.currProject.name);
+function ProjectCard(props) {
+    const [imageIndex, setImageIndex] = useState(0);
+    const images = props.currProject.imgSrcs;
+    const activeImage = images[imageIndex % images.length];
 
-    if (projectSave != props.currProject.name)
-    {
-        setSelector((0));
-        setProjectSave(props.currProject.name)
-    }
+    useEffect(() => {
+        setImageIndex(0);
+    }, [props.currProject.name]);
 
-    function add()
-    {
-        setSelector((selector+1));
-    }
-
-    function add2()
-    {
-        setSelector((selector+2));
-    }
-
-    let numImgs = props.currProject.imgSrcs.length;
-
-    let styles = [{},{},{}];
-
-    if (numImgs < 2)
-    {
-        styles[1] = {
-            display: 'none'
-        };
-        styles[2] = {
-            display: 'none'
-        };
-    }
-    else if (numImgs < 3)
-    {
-        styles[1] = {};
-        styles[2] = {
-            display: 'none'
-        };
-    }
-    else
-    {
-        styles[1] = {};
-        styles[2] = {};
-    }
-
-    return(
-        <div className = "projectCard">
-            <div className = "content">
-                <h1>{props.currProject.name}</h1>
+    return (
+        <article className="projectCard">
+            <div className="project-content">
+                <span className="project-count">{String(props.index + 1).padStart(2, '0')} / {String(props.count).padStart(2, '0')}</span>
+                <h2>{props.currProject.name}</h2>
                 <p>{props.currProject.description}</p>
-                <a className = "viewButton" href = {props.currProject.link} target = "_blank">View</a>
+                <div className="project-stack" aria-label="Project technologies">
+                    {props.currProject.stack.map((item) => (
+                        <span key={item}>{item}</span>
+                    ))}
+                </div>
+                <a className="viewButton" href={props.currProject.link} target="_blank" rel="noreferrer">
+                    View Project
+                </a>
             </div>
-            <div className = "imgCont">
-                <img id = "one" onClick = {add} style = {styles[(selector+1)%3]} src = {props.currProject.imgSrcs[(selector+1)%3]}/>
-                <img id = "two" onClick = {add2} style = {styles[(selector+2)%3]} src = {props.currProject.imgSrcs[(selector+2)%3]}/>
-                <img id = "three" src = {props.currProject.imgSrcs[(selector)%3]}/>
+
+            <div className="imgCont">
+                <div className="main-image-frame">
+                    <img key={activeImage} src={activeImage} alt={`${props.currProject.name} preview`} decoding="async" />
+                </div>
+
+                {images.length > 1 && (
+                    <div className="thumbnail-row" aria-label={`${props.currProject.name} image selector`}>
+                        {images.map((image, index) => (
+                            <button
+                                key={image}
+                                className={index === imageIndex ? 'thumbnail-button active' : 'thumbnail-button'}
+                                type="button"
+                                onClick={() => setImageIndex(index)}
+                                aria-label={`Show preview ${index + 1}`}
+                            >
+                                <img src={image} alt="" aria-hidden="true" decoding="async" />
+                            </button>
+                        ))}
+                    </div>
+                )}
             </div>
-        </div>
+        </article>
     );
 }
 

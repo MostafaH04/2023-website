@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Mostafa Hussein | مصطفى حسين — Light theme</title>
+  <rect width="64" height="64" rx="16" fill="#fff8e8" />
+  <rect x="5" y="5" width="54" height="54" rx="13" fill="none" stroke="#6f5d22" stroke-opacity=".8" stroke-width="2" />
+  <text x="10" y="49" fill="#20282d" font-family="Alexandria, Arial, sans-serif" font-size="39" font-weight="850">M</text>
+  <text x="55" y="30" fill="#6f5d22" font-family="Alexandria, Tahoma, sans-serif" font-size="29" font-weight="800" text-anchor="end">م</text>
+</svg>

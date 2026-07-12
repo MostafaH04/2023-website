@@ -1,0 +1,205 @@
+---
+import '../styles/fonts.css';
+import '../styles/global.css';
+
+import AmbientSky from '../components/AmbientSky.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  image = '/images/brand/og-card.png',
+  noindex = false,
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin);
+const socialImage = new URL(image, Astro.site ?? Astro.url.origin);
+const currentPath = Astro.url.pathname;
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Mostafa Hussein',
+  alternateName: 'مصطفى حسين',
+  url: new URL('/', Astro.site ?? Astro.url.origin).href,
+  email: 'mailto:Mahussein04@gmail.com',
+  alumniOf: {
+    '@type': 'CollegeOrUniversity',
+    name: 'University of Waterloo',
+  },
+  knowsAbout: [
+    'Robotics',
+    'Mechatronics',
+    'Embedded systems',
+    'Automation',
+    'Software',
+  ],
+  sameAs: [
+    'https://github.com/MostafaH04',
+    'https://www.linkedin.com/in/mostafa-hussein-04/',
+  ],
+};
+---
+
+<!doctype html>
+<html lang="en-CA" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#07131f" />
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
+    {!noindex && <link rel="canonical" href={canonical} />}
+    <link rel="icon" type="image/svg+xml" href="/favicon-dark.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon-dark.png" />
+    <link rel="manifest" href="/manifest-dark.webmanifest" />
+    <link
+      rel="preload"
+      href="/fonts/inter-portfolio.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/alexandria-latin-portfolio.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/alexandria-arabic-name.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_CA" />
+    <meta property="og:site_name" content="Mostafa Hussein" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Mostafa Hussein bilingual portfolio identity"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+    <meta
+      name="twitter:image:alt"
+      content="Mostafa Hussein bilingual portfolio identity"
+    />
+    <title>{title}</title>
+
+    <script is:inline>
+      (() => {
+        const key = 'portfolio-theme';
+        let stored = null;
+        try {
+          stored = window.localStorage.getItem(key);
+        } catch {}
+        const systemDark = window.matchMedia(
+          '(prefers-color-scheme: dark)',
+        ).matches;
+        const theme =
+          stored === 'dark' || stored === 'light'
+            ? stored
+            : systemDark
+              ? 'dark'
+              : 'light';
+        const projectCategory = new URLSearchParams(window.location.search).get(
+          'category',
+        );
+
+        if (projectCategory === 'hardware' || projectCategory === 'software') {
+          document.documentElement.dataset.projectCategory = projectCategory;
+        }
+
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+        document
+          .querySelector('meta[name="theme-color"]')
+          ?.setAttribute('content', theme === 'dark' ? '#07131f' : '#fff8e8');
+        document
+          .querySelector('link[rel="manifest"]')
+          ?.setAttribute(
+            'href',
+            theme === 'dark'
+              ? '/manifest-dark.webmanifest'
+              : '/manifest-light.webmanifest',
+          );
+        document
+          .querySelector('link[rel="icon"]')
+          ?.setAttribute(
+            'href',
+            theme === 'dark' ? '/favicon-dark.svg' : '/favicon-light.svg',
+          );
+        document
+          .querySelector('link[rel="apple-touch-icon"]')
+          ?.setAttribute(
+            'href',
+            theme === 'dark'
+              ? '/apple-touch-icon-dark.png'
+              : '/apple-touch-icon-light.png',
+          );
+      })();
+    </script>
+    <script is:inline>
+      const syncPageVisibility = () => {
+        document.documentElement.toggleAttribute(
+          'data-page-hidden',
+          document.hidden,
+        );
+      };
+
+      syncPageVisibility();
+      document.addEventListener('visibilitychange', syncPageVisibility);
+
+      document.addEventListener(
+        'error',
+        (event) => {
+          const target = event.target;
+          if (
+            target instanceof HTMLImageElement &&
+            target.matches('[data-project-image]')
+          ) {
+            target
+              .closest('.project-card__media')
+              ?.setAttribute('data-image-error', 'true');
+          }
+        },
+        true,
+      );
+    </script>
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify(personSchema)}
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <AmbientSky />
+    <SiteHeader currentPath={currentPath} client:load />
+    <div class="site-frame">
+      <slot />
+      <SiteFooter />
+    </div>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Mostafa Hussein | مصطفى حسين</title>
+  <style>
+    .background { fill: #07131f; }
+    .frame { fill: none; stroke: #4fc6b4; }
+    .latin { fill: #f5f7f8; }
+    .arabic { fill: #4fc6b4; }
+
+    @media (prefers-color-scheme: light) {
+      .background { fill: #fff8e8; }
+      .frame { stroke: #6f5d22; }
+      .latin { fill: #20282d; }
+      .arabic { fill: #6f5d22; }
+    }
+  </style>
+  <rect class="background" width="64" height="64" rx="16" />
+  <rect class="frame" x="5" y="5" width="54" height="54" rx="13" stroke-opacity=".7" stroke-width="2" />
+  <text class="latin" x="10" y="49" font-family="Alexandria, Arial, sans-serif" font-size="39" font-weight="850">M</text>
+  <text class="arabic" x="55" y="30" font-family="Alexandria, Tahoma, sans-serif" font-size="29" font-weight="800" text-anchor="end">م</text>
+</svg>

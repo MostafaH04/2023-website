@@ -1,65 +1,41 @@
 import './About.css';
 
-import { Link } from 'react-router-dom'
+import personalImg from './personal.png';
+import sceneryImg1 from './Scenery.svg';
+import sceneryImg2 from './SceneryLight.svg';
 
-import personalImg from './personal.png'
-import sceneryImg1 from './Scenery.svg'
-import sceneryImg2 from './SceneryLight.svg'
-
-function About(props)
-{   
-    let sceneryImg;
-    let imageBackgroundStyle;
-
-    let mainTextColor;
-    let subTextColor;
-    let buttonColor;
-    if (props.darkMode)
-    {
-        sceneryImg = sceneryImg1;
-        imageBackgroundStyle = {
-            background: 'rgba(63, 64, 69, 0.54)'
-        }
-    }
-    else
-    {
-        sceneryImg = sceneryImg2;
-        imageBackgroundStyle = {
-            background: 'rgba(238, 150, 75, 0.28)'
-        }
-        mainTextColor = {
-            color: '#4C4B46'
-        }
-        subTextColor = {
-            color: '#EE964B'
-        }
-
-        buttonColor = 'lightMode-color'
-    }
+function About(props) {
+    const sceneryImg = props.darkMode ? sceneryImg1 : sceneryImg2;
 
     return (
-        <div className = "about-section">
-            <div className = "text">
-                <h1 style = {mainTextColor}>HEY👋</h1>
-                <h3 style = {mainTextColor}>
-                    I am Mostafa, a Mechatronics<br />
-                    Engineering student at the University<br />
-                    of Waterloo, passionate about<br />
-                    automation and electromechanical<br />
-                    systems and dedicated to shaping<br />
-                    the future of robotics. <br />
-                    
-                </h3>
-                <h3 className = "extra-text" style = {subTextColor}>
-                    Check the other pages to <br/>learn more about me!
-                </h3>
-                <a href = "https://drive.google.com/file/d/1a3I1CHtxwZnfcyMbPvrXwMktkEdkgcpv/view?usp=sharing" target = "_blank" className= {buttonColor}>my resume</a>
-            </div>
-            <div className = "picture" style = {imageBackgroundStyle}>
-                <img className = "personal-image" src = {personalImg} />
-                <img className = "image-background" src = {sceneryImg} />
-            </div>
-        </div>
+        <main className={`about-section page-shell ${props.darkMode ? 'about-dark' : 'about-light'}`}>
+            <section className="about-copy" aria-labelledby="about-title">
+                <p className="about-kicker">About Me</p>
+                <h1 id="about-title">Hey, I'm Mostafa.</h1>
+                <p className="about-lead">
+                    I am a Mechatronics Engineering student at the University of Waterloo focused on automation, electromechanical systems, and robotics that can hold up outside the lab.
+                </p>
+                <p className="about-body">
+                    My work sits between mechanical design, embedded systems, and software. I care about making systems feel intentional from the hardware architecture all the way to the interface someone uses to control it.
+                </p>
+                <div className="about-actions">
+                    <a
+                        href="https://drive.google.com/file/d/1a3I1CHtxwZnfcyMbPvrXwMktkEdkgcpv/view?usp=sharing"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="resume-button"
+                    >
+                        View Resume
+                    </a>
+                </div>
+            </section>
+
+            <aside className="picture" aria-label="Portrait of Mostafa Hussein">
+                <div className="picture-glow" />
+                <img className="image-background" src={sceneryImg} alt="" aria-hidden="true" />
+                <img className="personal-image" src={personalImg} alt="Mostafa Hussein" />
+            </aside>
+        </main>
     );
 }
 

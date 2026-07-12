@@ -1,0 +1,99 @@
+---
+import type { Project } from '../data/projects';
+import '../styles/projects.css';
+
+interface Props {
+  project: Project;
+  headingLevel?: 'h2' | 'h3';
+  priority?: boolean;
+}
+
+const { project, headingLevel = 'h2', priority = false } = Astro.props;
+const Heading = headingLevel;
+const categoryLabel = project.category === 'hardware' ? 'Hardware' : 'Software';
+const imageBase = project.media.src.slice(0, -'.webp'.length);
+const smallImageWidth = Math.min(640, project.media.width);
+const hasSmallerImage = smallImageWidth < project.media.width;
+const avifSrcSet = hasSmallerImage
+  ? `${imageBase}-640.avif ${smallImageWidth}w, ${imageBase}.avif ${project.media.width}w`
+  : `${imageBase}.avif ${project.media.width}w`;
+const webpSrcSet = hasSmallerImage
+  ? `${imageBase}-640.webp ${smallImageWidth}w, ${project.media.src} ${project.media.width}w`
+  : `${project.media.src} ${project.media.width}w`;
+const imageSizes =
+  '(max-width: 47.99rem) calc(100vw - 2rem), (max-width: 72rem) calc(50vw - 2.5rem), 24rem';
+---
+
+<article
+  class="project-card"
+  id={project.id}
+  data-project-card
+  data-project-id={project.id}
+  data-category={project.category}
+>
+  <header class="project-card__header">
+    <div class="project-card__meta">
+      <span>{categoryLabel}</span>
+      <span>{project.status}</span>
+    </div>
+    <Heading class="project-card__title">{project.title}</Heading>
+    <p class="project-card__summary">{project.summary}</p>
+  </header>
+
+  <a
+    class="project-card__media"
+    href={project.links[0].href}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label={`Open ${project.title}: ${project.links[0].label}`}
+  >
+    <span class="project-card__media-fallback" aria-hidden="true"
+      >Media unavailable</span
+    >
+    <picture>
+      <source type="image/avif" srcset={avifSrcSet} sizes={imageSizes} />
+      <source type="image/webp" srcset={webpSrcSet} sizes={imageSizes} />
+      <img
+        data-project-image
+        src={project.media.src}
+        srcset={webpSrcSet}
+        sizes={imageSizes}
+        width={project.media.width}
+        height={project.media.height}
+        alt={project.media.alt}
+        loading={priority ? 'eager' : 'lazy'}
+        fetchpriority={priority ? 'high' : 'auto'}
+        decoding="async"
+      />
+    </picture>
+  </a>
+
+  <div class="project-card__content">
+    <p class="project-card__contribution">{project.contribution}</p>
+
+    <ul
+      class="project-card__technologies"
+      aria-label={`${project.title} technologies`}
+    >
+      {project.tags.map((tag) => <li>{tag}</li>)}
+    </ul>
+
+    <ul class="project-card__links" aria-label={`${project.title} links`}>
+      {
+        project.links.map((link) => (
+          <li>
+            <a
+              class="project-card__link"
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>{link.label}</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</article>

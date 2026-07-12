@@ -1,7 +1,68 @@
-.App{
-    padding: 0;
-    margin: 0;
-    position: absolute;
-    width: 100%;
-    overflow: hidden;
+.App {
+  --bg: #06111a;
+  --bg-deep: #050c13;
+  --surface: rgba(14, 22, 31, 0.82);
+  --surface-soft: rgba(255, 255, 255, 0.07);
+  --surface-strong: rgba(255, 255, 255, 0.12);
+  --border: rgba(221, 231, 239, 0.18);
+  --border-strong: rgba(221, 231, 239, 0.28);
+  --text: #f5f7f8;
+  --text-muted: #aab4bd;
+  --text-dim: #75818d;
+  --accent: #d3bf61;
+  --accent-strong: #f2d46b;
+  --accent-contrast: #181815;
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.38);
+
+  position: relative;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 16% 18%, rgba(93, 115, 126, 0.24), transparent 26rem),
+    radial-gradient(circle at 82% 12%, rgba(211, 191, 97, 0.13), transparent 32rem),
+    linear-gradient(145deg, var(--bg-deep), var(--bg) 52%, #0a1924);
+  color: var(--text);
+  transition: background 420ms ease, color 220ms ease;
+}
+
+.App.app-light {
+  --bg: #f7f4e7;
+  --bg-deep: #d9eff5;
+  --surface: rgba(255, 251, 238, 0.82);
+  --surface-soft: rgba(255, 255, 255, 0.55);
+  --surface-strong: rgba(255, 255, 255, 0.76);
+  --border: rgba(45, 68, 84, 0.16);
+  --border-strong: rgba(45, 68, 84, 0.25);
+  --text: #20242a;
+  --text-muted: #4f5f68;
+  --text-dim: #6f7c83;
+  --accent: #0d6f85;
+  --accent-strong: #ee964b;
+  --accent-contrast: #fff8e8;
+  --shadow: 0 24px 80px rgba(45, 68, 84, 0.2);
+
+  background:
+    radial-gradient(circle at 18% 16%, rgba(255, 173, 103, 0.3), transparent 25rem),
+    radial-gradient(circle at 82% 10%, rgba(13, 111, 133, 0.16), transparent 34rem),
+    linear-gradient(145deg, #fff7dd, #d9f1f8 58%, #f8efe2);
+}
+
+.page-shell {
+  position: relative;
+  z-index: 10;
+  min-height: 100dvh;
+  width: min(1180px, calc(100vw - 48px));
+  margin: 0 auto;
+}
+
+::selection {
+  background: rgba(211, 191, 97, 0.36);
+  color: var(--text);
+}
+
+@media (max-width: 700px) {
+  .page-shell {
+    width: calc(100vw - 32px);
+    max-width: 640px;
+  }
 }

@@ -1,372 +1,178 @@
 import './Backdrop.css';
-import exitMenu from './Exit.svg';
-import { useState } from 'react';
-
+import { useEffect, useMemo, useState } from 'react';
 import { GrGithub, GrInstagram } from "react-icons/gr";
 import { FaLinkedin } from "react-icons/fa";
-
-import lightMode from "./lightMode.svg";
-import darkMode from "./darkMode.svg";
+import { Link, useLocation } from "react-router-dom";
 
 import birdImg1 from "./bird 2.svg";
 import birdImg2 from "./bird 6.svg";
 import birdImg3 from "./bird 9.svg";
 
-import { Link } from "react-router-dom";
+const starPositions = [
+    { width: '8px', left: '7%', top: '18%', animationDelay: '0.1s' },
+    { width: '18px', left: '17%', top: '10%', animationDelay: '0.7s' },
+    { width: '12px', left: '28%', top: '24%', animationDelay: '1.2s' },
+    { width: '20px', left: '41%', top: '14%', animationDelay: '0.4s' },
+    { width: '9px', left: '16%', top: '34%', animationDelay: '1.5s' },
+    { width: '28px', left: '49%', top: '38%', animationDelay: '2s' },
+    { width: '15px', left: '72%', top: '17%', animationDelay: '0.9s' },
+    { width: '10px', left: '68%', top: '31%', animationDelay: '2.4s' },
+    { width: '6px', left: '59%', top: '12%', animationDelay: '1.9s' },
+    { width: '22px', left: '83%', top: '35%', animationDelay: '2.8s' },
+    { width: '7px', left: '79%', top: '9%', animationDelay: '1.1s' }
+];
+
+const birdPositions = [
+    { width: '44px', left: '7%', top: '18%', animationDelay: '0.2s' },
+    { width: '38px', left: '18%', top: '12%', animationDelay: '0.8s' },
+    { width: '36px', left: '29%', top: '25%', animationDelay: '1.4s' },
+    { width: '42px', left: '43%', top: '15%', animationDelay: '0.5s' },
+    { width: '78px', left: '15%', top: '36%', animationDelay: '1.8s' },
+    { width: '62px', left: '51%', top: '39%', animationDelay: '2.2s' },
+    { width: '34px', left: '73%', top: '18%', animationDelay: '1s' },
+    { width: '48px', left: '67%', top: '33%', animationDelay: '2.5s' },
+    { width: '58px', left: '60%', top: '13%', animationDelay: '2s' },
+    { width: '45px', left: '84%', top: '36%', animationDelay: '2.9s' },
+    { width: '54px', left: '80%', top: '10%', animationDelay: '1.3s' }
+];
+
+const navLinks = [
+    { label: 'Home', to: '/' },
+    { label: 'About Me', to: '/about' },
+    { label: 'Software', to: '/projects/software' },
+    { label: 'Hardware', to: '/projects/hardware' }
+];
+
+const socialLinks = [
+    { label: 'GitHub', href: 'https://github.com/MostafaH04', icon: <GrGithub /> },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/mostafa-hussein-04/', icon: <FaLinkedin /> },
+    { label: 'Instagram', href: 'https://www.instagram.com/mostafah04/', icon: <GrInstagram /> }
+];
 
 function Backdrop(props) {
-    const [menuAnimation, setMenuAnimation] = useState("");
     const [menuOpen, setMenuOpen] = useState(false);
-    const [exitStyle, setExitStyle] = useState("");
+    const location = useLocation();
+    const birdImgs = useMemo(() => [birdImg1, birdImg2, birdImg3], []);
+    const themeClass = props.darkMode ? 'backdrop-dark' : 'backdrop-light';
 
-    const birdImgs = [
-        birdImg1, birdImg2, birdImg3
-    ];
+    useEffect(() => {
+        setMenuOpen(false);
+    }, [location.pathname]);
 
-    const circles = [
-        {
-            width: `${10/14.4}vw`,
-            height: `${10/14.4}vw`,
-            left: `${72/14.4}vw`,
-            top: `${110/10.24}vh`
-        },
-        {
-            width: `${29/14.4}vw`,
-            height: `${29/14.4}vw`,
-            left: `${259/14.4}vw`,
-            top: `${(61-15)/10.24}vh`
-        },
-        {
-            width: `${19/14.4}vw`,
-            height: `${19/14.4}vw`,
-            left: `${365/14.4}vw`,
-            top: `${(182-15)/10.24}vh`
-        }
-        ,
-        {
-            width: `${31/14.4}vw`,
-            height: `${31/14.4}vw`,
-            left: `${553/14.4}vw`,
-            top: `${(106-15)/10.24}vh`
-        },
-        {
-            width: `${12/14.4}vw`,
-            height: `${12/14.4}vw`,
-            left: `${150/14.4}vw`,
-            top: `${(240-15)/10.24}vh`
-        },
-        {
-            width: `${67/14.4}vw`,
-            height: `${67/14.4}vw`,
-            left: `${641/14.4}vw`,
-            top: `${(263-15)/10.24}vh`
-        },
-        {
-            width: `${24/14.4}vw`,
-            height: `${24/14.4}vw`,
-            left: `${965/14.4}vw`,
-            top: `${(121-15)/10.24}vh`
-        },
-        {
-            width: `${13/14.4}vw`,
-            height: `${13/14.4}vw`,
-            left: `${874/14.4}vw`,
-            top: `${(212-15)/10.24}vh`
-        },
-        {
-            width: `${7/14.4}vw`,
-            height: `${7/14.4}vw`,
-            left: `${764/14.4}vw`,
-            top: `${(88-15)/10.24}vh`
-        },
-        {
-            width: `${41/14.4}vw`,
-            height: `${41/14.4}vw`,
-            left: `${1129/14.4}vw`,
-            top: `${(246-15)/10.24}vh`
-        },
-        {
-            width: `${9/14.4}vw`,
-            height: `${9/14.4}vw`,
-            left: `${1072/14.4}vw`,
-            top: `${(51-15)/10.24}vh`
-        }
-    ];
-
-    const birds = [
-        {
-            width: `${35/14.4}vw`,
-            left: `${72/14.4}vw`,
-            top: `${110/10.24}vh`
-        },
-        {
-            width: `${29/14.4}vw`,
-            left: `${259/14.4}vw`,
-            top: `${(61-15)/10.24}vh`
-        },
-        {
-            width: `${28/14.4}vw`,
-            left: `${365/14.4}vw`,
-            top: `${(182-15)/10.24}vh`
-        }
-        ,
-        {
-            width: `${31/14.4}vw`,
-            left: `${553/14.4}vw`,
-            top: `${(106-15)/10.24}vh`
-        },
-        {
-            width: `${72/14.4}vw`,
-            left: `${150/14.4}vw`,
-            top: `${(240-15)/10.24}vh`
-        },
-        {
-            width: `${67/14.4}vw`,
-            left: `${641/14.4}vw`,
-            top: `${(263-15)/10.24}vh`
-        },
-        {
-            width: `${24/14.4}vw`,
-            left: `${965/14.4}vw`,
-            top: `${(121-15)/10.24}vh`
-        },
-        {
-            width: `${40/14.4}vw`,
-            left: `${874/14.4}vw`,
-            top: `${(212-15)/10.24}vh`
-        },
-        {
-            width: `${52/14.4}vw`,
-            left: `${764/14.4}vw`,
-            top: `${(88-15)/10.24}vh`
-        },
-        {
-            width: `${39/14.4}vw`,
-            left: `${1129/14.4}vw`,
-            top: `${(246-15)/10.24}vh`
-        },
-        {
-            width: `${49/14.4}vw`,
-            left: `${1072/14.4}vw`,
-            top: `${(51-15)/10.24}vh`
-        }
-    ];
-
-    let moonLightStyle = {
-        zIndex: 1,
-        width: `${2531/14.4}vw`,
-        height:`${2531/14.4}vw`,
-        right: `-${2531/28.8}vw`,
-        top: `-${2531/28.8}vw`,
-        background: "radial-gradient(50% 50% at 50% 50%, rgba(233, 233, 233, 0.24) 0%, rgba(233, 233, 233, 0) 100%)"
-    };
-
-    let sunLightStyle = {
-        zIndex: 1,
-        width: `${2531/14.4}vw`,
-        height:`${2531/14.4}vw`,
-        right: `-${2531/28.8}vw`,
-        top: `-${2531/28.8}vw`,
-        background: "radial-gradient(50% 50% at 50% 50%, rgba(244, 211, 94, 0.19) 0%, rgba(240, 219, 147, 0.11776) 75.52%, rgba(233, 233, 233, 0) 100%)"
-    }
-
-    let moon = [
-        {
-            zIndex: 15,
-            width: `${424/14.4}vw`,
-            height:`${424/14.4}vw`,
-            right: `-${424/28.8}vw`,
-            top: `-${424/28.8}vw`,
-            background: "#E9E9E9",
-            borderRadius: "50%"
-        },
-        {
-            zIndex: 15,
-            width: `${348/14.4}vw`,
-            height:`${348/14.4}vw`,
-            right: `-${348/28.8}vw`,
-            top: `-${348/28.8}vw`,
-            background: "#CFCFCF",
-            borderRadius: "50%"
-        },
-        {
-            zIndex: 15,
-            width: `${305/14.4}vw`,
-            height:`${305/14.4}vw`,
-            right: `-${305/28.8}vw`,
-            top: `-${305/28.8}vw`,
-            background: "#AEAEAE",
-            borderRadius: "50%"
-        },
-        {
-            zIndex: 15,
-            width: `${185/14.4}vw`,
-            height:`${185/14.4}vw`,
-            right: `-${185/28.8}vw`,
-            top: `-${185/28.8}vw`,
-            background: "#7E7E7E",
-            borderRadius: "50%"
-        }
-    ];
-
-    let sun = [
-        {
-            zIndex: 15,
-            width: `${424/14.4}vw`,
-            height:`${424/14.4}vw`,
-            right: `-${424/28.8}vw`,
-            top: `-${424/28.8}vw`,
-            background: "#F4D35E",
-            borderRadius: "50%"
-        },
-        {
-            zIndex: 15,
-            width: `${348/14.4}vw`,
-            height:`${348/14.4}vw`,
-            right: `-${348/28.8}vw`,
-            top: `-${348/28.8}vw`,
-            background: "#F1B555",
-            borderRadius: "50%"
-        },
-        {
-            zIndex: 15,
-            width: `${305/14.4}vw`,
-            height:`${305/14.4}vw`,
-            right: `-${305/28.8}vw`,
-            top: `-${305/28.8}vw`,
-            background: "#EE964B",
-            borderRadius: "50%"
-        },
-        {
-            zIndex: 15,
-            width: `${185/14.4}vw`,
-            height:`${185/14.4}vw`,
-            right: `-${185/28.8}vw`,
-            top: `-${185/28.8}vw`,
-            background: "#ff7345",
-            borderRadius: "50%"
-        }
-    ];
-
-    function openMenu(){
+    useEffect(() => {
         if (!menuOpen) {
-            setMenuAnimation("menu-animate");
-            setMenuOpen(true);
-            setExitStyle("exitStyle");
+            return undefined;
         }
-    }
 
-    function closeMenu(){
-        if (menuOpen){
-            setMenuAnimation("menu-animate revert");
-            setMenuOpen(false);
-            setExitStyle("");
-            setMenuAnimation("")
-        }
-    }
+        const closeOnEscape = (event) => {
+            if (event.key === 'Escape') {
+                setMenuOpen(false);
+            }
+        };
 
-    function changeMode()
-    {
+        window.addEventListener('keydown', closeOnEscape);
+        return () => window.removeEventListener('keydown', closeOnEscape);
+    }, [menuOpen]);
+
+    function changeMode() {
         props.changeDarkMode(!props.darkMode);
     }
 
-
-    if (props.darkMode){
-        // Dark mode
-        return (
-            <div className="backdrop-dark">
-                <div className = {`menu ${exitStyle}`}> 
-                    <a onClick = {closeMenu} className = {`exitImg ${exitStyle}`}>
-                        <img src = {exitMenu}/>
-                    </a>
-                    <div onClick = {changeMode} className = {`darkMode ${exitStyle}`}>
-                        <div className = {`buttonCircle ${exitStyle}`}>
-                            <img src = {darkMode}/>
-                        </div>
+    return (
+        <div className={`backdrop-shell ${themeClass} ${menuOpen ? 'menu-open' : ''}`}>
+            <div className="ambient-layer" aria-hidden="true">
+                <div className="celestial-glow" />
+                {props.darkMode ? (
+                    <div className="stars">
+                        {starPositions.map((style, index) => (
+                            <span className="circle" style={style} key={`star-${index}`} />
+                        ))}
                     </div>
-                    <div className="options">
-                        <Link onClick = {closeMenu} to = "" className={`Home-page menu-selector ${exitStyle}`}>Home</Link>
-                        <Link onClick = {closeMenu} to = "about" className={`About-page menu-selector ${exitStyle}`}>About Me</Link>
-                        <Link onClick = {closeMenu} to = "projects/software" className={`Projects-page menu-selector ${exitStyle}`}>Software</Link>
-                        <Link onClick = {closeMenu} to = "projects/hardware" className={`Projects-page menu-selector ${exitStyle}`}>Hardware</Link>
+                ) : (
+                    <div className="birds">
+                        {birdPositions.map((style, index) => (
+                            <img
+                                className="bird"
+                                style={style}
+                                src={birdImgs[index % birdImgs.length]}
+                                alt=""
+                                key={`bird-${index}`}
+                            />
+                        ))}
                     </div>
-                    <div className="socials">
-                        <a className = {`menu-git menu-selector ${exitStyle}`} href = "https://github.com/MostafaH04" target = "_blank">
-                            <GrGithub />
-                        </a>
-                        <a className = {`menu-linkedin menu-selector ${exitStyle}`} href = "https://www.linkedin.com/in/mostafa-hussein-04/" target = "_blank">
-                            <FaLinkedin />
-                        </a>
-                        <a className = {`menu-ig menu-selector ${exitStyle}`} href = "https://www.instagram.com/mostafah04/" target = "_blank">
-                            <GrInstagram /> 
-                        </a>
-                    </div>
-                </div>
-                
-                <div className = {`moon fog-${menuAnimation}-t fog-${menuAnimation.substring(0,12)}`} style = {moonLightStyle} onClick = {closeMenu}></div>
-                <a className={`moon-group ${menuAnimation}`} onClick = {openMenu}>
-                    {
-                        moon.map((style, i) => 
-                        <div className = {`moon ${menuAnimation}`} style = {style}></div>)
-                    }
-                </a>
-                <div className="stars">
-                    {
-                        circles.map((style, i) => 
-                        <div className = 'circle' style = {style}></div>)
-                    }
-                </div>
+                )}
             </div>
-        );
-    }
-    else{
-        // Light mode
-        return (
-            <div className ="backdrop-light">
-                <div className = {`menu ${exitStyle}`}> 
-                    <a onClick = {closeMenu} className = {`exitImg ${exitStyle}`}>
-                        <img src = {exitMenu}/>
-                    </a>
-                    <div onClick = {changeMode} className = {`lightMode ${exitStyle}`}>
-                        <div className = {`buttonCircle ${exitStyle}`}>
-                            <img src = {lightMode}/>
-                        </div>
-                    </div>
-                    <div className="options">
-                        <Link onClick = {closeMenu} to = "" className={`Home-page menu-selector ${exitStyle}`}>Home</Link>
-                        <Link onClick = {closeMenu} to = "about" className={`About-page menu-selector ${exitStyle}`}>About Me</Link>
-                        <Link onClick = {closeMenu} to = "projects/software" className={`Projects-page menu-selector ${exitStyle}`}>Software</Link>
-                        <Link  onClick = {closeMenu}to = "projects/hardware" className={`Projects-page menu-selector ${exitStyle}`}>Hardware</Link>
-                    </div>
-                    <div className="socials">
-                        <a className = {`menu-git menu-selector ${exitStyle}`} href = "https://github.com/MostafaH04" target = "_blank">
-                            <GrGithub />
-                        </a>
-                        <a className = {`menu-linkedin menu-selector ${exitStyle}`} href = "https://www.linkedin.com/in/mostafa-hussein-04/" target = "_blank">
-                            <FaLinkedin />
-                        </a>
-                        <a className = {`menu-ig menu-selector ${exitStyle}`} href = "https://www.instagram.com/mostafah04/" target = "_blank">
-                            <GrInstagram /> 
-                        </a>
-                    </div>
+
+            <button
+                className="celestial-toggle"
+                type="button"
+                aria-expanded={menuOpen}
+                aria-controls="site-menu"
+                aria-label="Open navigation menu"
+                onClick={() => setMenuOpen(true)}
+            >
+                <span className="celestial-core" />
+                <span className="celestial-ring ring-one" />
+                <span className="celestial-ring ring-two" />
+            </button>
+
+            <div
+                className="menu-scrim"
+                aria-hidden="true"
+                onClick={() => setMenuOpen(false)}
+            />
+
+            <aside className="menu" id="site-menu" aria-label="Site navigation" aria-hidden={!menuOpen}>
+                <div className="menu-topbar">
+                    <button
+                        className="theme-toggle"
+                        type="button"
+                        aria-label={`Switch to ${props.darkMode ? 'light' : 'dark'} mode`}
+                        onClick={changeMode}
+                    >
+                        <span className="theme-track">
+                            <span className="theme-thumb" />
+                        </span>
+                    </button>
+                    <button
+                        className="exitImg"
+                        type="button"
+                        aria-label="Close navigation menu"
+                        onClick={() => setMenuOpen(false)}
+                    >
+                        <span aria-hidden="true" />
+                    </button>
                 </div>
 
-                <div className = {`sun fog-${menuAnimation}-t sunfog-${menuAnimation.substring(0,12)}`} style = {sunLightStyle} onClick = {closeMenu}></div>
-                <a className = {`sun-group ${menuAnimation}`} onClick = {openMenu}>
-                    {
-                        sun.map((style, i) =>
-                        <div className = {`sun ${menuAnimation}`} style = {style}></div>)
-                    }
-                </a>
-                <div className="stars">
-                    {
-                        birds.map((style, i) => 
-                        <img className = 'bird' style = {style} src = {birdImgs[Math.floor(Math.random() * 2+1)]}></img>)
-                    }
+                <nav className="options">
+                    {navLinks.map((link) => (
+                        <Link
+                            key={link.to}
+                            to={link.to}
+                            className={location.pathname === link.to ? 'menu-selector active' : 'menu-selector'}
+                        >
+                            {link.label}
+                        </Link>
+                    ))}
+                </nav>
+
+                <div className="socials" aria-label="Social links">
+                    {socialLinks.map((link) => (
+                        <a
+                            key={link.href}
+                            className="menu-social"
+                            href={link.href}
+                            target="_blank"
+                            rel="noreferrer"
+                            aria-label={link.label}
+                        >
+                            {link.icon}
+                        </a>
+                    ))}
                 </div>
-            </div>
-        )
-    }
+            </aside>
+        </div>
+    );
 }
 
 export default Backdrop;

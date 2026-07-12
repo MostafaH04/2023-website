@@ -1,678 +1,383 @@
-/**----------------- Dark Mode ---------------**/
-
-.backdrop-dark{
-    width:100vw;
-    height: auto;
-    background-color: #02111B;
-    overflow: hidden;
+.backdrop-shell {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
 }
 
-.circle{
-    position:absolute;
+.ambient-layer {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.celestial-glow {
+    position: absolute;
+    top: clamp(-210px, -16vw, -90px);
+    right: clamp(-210px, -15vw, -80px);
+    width: clamp(410px, 58vw, 920px);
+    aspect-ratio: 1;
     border-radius: 50%;
-    background-color: #BEBEBE;
-    
+    opacity: 0.92;
+    transform: translateZ(0);
+    transition: background 420ms ease, opacity 420ms ease;
+}
+
+.backdrop-dark .celestial-glow {
+    background: radial-gradient(circle, rgba(233, 233, 233, 0.25) 0 9%, rgba(233, 233, 233, 0.12) 10% 22%, rgba(233, 233, 233, 0.04) 42%, transparent 70%);
+}
+
+.backdrop-light .celestial-glow {
+    background: radial-gradient(circle, rgba(244, 211, 94, 0.36) 0 9%, rgba(238, 150, 75, 0.18) 10% 25%, rgba(13, 111, 133, 0.07) 45%, transparent 72%);
+}
+
+.circle,
+.bird {
+    position: absolute;
+    display: block;
+    pointer-events: none;
+    transform: translateZ(0);
+}
+
+.circle {
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: rgba(245, 247, 248, 0.72);
+    box-shadow: 0 0 28px rgba(245, 247, 248, 0.22);
+    animation: starsGlow 4.8s ease-in-out infinite alternate;
+    animation-delay: var(--delay, 0s);
 }
 
 .bird {
-    position:absolute;
+    height: auto;
+    opacity: 0.7;
+    animation: birdFloat 5.4s ease-in-out infinite alternate;
+    animation-delay: var(--delay, 0s);
+    filter: drop-shadow(0 10px 18px rgba(13, 59, 102, 0.14));
 }
 
-.bird:nth-child(1){
-    -webkit-animation: birdFlap 4s ease-in-out infinite alternate;
-    -moz-animation: birdFlap 4s ease-in-out infinite alternate;
-    animation: birdFlap 3s ease-in-out infinite alternate;
-    animation-delay: 0.4s;
-}
-.bird:nth-child(2){
-    -webkit-animation: birdFlap 5s ease-in-out infinite alternate;
-    -moz-animation: birdFlap 5s ease-in-out infinite alternate;
-    animation: birdFlap 4s ease-in-out infinite alternate;
-    animation-delay: 0s;
-}
-.bird:nth-child(3){
-    -webkit-animation: birdFlap 6s ease-in-out infinite alternate;
-    -moz-animation: birdFlap 6s ease-in-out infinite alternate;
-    animation: birdFlap 5s ease-in-out infinite alternate;
-    animation-delay: 1s;
-}
-.bird:nth-child(4){
-    -webkit-animation: birdFlap 4s ease-in-out infinite alternate;
-    -moz-animation: birdFlap 4s ease-in-out infinite alternate;
-    animation: birdFlap 3s ease-in-out infinite alternate;
-    animation-delay: 3s;
-}
-.bird:nth-child(5){
-    -webkit-animation: birdFlap 5s ease-in-out infinite alternate;
-    -moz-animation: birdFlap 5s ease-in-out infinite alternate;
-    animation: birdFlap 4s ease-in-out infinite alternate;
-    animation-delay: 0.6s;
-}
-.bird:nth-child(6){
-    -webkit-animation: birdFlap 6s ease-in-out infinite alternate;
-    -moz-animation: birdFlap 6s ease-in-out infinite alternate;
-    animation: birdFlap 5s ease-in-out infinite alternate;
-    animation-delay: 2.2s;
-}
-.bird:nth-child(7){
-    -webkit-animation: birdFlap 4s ease-in-out infinite alternate;
-    -moz-animation: birdFlap 4s ease-in-out infinite alternate;
-    animation: birdFlap 3s ease-in-out infinite alternate;
-    animation-delay: 4s;
-}
-.bird:nth-child(8){
-    -webkit-animation: birdFlap 5s ease-in-out infinite alternate;
-    -moz-animation: birdFlap 5s ease-in-out infinite alternate;
-    animation: birdFlap 4s ease-in-out infinite alternate;
-    animation-delay: 1.5s;
-}
-.bird:nth-child(9){
-    -webkit-animation: birdFlap 6s ease-in-out infinite alternate;
-    -moz-animation: birdFlap 6s ease-in-out infinite alternate;
-    animation: birdFlap 5s ease-in-out infinite alternate;
-    animation-delay: 2.5s;
-}
-.bird:nth-child(10){
-    -webkit-animation: birdFlap 5s ease-in-out infinite alternate;
-    -moz-animation: birdFlap 5s ease-in-out infinite alternate;
-    animation: birdFlap 4s ease-in-out infinite alternate;
-    animation-delay: 3s;
-}
-.bird:nth-child(11){
-    -webkit-animation: birdFlap 7s ease-in-out infinite alternate;
-    -moz-animation: birdFlap 7s ease-in-out infinite alternate;
-    animation: birdFlap 6s ease-in-out infinite alternate;
-    animation-delay: 4s;
-}
-
-.circle:nth-child(1){
-    -webkit-animation: starsGlow 4s ease-in-out infinite alternate;
-    -moz-animation: starsGlow 4s ease-in-out infinite alternate;
-    animation: starsGlow 4s ease-in-out infinite alternate;
-    animation-delay: 0.4s;
-}
-.circle:nth-child(2){
-    -webkit-animation: starsGlow 5s ease-in-out infinite alternate;
-    -moz-animation: starsGlow 5s ease-in-out infinite alternate;
-    animation: starsGlow 5s ease-in-out infinite alternate;
-    animation-delay: 0s;
-}
-.circle:nth-child(3){
-    -webkit-animation: starsGlow 6s ease-in-out infinite alternate;
-    -moz-animation: starsGlow 6s ease-in-out infinite alternate;
-    animation: starsGlow 6s ease-in-out infinite alternate;
-    animation-delay: 1s;
-}
-.circle:nth-child(4){
-    -webkit-animation: starsGlow 4s ease-in-out infinite alternate;
-    -moz-animation: starsGlow 4s ease-in-out infinite alternate;
-    animation: starsGlow 4s ease-in-out infinite alternate;
-    animation-delay: 3s;
-}
-.circle:nth-child(5){
-    -webkit-animation: starsGlow 5s ease-in-out infinite alternate;
-    -moz-animation: starsGlow 5s ease-in-out infinite alternate;
-    animation: starsGlow 5s ease-in-out infinite alternate;
-    animation-delay: 0.6s;
-}
-.circle:nth-child(6){
-    -webkit-animation: starsGlow 6s ease-in-out infinite alternate;
-    -moz-animation: starsGlow 6s ease-in-out infinite alternate;
-    animation: starsGlow 6s ease-in-out infinite alternate;
-    animation-delay: 2.2s;
-}
-.circle:nth-child(7){
-    -webkit-animation: starsGlow 4s ease-in-out infinite alternate;
-    -moz-animation: starsGlow 4s ease-in-out infinite alternate;
-    animation: starsGlow 4s ease-in-out infinite alternate;
-    animation-delay: 4s;
-}
-.circle:nth-child(8){
-    -webkit-animation: starsGlow 5s ease-in-out infinite alternate;
-    -moz-animation: starsGlow 5s ease-in-out infinite alternate;
-    animation: starsGlow 5s ease-in-out infinite alternate;
-    animation-delay: 1.5s;
-}
-.circle:nth-child(9){
-    -webkit-animation: starsGlow 6s ease-in-out infinite alternate;
-    -moz-animation: starsGlow 6s ease-in-out infinite alternate;
-    animation: starsGlow 6s ease-in-out infinite alternate;
-    animation-delay: 2.5s;
-}
-.circle:nth-child(10){
-    -webkit-animation: starsGlow 5s ease-in-out infinite alternate;
-    -moz-animation: starsGlow 5s ease-in-out infinite alternate;
-    animation: starsGlow 5s ease-in-out infinite alternate;
-    animation-delay: 3s;
-}
-.circle:nth-child(11){
-    -webkit-animation: starsGlow 7s ease-in-out infinite alternate;
-    -moz-animation: starsGlow 7s ease-in-out infinite alternate;
-    animation: starsGlow 7s ease-in-out infinite alternate;
-    animation-delay: 4s;
-}
-
-@keyframes starsGlow{
-    from{
-        -webkit-box-shadow: 0px 0px 50px 5px #ffffff08; 
-        box-shadow: 0px 0px 50px 5px #ffffff08;
-    }
-    to{
-        -webkit-box-shadow: 0px 0px 50px 25px #ffffff25; 
-        box-shadow: 0px 0px 50px 25px #ffffff25;
-    }
-}
-
-@keyframes birdFlap{
-    from{
-        transform: translate(0px, 6px);
-    }
-    to{
-        transform: translate(0px, -6px);
-    }
-}
-
-.moon{
-    position:absolute;
-    overflow: hidden;
-}
-
-.moon-group:hover{
-    cursor: pointer;
-}
-
-.moon-group.menu-animate:hover{
-    cursor: default;
-}
-
-.moon.fog-menu-animate{
-    animation-name: fog;
-    animation-duration:1s; 
-    animation-fill-mode: forwards;
-    z-index: 14!important;
-    cursor: pointer;
-}
-.moon-group .moon:nth-child(1){
-    animation: breathingSun 2.5s ease-in-out infinite alternate;
-}
-
-.moon-group .moon:nth-child(2){
-    animation: breathingSun 2.5s 0.2s ease-in-out infinite alternate;
-}
-
-.moon-group .moon:nth-child(3){
-    animation: breathingSun 2.5s 0.4s ease-in-out infinite alternate;
-}
-
-.moon-group .moon:nth-child(4){
-    animation: breathingSun 2.5s 0.6s ease-in-out infinite alternate;
-}
-
-.moon-group .menu-animate:nth-child(1){
-    animation-name: openMenu;
-    animation-duration:0.8s;
-    animation-fill-mode: forwards;
-    animation-delay: 0.2s;
-    animation-iteration-count: 1;
-}
-
-.moon-group .menu-animate:nth-child(2){
-    animation-name: openMenu;
-    animation-duration:0.6s;
-    animation-fill-mode: forwards;
-    animation-delay: 0.4s;
-    animation-iteration-count: 1;
-}
-
-.moon-group .menu-animate:nth-child(3){
-    animation-name: openMenu;
-    animation-duration:0.4s;
-    animation-fill-mode: forwards;
-    animation-delay: 0.5s;
-    animation-iteration-count: 1;
-}
-
-.moon-group .menu-animate:nth-child(4){
-    animation-name: openMenu;
-    animation-duration:0.3s;
-    animation-fill-mode: forwards;
-    animation-delay: 0.55s;
-    animation-iteration-count: 1;
-}
-
-
-
-@keyframes openMenu {
-    100% {
-        width: 50vw;
-        height: 300vh;
-        right: -25vw;
-        border-radius: 0%;
-    }
-}
-
-@keyframes breathingSun {
-    100% {
-        scale: 1.1;
-    }
-}
-
-@keyframes fog {
-    90% {
-        width: 600vw;
-        height: 600vh;
-        right: -300vw;
-        top: -300vh;
-        z-index: 20 !important;
-    }
-    100%{
-        width: 600vw;
-        height: 600vh;
-        right: -300vw;
-        top: -300vh;
-        background: rgba(217, 217, 217, 0.36);
-        z-index: 20 !important;
-    }
-}
-
-.exitImg{
-    display:none;
-    position:absolute;
-    z-index: 13;
-    padding:10px;
-    border-radius: 50%;
-    top: 26px;
-    right: 24px;
-}
-
-.exitImg.exitStyle:hover{
-    transition: 0.4s ease-in-out;
-    background-color:#3f40453f;
-}
-
-.exitImg.exitStyle {
-    transition: 0.2s ease-in-out;
-    display:block;
-    opacity: 0;
-    animation-name: exitShow;
-    animation-duration: 0.3s;
-    animation-fill-mode: forwards;
-    animation-delay: 0.7s
-}
-
-.darkMode{
-    position:absolute;
-    width: 75px;
-    height:36px;
-    background-color: #fcfcfc;
-    border-radius: 33px;
-    display: none;
-    z-index: 13;
-    margin:20px;
-    margin-left:30px;
-    top: 12px;
-    padding:5px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.darkMode:hover{
-    cursor: pointer;
-}
-
-.darkMode .buttonCircle{
-    width: 39px;
-    height: 39px;
-    position: relative;
-    background-color: #7E7E7E;
-    border-radius: 50%;
-}
-
-.backdrop-dark.darkMode{
-    justify-content: flex-end !important;
-}
-
-.darkMode.exitStyle{
-    transition: 0.2s ease-in-out;
-    opacity: 0;
-    animation-name: exitShow;
-    animation-duration: 0.3s;
-    animation-fill-mode: forwards;
-    animation-delay: 1s
-}
-
-.buttonCircle img{
-    user-select: none;
-}
-
-.menu{
-    z-index: 30;
-    display:none;
-    flex-direction: column;
-    position: absolute;
-    width: 25vw;
-    height:100vh;
-    right: 0;
-    top: 0;
-    overflow: hidden;
-}
-
-.menu.exitStyle{
-    display:block;
-}
-
-
-.menu-selector{
-    display:none;
-}
-
-.options{
-    display:flex;
-    flex-direction: column;
-    text-align: center;
-    font-family: 'Nunito Sans';
-    font-weight: 700;
-    font-size: 2.5rem;
-    line-height: 61px;
-    margin:20px;
-    color: #FFFFFF;
-    margin-top:15vh;
-}
-
-.options a{
-    transition: 0.1s ease-in-out;
-    margin-top:3vh;
-}
-
-.options a:hover{
-    transition: 0.2s ease-in-out;
-    color: #3F4045;
-}
-
-.menu-selector.exitStyle:nth-child(1){
-    display:block;
-    opacity: 0;
-    animation-name: exitShow;
-    animation-duration: 0.3s;
-    animation-fill-mode: forwards;
-    animation-delay: 1s
-}
-.menu-selector.exitStyle:nth-child(2){
-    display:block;
-    opacity: 0;
-    animation-name: exitShow;
-    animation-duration: 0.3s;
-    animation-fill-mode: forwards;
-    animation-delay: 1.1s
-}
-.menu-selector.exitStyle:nth-child(3){
-    display:block;
-    opacity: 0;
-    animation-name: exitShow;
-    animation-duration: 0.3s;
-    animation-fill-mode: forwards;
-    animation-delay: 1.2s
-}
-.menu-selector.exitStyle:nth-child(4){
-    display:block;
-    opacity: 0;
-    animation-name: exitShow;
-    animation-duration: 0.3s;
-    animation-fill-mode: forwards;
-    animation-delay: 1.3s
-}
-.menu-selector.exitStyle:nth-child(5){
-    display:block;
-    opacity: 0;
-    animation-name: exitShow;
-    animation-duration: 0.3s;
-    animation-fill-mode: forwards;
-    animation-delay: 1.4s
-}
-.menu-selector.exitStyle:nth-child(6){
-    display:block;
-    opacity: 0;
-    animation-name: exitShow;
-    animation-duration: 0.3s;
-    animation-fill-mode: forwards;
-    animation-delay: 1.5s
-}
-
-.menu .socials{
-    display:flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-top:7vh;
-}
-
-.socials a{
-    padding: 6px;
-    margin-right:15px;
-    margin-left:15px;
-}
-
-.socials a svg{
-    width:35px;
-    height:35px;
-    transition: 0.1s ease-in-out;
-    fill: #FFFFFF;
-}
-
-.socials a:hover svg{
-    transition: 0.2s ease-in-out;
-    fill: #3F4045;
-}
-
-
-.socials .menu-selector.exitStyle:nth-child(1){
-    display:block;
-    opacity: 0;
-    animation-name: exitShow;
-    animation-duration: 0.3s;
-    animation-fill-mode: forwards;
-    animation-delay: 1.8s
-}
-.socials .menu-selector.exitStyle:nth-child(2){
-    display:block;
-    opacity: 0;
-    animation-name: exitShow;
-    animation-duration: 0.3s;
-    animation-fill-mode: forwards;
-    animation-delay: 1.9s
-}
-.socials .menu-selector.exitStyle:nth-child(3){
-    display:block;
-    opacity: 0;
-    animation-name: exitShow;
-    animation-duration: 0.3s;
-    animation-fill-mode: forwards;
-    animation-delay: 2s
-}
-
-@keyframes exitShow {
-    100%{
-        opacity: 1;
-    }
-}
-
-a.exitStyle:hover{
-    cursor:pointer;
-}
-
-/**----------------- Light Mode ---------------**/
-
-.backdrop-light{
-    width:100vw;
-    overflow: hidden;
-}
-
-.sun{
-    position:absolute;
-    overflow: hidden;
-}
-
-.sun-group:hover{
-    cursor: pointer;
-}
-
-.sun-group.menu-animate:hover{
-    cursor: default;
-}
-
-.sunfog-menu-animate{
-    animation-name: sunfog;
-    animation-duration:1s; 
-    animation-fill-mode: forwards;
-    z-index: 14!important;
-    cursor: pointer;
-}
-
-.sun-group .sun:nth-child(1){
-    animation: breathingSun 2.5s ease-in-out infinite alternate;
-}
-
-.sun-group .sun:nth-child(2){
-    animation: breathingSun 2.5s 0.2s ease-in-out infinite alternate;
-}
-
-.sun-group .sun:nth-child(3){
-    animation: breathingSun 2.5s 0.4s ease-in-out infinite alternate;
-}
-
-.sun-group .sun:nth-child(4){
-    animation: breathingSun 2.5s 0.6s ease-in-out infinite alternate;
-}
-
-
-.sun-group .menu-animate:nth-child(1){
-    animation-name: openMenu;
-    animation-duration:0.8s;
-    animation-fill-mode: forwards;
-    animation-delay: 0.2s;
-    animation-iteration-count: 1;
-}
-
-.sun-group .menu-animate:nth-child(2){
-    animation-name: openMenu;
-    animation-duration:0.6s;
-    animation-fill-mode: forwards;
-    animation-delay: 0.4s;
-    animation-iteration-count: 1;
-}
-
-.sun-group .menu-animate:nth-child(3){
-    animation-name: openMenu;
-    animation-duration:0.4s;
-    animation-fill-mode: forwards;
-    animation-delay: 0.5s;
-    animation-iteration-count: 1;
-}
-
-.sun-group .menu-animate:nth-child(4){
-    animation-name: openMenu;
-    animation-duration:0.3s;
-    animation-fill-mode: forwards;
-    animation-delay: 0.55s;
-    animation-iteration-count: 1;
-}
-
-
-
-@keyframes sunfog {
-    90% {
-        width: 600vw;
-        height: 600vh;
-        right: -300vw;
-        top: -300vh;
-    }
-    100%{
-        width: 600vw;
-        height: 600vh;
-        right: -300vw;
-        top: -300vh;
-        background: rgba(244, 211, 94, 0.36);;
-    }
-}
-
-
-.backdrop-light .exitImg.exitStyle:hover{
-    transition: 0.4s ease-in-out;
-    background-color:rgb(252, 213, 58);
-}
-
-.backdrop-light .socials a:hover svg{
-    transition: 0.2s ease-in-out;
-    fill: rgb(252, 213, 58);
-}
-
-.backdrop-light .options a:hover{
-    transition: 0.2s ease-in-out;
-    color: rgb(252, 213, 58);
-}
-
-.backdrop-light .socials a svg{
-    transition: 0.2s ease-in-out;
-    fill: #FAF0CA;
-}
-
-.backdrop-light .options a{
-    transition: 0.2s ease-in-out;
-    color: #FAF0CA;
-}
-
-.lightMode{
-    position:absolute;
-    width: 75px;
-    height:36px;
-    background-color: #fcfcfc;
-    border-radius: 33px;
-    display: none;
-    z-index: 13;
-    margin:20px;
-    top: 12px;
-    padding:5px;
-    margin-left:30px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-.lightMode:hover{
-    cursor: pointer;
-}
-
-.lightMode .buttonCircle{
-    width: 39px;
-    height: 39px;
-    position: relative;
-    background-color: #F86E40;
-    border-radius: 50%;
-}
-
-.lightMode .buttonCircle img{
-    padding:4px;
-    user-select:none;
-}
-
-.lightMode.exitStyle{
-    transition: 0.2s ease-in-out;
-    opacity: 0;
-    animation-name: exitShow;
-    animation-duration: 0.3s;
-    animation-fill-mode: forwards;
-    animation-delay: 1s
-}
-
-.menu{
+.celestial-toggle {
     position: fixed;
+    top: clamp(18px, 3.2vw, 38px);
+    right: clamp(18px, 3.2vw, 38px);
+    z-index: 32;
+    width: clamp(76px, 9vw, 122px);
+    aspect-ratio: 1;
+    padding: 0;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+    pointer-events: auto;
+    transform: translateZ(0);
+    transition: transform 220ms ease, filter 220ms ease;
 }
 
-a{
-    text-decoration: none;
-    color: #FFFFFF;
+.celestial-toggle:hover {
+    transform: translateY(-2px) scale(1.02);
+}
+
+.celestial-toggle:active {
+    transform: translateY(0) scale(0.98);
+}
+
+.celestial-core,
+.celestial-ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    transition: background 340ms ease, box-shadow 340ms ease, transform 260ms ease;
+}
+
+.celestial-core {
+    inset: 28%;
+    z-index: 3;
+    box-shadow: inset 0 -14px 24px rgba(0, 0, 0, 0.18), 0 18px 38px rgba(0, 0, 0, 0.22);
+}
+
+.celestial-ring {
+    opacity: 0.9;
+    animation: celestialPulse 2.9s ease-in-out infinite alternate;
+}
+
+.ring-one {
+    inset: 14%;
+    animation-delay: 0.2s;
+}
+
+.ring-two {
+    inset: 0;
+    animation-delay: 0.4s;
+}
+
+.backdrop-dark .celestial-core {
+    background: #ececec;
+}
+
+.backdrop-dark .ring-one {
+    background: rgba(207, 207, 207, 0.88);
+}
+
+.backdrop-dark .ring-two {
+    background: rgba(126, 126, 126, 0.7);
+}
+
+.backdrop-light .celestial-core {
+    background: #ff7345;
+}
+
+.backdrop-light .ring-one {
+    background: rgba(241, 181, 85, 0.9);
+}
+
+.backdrop-light .ring-two {
+    background: rgba(244, 211, 94, 0.8);
+}
+
+.menu-scrim {
+    position: fixed;
+    inset: 0;
+    z-index: 33;
+    background: rgba(5, 12, 19, 0.54);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 260ms ease;
+    backdrop-filter: blur(3px);
+}
+
+.menu-open .menu-scrim {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.menu {
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    bottom: 18px;
+    z-index: 34;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    width: min(420px, calc(100vw - 36px));
+    padding: 18px;
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    background: var(--surface);
+    box-shadow: var(--shadow);
+    color: var(--text);
+    pointer-events: none;
+    transform: translateX(calc(100% + 34px)) scale(0.98);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 320ms cubic-bezier(0.2, 0.85, 0.25, 1), opacity 220ms ease;
+    backdrop-filter: blur(24px);
+}
+
+.menu-open .menu {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.menu-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 48px;
+}
+
+.theme-toggle,
+.exitImg,
+.menu-social {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    min-width: 46px;
+    min-height: 46px;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: var(--surface-soft);
+    color: var(--text);
+    cursor: pointer;
+    transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, color 180ms ease;
+}
+
+.theme-toggle {
+    width: 82px;
+    border-radius: 999px;
+}
+
+.theme-toggle:hover,
+.exitImg:hover,
+.menu-social:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-strong);
+    background: var(--surface-strong);
+}
+
+.theme-track {
+    position: relative;
+    width: 58px;
+    height: 28px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.theme-thumb {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--accent-strong);
+    transition: transform 220ms ease, background 220ms ease;
+}
+
+.backdrop-light .theme-thumb {
+    transform: translateX(30px);
+}
+
+.exitImg span,
+.exitImg span::before {
+    display: block;
+    width: 18px;
+    height: 2px;
+    border-radius: 999px;
+    background: currentColor;
+}
+
+.exitImg span {
+    transform: rotate(45deg);
+}
+
+.exitImg span::before {
+    content: "";
+    transform: rotate(90deg);
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    min-height: 0;
+}
+
+.menu-selector {
+    display: flex;
+    align-items: center;
+    min-height: 64px;
+    padding: 0 18px;
+    border: 1px solid transparent;
+    border-radius: 18px;
+    color: var(--text);
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1.85rem, 4vw, 2.6rem);
+    font-weight: 800;
+    line-height: 1;
+    transform: translateX(18px);
+    opacity: 0;
+    transition: transform 220ms ease, opacity 220ms ease, border-color 180ms ease, background 180ms ease, color 180ms ease;
+}
+
+.menu-open .menu-selector {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.menu-open .menu-selector:nth-child(1) {
+    transition-delay: 80ms;
+}
+
+.menu-open .menu-selector:nth-child(2) {
+    transition-delay: 120ms;
+}
+
+.menu-open .menu-selector:nth-child(3) {
+    transition-delay: 160ms;
+}
+
+.menu-open .menu-selector:nth-child(4) {
+    transition-delay: 200ms;
+}
+
+.menu-selector:hover,
+.menu-selector.active {
+    border-color: var(--border);
+    background: var(--surface-soft);
+    color: var(--accent-strong);
+}
+
+.socials {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+}
+
+.menu-social svg {
+    width: 22px;
+    height: 22px;
+}
+
+@keyframes starsGlow {
+    from {
+        opacity: 0.42;
+        transform: translateY(0) scale(0.92);
+        box-shadow: 0 0 18px rgba(245, 247, 248, 0.12);
+    }
+    to {
+        opacity: 0.95;
+        transform: translateY(-4px) scale(1.06);
+        box-shadow: 0 0 34px rgba(245, 247, 248, 0.32);
+    }
+}
+
+@keyframes birdFloat {
+    from {
+        transform: translate3d(0, 8px, 0) rotate(-1deg);
+    }
+    to {
+        transform: translate3d(0, -8px, 0) rotate(1deg);
+    }
+}
+
+@keyframes celestialPulse {
+    to {
+        transform: scale(1.07);
+    }
+}
+
+@media (max-width: 700px) {
+    .celestial-toggle {
+        width: 72px;
+    }
+
+    .celestial-glow {
+        width: 440px;
+    }
+
+    .menu {
+        top: 10px;
+        right: 10px;
+        bottom: 10px;
+        width: calc(100vw - 20px);
+        border-radius: 20px;
+    }
+
+    .menu-selector {
+        min-height: 58px;
+        padding: 0 14px;
+        font-size: clamp(1.7rem, 10vw, 2.3rem);
+    }
+
+    .circle:nth-child(n + 8),
+    .bird:nth-child(n + 8) {
+        display: none;
+    }
 }

@@ -1,0 +1,169 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  PUBLIC_SITE_URL: https://portfolio.example
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    name: Quality and production build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      CI: true
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check formatting
+        run: npm exec prettier -- --check .
+
+      - name: Type-check Astro and TypeScript
+        run: npm exec astro -- check
+
+      - name: Run tests
+        run: npm run test
+
+      - name: Build production site
+        run: npm run build
+
+      - name: Enforce asset and bundle budgets
+        run: npm run test:budgets
+
+      - name: Check built internal links
+        run: npm run test:links
+
+      - name: Check external anchors with retries
+        run: npm run test:links:external
+
+      - name: Audit dependencies
+        run: npm audit --audit-level=moderate
+
+      - name: Check production deep links
+        shell: bash
+        run: |
+          npm run preview -- --host 127.0.0.1 > /tmp/astro-preview.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid"' EXIT
+
+          for attempt in {1..30}; do
+            if curl --fail --silent --show-error http://127.0.0.1:4321/ > /dev/null; then
+              break
+            fi
+            sleep 1
+          done
+
+          routes=(
+            "/"
+            "/about/"
+            "/projects/"
+            "/projects/?category=software"
+            "/projects/?category=hardware"
+            "/projects/software/"
+            "/projects/hardware/"
+            "/manifest-dark.webmanifest"
+            "/manifest-light.webmanifest"
+            "/robots.txt"
+            "/favicon-dark.svg"
+            "/favicon-light.svg"
+            "/apple-touch-icon-dark.png"
+            "/apple-touch-icon-light.png"
+            "/icon-dark-192.png"
+            "/icon-dark-512.png"
+            "/icon-light-192.png"
+            "/icon-light-512.png"
+            "/Mostafa-Hussein-Resume.pdf"
+          )
+
+          for route in "${routes[@]}"; do
+            curl --fail --silent --show-error "http://127.0.0.1:4321${route}" > /dev/null
+          done
+
+          status=$(curl --silent --output /dev/null --write-out '%{http_code}' \
+            http://127.0.0.1:4321/this-route-must-not-exist)
+          test "$status" = "404"
+
+  browser:
+    name: Browser and accessibility tests
+    needs: quality
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      CI: true
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install browser engines
+        run: npm exec -- playwright install --with-deps chromium firefox webkit
+
+      - name: Run Playwright and axe checks
+        run: npm run test:e2e
+
+      - name: Upload browser diagnostics
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: playwright-diagnostics
+          path: |
+            playwright-report
+            test-results
+          if-no-files-found: ignore
+          retention-days: 7
+
+  lighthouse:
+    name: Lighthouse budgets
+    needs: quality
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build production site
+        run: npm run build
+
+      - name: Run Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          configPath: ./.lighthouserc.json
+          uploadArtifacts: true
+          temporaryPublicStorage: false

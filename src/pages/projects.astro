@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import ProjectFilter from '../components/ProjectFilter';
+import { projectCategoryCounts, projects } from '../data/projects';
+---
+
+<BaseLayout
+  title="Projects — Mostafa Hussein"
+  description="Explore Mostafa Hussein's robotics, embedded systems, hardware, automation, and software projects."
+  image="/images/brand/og-projects.png"
+>
+  <main class="page-main" id="main-content" tabindex="-1">
+    <section
+      class="page-hero page-hero--compact page-shell"
+      aria-labelledby="projects-title"
+    >
+      <div class="projects-intro">
+        <div>
+          <p class="eyebrow">Selected work</p>
+          <h1 class="display-title" id="projects-title">
+            Built to move, sense, and solve.
+          </h1>
+        </div>
+        <p class="lead">
+          Eight projects across robotics, electromechanical systems, computer
+          vision, and software. Filter the grid without losing the bigger
+          picture.
+        </p>
+      </div>
+
+      <ProjectFilter
+        counts={projectCategoryCounts}
+        targetId="projects-grid"
+        client:load
+      />
+
+      <div class="projects-grid" id="projects-grid">
+        {
+          projects.map((project, index) => (
+            <ProjectCard project={project} priority={index === 0} />
+          ))
+        }
+      </div>
+    </section>
+  </main>
+</BaseLayout>

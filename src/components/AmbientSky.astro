@@ -1,0 +1,89 @@
+---
+import birdOne from './backdrop/bird 2.svg';
+import birdTwo from './backdrop/bird 6.svg';
+import birdThree from './backdrop/bird 9.svg';
+import darkLandscape from './Home/Scenery.svg';
+import lightLandscape from './Home/SceneryLight.svg';
+
+const birds = [birdOne, birdTwo, birdThree, birdOne, birdTwo];
+---
+
+<div
+  class="ambient-sky"
+  data-ambient-scenery
+  data-dark-src={darkLandscape.src}
+  data-light-src={lightLandscape.src}
+  aria-hidden="true"
+>
+  <div class="ambient-sky__dark">
+    <span class="ambient-sky__aurora"></span>
+    <span class="ambient-star"></span>
+    <span class="ambient-star"></span>
+    <span class="ambient-star"></span>
+    <span class="ambient-star"></span>
+    <span class="ambient-star"></span>
+    <span class="ambient-star"></span>
+    <span class="ambient-star"></span>
+    <span class="ambient-star"></span>
+  </div>
+
+  <div class="ambient-sky__light">
+    {
+      birds.map((bird, index) => (
+        <img
+          class={`ambient-bird ambient-bird--${index + 1}`}
+          src={bird.src}
+          alt=""
+        />
+      ))
+    }
+  </div>
+
+  <div class="ambient-landscape">
+    <img
+      class="ambient-landscape__image"
+      data-ambient-landscape-image
+      src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+      alt=""
+    />
+    <noscript>
+      <img
+        class="ambient-landscape__image ambient-landscape__image--dark"
+        src={darkLandscape.src}
+        alt=""
+      />
+    </noscript>
+  </div>
+</div>
+
+<script is:inline>
+  (() => {
+    const scenery = document.querySelector('[data-ambient-scenery]');
+    const image = scenery?.querySelector('[data-ambient-landscape-image]');
+
+    if (
+      !(scenery instanceof HTMLElement) ||
+      !(image instanceof HTMLImageElement)
+    ) {
+      return;
+    }
+
+    const syncScenery = () => {
+      const theme =
+        document.documentElement.dataset.theme === 'light' ? 'light' : 'dark';
+      const source =
+        theme === 'light' ? scenery.dataset.lightSrc : scenery.dataset.darkSrc;
+
+      if (!source || image.dataset.theme === theme) return;
+
+      image.dataset.theme = theme;
+      image.className = `ambient-landscape__image ambient-landscape__image--${theme}`;
+      image.src = source;
+    };
+
+    syncScenery();
+    new MutationObserver(syncScenery).observe(document.documentElement, {
+      attributeFilter: ['data-theme'],
+    });
+  })();
+</script>

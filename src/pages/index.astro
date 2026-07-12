@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { projects } from '../data/projects';
+
+const featuredIds = new Set(['robot-dog', '6-dof-arm', 'guber']);
+const featuredProjects = projects.filter((project) =>
+  featuredIds.has(project.id),
+);
+---
+
+<BaseLayout
+  title="Mostafa Hussein — Mechatronics & Robotics Engineer"
+  description="Mostafa Hussein is a University of Waterloo Mechatronics Engineering student working in motion planning, robotics, autonomy, and embedded systems."
+>
+  <main class="page-main" id="main-content" tabindex="-1">
+    <section class="hero page-shell" aria-labelledby="home-title">
+      <div class="hero__content">
+        <p class="eyebrow">Motion Planning · Robotics · Autonomy</p>
+
+        <h1 class="hero-name" id="home-title">
+          <span class="hero-name__english" lang="en">
+            <span>MOSTAFA</span>
+            <span>HUSSEIN</span>
+          </span>
+
+          <span class="hero-name__mark" aria-hidden="true">
+            <span class="hero-name__mark-latin">M</span>
+            <span class="hero-name__mark-arabic">م</span>
+          </span>
+
+          <span class="hero-name__arabic" lang="ar" dir="rtl">
+            <span>مصطفى</span>
+            <span>حسين</span>
+          </span>
+        </h1>
+
+        <p class="hero__summary">
+          I build motion-planning and robotics systems for autonomous machines,
+          from production software and simulation to embedded hardware.
+        </p>
+
+        <div class="button-row">
+          <a class="button button--primary" href="/projects">Explore projects</a
+          >
+          <a
+            class="button button--secondary"
+            href="https://drive.google.com/file/d/1a3I1CHtxwZnfcyMbPvrXwMktkEdkgcpv/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer">View résumé</a
+          >
+          <a class="text-link" href="mailto:Mahussein04@gmail.com"
+            >Email me <span aria-hidden="true">↗</span></a
+          >
+        </div>
+
+        <ul class="hero__meta" aria-label="Professional focus">
+          <li>University of Waterloo · 2027</li>
+          <li>Motion & path planning</li>
+          <li>Robotics & autonomy</li>
+        </ul>
+      </div>
+    </section>
+
+    <section
+      class="content-section page-shell"
+      aria-labelledby="featured-title"
+    >
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Selected work</p>
+          <h2 class="section-title" id="featured-title">
+            Machines, systems, and software.
+          </h2>
+        </div>
+        <p>
+          A focused selection spanning quadruped robotics, custom
+          electromechanical design, and deployed community software.
+        </p>
+      </div>
+
+      <div class="featured-projects">
+        {
+          featuredProjects.map((project) => (
+            <ProjectCard project={project} headingLevel="h3" />
+          ))
+        }
+      </div>
+
+      <div class="button-row">
+        <a class="button button--secondary" href="/projects"
+          >View all eight projects</a
+        >
+      </div>
+    </section>
+  </main>
+</BaseLayout>

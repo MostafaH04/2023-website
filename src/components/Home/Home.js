@@ -1,79 +1,36 @@
+import { Link } from 'react-router-dom';
 import sceneryDark from './Scenery.svg';
 import sceneryLight from './SceneryLight.svg';
 import './Home.css';
 
 function Home(props) {
-
-    let arabicTextStyle = {
-        color: "#3F4045"
-    }
-    
-    let englishTextStyle = {
-        color: "#FCFCFC"
-    }
-
-    let subTitleStyle = {
-        color: "#feb31d"
-    }
-
-    const sceneryStyle = {
-        position: "fixed",
-        width: "100vw",
-        bottom: "-60px",
-        userSelect: "none",
-        userDrag: "none"
-    }
-
-    let currentScenery;
-
-    let menuType;
-
-    if (props.darkMode){
-        currentScenery = sceneryDark;
-        englishTextStyle = {
-            color: "#FCFCFC"
-        }
-        arabicTextStyle = {
-            color: "#3F4045"
-        }
-        subTitleStyle = {
-            color: "#feb31d"
-        }
-        menuType = "moon";
-    }
-    else{
-        currentScenery = sceneryLight;
-        englishTextStyle = {
-            color: "#3D3D3D"
-        }
-        arabicTextStyle = {
-            color: "#FFAD67"
-        }
-        subTitleStyle = {
-            color: "#0D3B66"
-        }
-        menuType = "sun";
-    }
-    
+    const currentScenery = props.darkMode ? sceneryDark : sceneryLight;
 
     return (
-        <div className = "home-section">
-            <div className = "textHolder">
-                <div className = "name">
-                    <div className = "english">
-                        <p style = {englishTextStyle}>MOSTAFA<br/>HUSSEIN</p>
+        <main className={`home-section page-shell ${props.darkMode ? 'home-dark' : 'home-light'}`}>
+            <section className="home-copy" aria-labelledby="home-title">
+                <div className="home-kicker">Mechatronics Engineering / Robotics / Automation</div>
+                <div className="name" id="home-title">
+                    <div className="english" aria-label="Mostafa Hussein">
+                        <span>MOSTAFA</span>
+                        <span>HUSSEIN</span>
                     </div>
-                    <div classname = "arabic">
-                        <p className = "typeArabic" style = {arabicTextStyle}>مصطفى <br/>حسين</p>
+                    <div className="arabic" aria-hidden="true">
+                        <span>مصطفى</span>
+                        <span>حسين</span>
                     </div>
-                    
                 </div>
-                <p className = "subTitle" style = {subTitleStyle}>Click the {menuType} for more info!</p>
-            </div>
-            <img src = {currentScenery} style = {sceneryStyle} className = "sceneryDrag"/>
-        </div>
+                <p className="home-summary">
+                    I build robotics systems, polished software, and automation tools that connect mechanical design with clean user experiences.
+                </p>
+                <div className="home-actions" aria-label="Primary navigation">
+                    <Link className="home-action primary" to="/projects/hardware">Hardware Work</Link>
+                    <Link className="home-action secondary" to="/projects/software">Software Work</Link>
+                </div>
+            </section>
+            <img className="sceneryDrag" src={currentScenery} alt="" aria-hidden="true" />
+        </main>
     );
-    
 }
 
 export default Home;

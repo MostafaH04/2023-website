@@ -1,0 +1,27 @@
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('/fonts/inter-portfolio.woff2') format('woff2-variations');
+  unicode-range: U+0020-007e, U+00a0-00ff, U+2010-2027, U+2190-21ff;
+}
+
+@font-face {
+  font-family: 'Alexandria Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('/fonts/alexandria-latin-portfolio.woff2') format('woff2-variations');
+  unicode-range: U+0020-007e, U+00a0-00ff, U+2010-2027, U+2190-21ff;
+}
+
+@font-face {
+  font-family: 'Alexandria Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('/fonts/alexandria-arabic-name.woff2') format('woff2-variations');
+  unicode-range:
+    U+062d, U+0633, U+0635, U+0637, U+0641, U+0645, U+0646, U+0649, U+064a;
+}

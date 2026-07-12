@@ -1,0 +1,163 @@
+---
+import { Picture } from 'astro:assets';
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import personal from '../components/About/personal.png';
+import darkPortrait from '../components/About/Scenery.svg';
+import lightPortrait from '../components/About/SceneryLight.svg';
+
+const capabilities = [
+  {
+    number: '01',
+    title: 'Motion & path planning',
+    body: 'Planning for autonomous drones and trucks at Zipline and Waabi, with production work spanning heuristics, cost evaluation, TensorRT, and latency optimization.',
+  },
+  {
+    number: '02',
+    title: 'Robot manipulation',
+    body: 'Joint- and task-space planning, kinematics, trajectory control, and optimization for 7-DOF and space robotic manipulators through MDA Space and the RIPL Lab.',
+  },
+  {
+    number: '03',
+    title: 'Autonomy research',
+    body: 'ROS2 local planning and sim-to-real reinforcement learning with WATonomous, backed by experience across MuJoCo, Gazebo, SAPIEN, and Isaac Sim.',
+  },
+  {
+    number: '04',
+    title: 'Embedded mechatronics',
+    body: 'Real-time C++ motor control, STM32 and AVR systems, computer vision, PCB design, and hands-on prototyping for CNC and robotic hardware.',
+  },
+];
+---
+
+<BaseLayout
+  title="About — Mostafa Hussein"
+  description="Meet Mostafa Hussein, a University of Waterloo Mechatronics Engineering student focused on motion planning, robotics, autonomy, and embedded systems."
+  image="/images/brand/og-about.png"
+>
+  <main class="page-main" id="main-content" tabindex="-1">
+    <section class="page-hero page-shell" aria-labelledby="about-title">
+      <div class="about-grid">
+        <div class="about-copy">
+          <p class="eyebrow">About me</p>
+          <h1 class="display-title" id="about-title">
+            Engineering across the physical and digital.
+          </h1>
+          <p>
+            I&rsquo;m a University of Waterloo Mechatronics Engineering student,
+            graduating in April 2027. My focus is motion planning, robotics,
+            autonomy, and making complex systems perform reliably in the real
+            world.
+          </p>
+          <p>
+            I&rsquo;ve worked on autonomous delivery drones, self-driving
+            trucks, space robotics, robot manipulation research, and embedded
+            motion systems. Across them, I care about measurable performance,
+            sound engineering, and software that holds up beyond a demo.
+          </p>
+
+          <div class="button-row">
+            <a
+              class="button button--primary"
+              href="https://drive.google.com/file/d/1a3I1CHtxwZnfcyMbPvrXwMktkEdkgcpv/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer">View résumé</a
+            >
+            <a class="button button--secondary" href="/projects"
+              >Explore projects</a
+            >
+          </div>
+        </div>
+
+        <aside
+          class="portrait-card"
+          data-theme-portrait
+          data-dark-src={darkPortrait.src}
+          data-light-src={lightPortrait.src}
+          aria-label="Portrait of Mostafa Hussein"
+        >
+          <img
+            class="portrait-card__scene"
+            data-theme-portrait-image
+            src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+            alt=""
+            aria-hidden="true"
+          />
+          <noscript>
+            <img
+              class="portrait-card__scene portrait-card__scene--dark"
+              src={darkPortrait.src}
+              alt=""
+              aria-hidden="true"
+            />
+          </noscript>
+          <Picture
+            src={personal}
+            widths={[320, 480, 640]}
+            sizes="(max-width: 800px) min(390px, 100vw - 32px), 430px"
+            formats={['avif', 'webp']}
+            class="portrait-card__photo"
+            alt="Mostafa Hussein"
+          />
+        </aside>
+
+        <script is:inline>
+          (() => {
+            const script = document.currentScript;
+            const portrait = script?.previousElementSibling;
+            const image = portrait?.querySelector(
+              '[data-theme-portrait-image]',
+            );
+
+            if (
+              !(portrait instanceof HTMLElement) ||
+              !(image instanceof HTMLImageElement)
+            ) {
+              return;
+            }
+
+            const syncPortrait = () => {
+              const theme =
+                document.documentElement.dataset.theme === 'light'
+                  ? 'light'
+                  : 'dark';
+              const source =
+                theme === 'light'
+                  ? portrait.dataset.lightSrc
+                  : portrait.dataset.darkSrc;
+
+              if (!source || image.dataset.theme === theme) {
+                return;
+              }
+
+              image.dataset.theme = theme;
+              image.className = `portrait-card__scene portrait-card__scene--${theme}`;
+              image.src = source;
+            };
+
+            syncPortrait();
+
+            new MutationObserver(syncPortrait).observe(
+              document.documentElement,
+              {
+                attributeFilter: ['data-theme'],
+              },
+            );
+          })();
+        </script>
+      </div>
+
+      <section class="capabilities" aria-label="Engineering capabilities">
+        {
+          capabilities.map((capability) => (
+            <article class="capability-card">
+              <span class="capability-card__number">{capability.number}</span>
+              <h2>{capability.title}</h2>
+              <p>{capability.body}</p>
+            </article>
+          ))
+        }
+      </section>
+    </section>
+  </main>
+</BaseLayout>

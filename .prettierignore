@@ -1,0 +1,17 @@
+node_modules
+dist
+build
+coverage
+playwright-report
+test-results
+package-lock.json
+public/images
+src/App.css
+src/App.js
+src/index.css
+src/index.js
+src/components/About
+src/components/Home
+src/components/Projects
+src/components/backdrop
+src/components/interest
