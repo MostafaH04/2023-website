@@ -132,9 +132,6 @@ function BrandMark() {
     <a className="site-brand" href="/" aria-label="Mostafa Hussein, home">
       <span className="site-brand__mark" aria-hidden="true">
         <span className="site-brand__latin">M</span>
-        <span className="site-brand__arabic" lang="ar" dir="rtl">
-          م
-        </span>
       </span>
       <span className="site-brand__name">
         <span>Mostafa</span>
@@ -160,15 +157,10 @@ function ThemeToggle({ theme, onToggle, className = '' }: ThemeToggleProps) {
       type="button"
       data-theme={theme}
       aria-label={actionLabel}
-      title={actionLabel}
       onClick={onToggle}
     >
       <span className="site-theme-toggle__track" aria-hidden="true">
         <span className="site-theme-toggle__thumb" />
-      </span>
-      <span className="site-theme-toggle__label" aria-hidden="true">
-        <span className="site-theme-toggle__label-dark">Dark</span>
-        <span className="site-theme-toggle__label-light">Light</span>
       </span>
     </button>
   );
@@ -432,7 +424,7 @@ export default function SiteHeader({ currentPath }: SiteHeaderProps) {
       >
         <div className="site-menu-dialog__topbar">
           <span className="site-menu-dialog__brand" aria-hidden="true">
-            M / م
+            M
           </span>
           <button
             ref={closeButtonRef}

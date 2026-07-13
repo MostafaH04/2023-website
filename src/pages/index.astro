@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import { projects } from '../data/projects';
 
-const featuredIds = new Set(['robot-dog', '6-dof-arm', 'guber']);
+const featuredIds = new Set(['robot-dog', '6-dof-arm', 'pyblock-3d']);
 const featuredProjects = projects.filter((project) =>
   featuredIds.has(project.id),
 );
@@ -24,11 +24,6 @@ const featuredProjects = projects.filter((project) =>
             <span>HUSSEIN</span>
           </span>
 
-          <span class="hero-name__mark" aria-hidden="true">
-            <span class="hero-name__mark-latin">M</span>
-            <span class="hero-name__mark-arabic">م</span>
-          </span>
-
           <span class="hero-name__arabic" lang="ar" dir="rtl">
             <span>مصطفى</span>
             <span>حسين</span>
@@ -36,8 +31,7 @@ const featuredProjects = projects.filter((project) =>
         </h1>
 
         <p class="hero__summary">
-          I build motion-planning and robotics systems for autonomous machines,
-          from production software and simulation to embedded hardware.
+          I build motion-planning and robotics systems for autonomous machines.
         </p>
 
         <div class="button-row">
@@ -73,10 +67,6 @@ const featuredProjects = projects.filter((project) =>
             Machines, systems, and software.
           </h2>
         </div>
-        <p>
-          A focused selection spanning quadruped robotics, custom
-          electromechanical design, and deployed community software.
-        </p>
       </div>
 
       <div class="featured-projects">
@@ -89,7 +79,7 @@ const featuredProjects = projects.filter((project) =>
 
       <div class="button-row">
         <a class="button button--secondary" href="/projects"
-          >View all eight projects</a
+          >View all projects</a
         >
       </div>
     </section>

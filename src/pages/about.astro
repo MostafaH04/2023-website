@@ -5,29 +5,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import personal from '../components/About/personal.png';
 import darkPortrait from '../components/About/Scenery.svg';
 import lightPortrait from '../components/About/SceneryLight.svg';
-
-const capabilities = [
-  {
-    number: '01',
-    title: 'Motion & path planning',
-    body: 'Planning for autonomous drones and trucks at Zipline and Waabi, with production work spanning heuristics, cost evaluation, TensorRT, and latency optimization.',
-  },
-  {
-    number: '02',
-    title: 'Robot manipulation',
-    body: 'Joint- and task-space planning, kinematics, trajectory control, and optimization for 7-DOF and space robotic manipulators through MDA Space and the RIPL Lab.',
-  },
-  {
-    number: '03',
-    title: 'Autonomy research',
-    body: 'ROS2 local planning and sim-to-real reinforcement learning with WATonomous, backed by experience across MuJoCo, Gazebo, SAPIEN, and Isaac Sim.',
-  },
-  {
-    number: '04',
-    title: 'Embedded mechatronics',
-    body: 'Real-time C++ motor control, STM32 and AVR systems, computer vision, PCB design, and hands-on prototyping for CNC and robotic hardware.',
-  },
-];
 ---
 
 <BaseLayout
@@ -48,12 +25,6 @@ const capabilities = [
             graduating in April 2027. My focus is motion planning, robotics,
             autonomy, and making complex systems perform reliably in the real
             world.
-          </p>
-          <p>
-            I&rsquo;ve worked on autonomous delivery drones, self-driving
-            trucks, space robotics, robot manipulation research, and embedded
-            motion systems. Across them, I care about measurable performance,
-            sound engineering, and software that holds up beyond a demo.
           </p>
 
           <div class="button-row">
@@ -146,18 +117,6 @@ const capabilities = [
           })();
         </script>
       </div>
-
-      <section class="capabilities" aria-label="Engineering capabilities">
-        {
-          capabilities.map((capability) => (
-            <article class="capability-card">
-              <span class="capability-card__number">{capability.number}</span>
-              <h2>{capability.title}</h2>
-              <p>{capability.body}</p>
-            </article>
-          ))
-        }
-      </section>
     </section>
   </main>
 </BaseLayout>

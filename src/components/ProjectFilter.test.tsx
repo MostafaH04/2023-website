@@ -64,7 +64,7 @@ describe('ProjectFilter', () => {
     });
 
     expect(visibleProjectIds()).toEqual(projects.map((project) => project.id));
-    expect(screen.getByText('8 projects shown')).toHaveAttribute(
+    expect(screen.getByText('5 projects shown')).toHaveAttribute(
       'aria-live',
       'polite',
     );
@@ -113,7 +113,7 @@ describe('ProjectFilter', () => {
         .filter((project) => project.category === 'software')
         .map(({ id }) => id),
     );
-    expect(screen.getByText('4 projects shown')).toBeInTheDocument();
+    expect(screen.getByText('1 project shown')).toBeInTheDocument();
   });
 
   it('removes only the category parameter when All is selected', async () => {

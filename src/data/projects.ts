@@ -63,7 +63,7 @@ export const projectSchema: z.ZodType<Project> = z.object({
   links: z.tuple([projectLinkSchema], projectLinkSchema),
 });
 
-/** Recruiter-first order: complete robotics systems lead, then software breadth. */
+/** Recruiter-first order: complete robotics systems lead, then selected software breadth. */
 const projectEntries = [
   {
     id: 'robot-dog',
@@ -115,7 +115,7 @@ const projectEntries = [
   },
   {
     id: 'autonomous-cleaning-robot',
-    title: 'Autonomous Cleaning Robot',
+    title: 'Mobile Robot Platform',
     category: 'hardware',
     status: 'Ongoing',
     summary:
@@ -125,7 +125,7 @@ const projectEntries = [
     tags: ['FreeRTOS', 'Sensor Fusion', 'ROS2'],
     media: {
       src: '/images/projects/autonomous-cleaning-robot.webp',
-      alt: 'Electronics and chassis of the autonomous cleaning robot prototype',
+      alt: 'Electronics and chassis of the mobile robot platform prototype',
       width: 680,
       height: 604,
     },
@@ -162,79 +162,6 @@ const projectEntries = [
     ],
   },
   {
-    id: 'guber',
-    title: 'Guber',
-    category: 'software',
-    status: 'Live',
-    summary:
-      'A community web app that helps people report local litter, organize cleanups, and discover volunteering opportunities.',
-    contribution:
-      'Built the responsive React and Firebase experience around an approachable reporting flow and community-focused interface.',
-    tags: ['React', 'Firebase', 'Community UX'],
-    media: {
-      src: '/images/projects/guber.webp',
-      alt: 'Guber community cleanup web application reporting screen',
-      width: 375,
-      height: 632,
-    },
-    links: [
-      { label: 'Live demo', href: 'https://guber.pages.dev/', kind: 'demo' },
-    ],
-  },
-  {
-    id: 'magic-mouse',
-    title: 'Magic Mouse',
-    category: 'software',
-    status: 'Hackathon',
-    summary:
-      'A webcam-driven hand-tracking experiment that turns natural hand movement into desktop pointer control.',
-    contribution:
-      'Connected computer-vision hand detection with Python input automation and built a clear demo experience for Hack the North.',
-    tags: ['Computer Vision', 'Python', 'Interaction'],
-    media: {
-      src: '/images/projects/magic-mouse.webp',
-      alt: 'Magic Mouse hand-tracking project wordmark and gesture illustration',
-      width: 1200,
-      height: 338,
-    },
-    links: [
-      {
-        label: 'Live demo',
-        href: 'https://magic-mouse.netlify.app/',
-        kind: 'demo',
-      },
-      {
-        label: 'Source',
-        href: 'https://github.com/MostafaH04/MagicMouse-HTN2020',
-        kind: 'source',
-      },
-    ],
-  },
-  {
-    id: 'work-flow',
-    title: 'Work Flow',
-    category: 'software',
-    status: 'Hackathon',
-    summary:
-      'A productivity experiment that turns computer activity into a clearer view of focus, habits, and time usage.',
-    contribution:
-      'Helped shape and build the JAMHacks V prototype around concise analytics and a low-friction review workflow.',
-    tags: ['Analytics', 'Productivity', 'Hackathon'],
-    media: {
-      src: '/images/projects/work-flow.webp',
-      alt: 'Work Flow productivity analytics dashboard',
-      width: 301,
-      height: 332,
-    },
-    links: [
-      {
-        label: 'Devpost',
-        href: 'https://devpost.com/software/time-flow',
-        kind: 'writeup',
-      },
-    ],
-  },
-  {
     id: 'pyblock-3d',
     title: 'PyBlock-3D',
     category: 'software',
@@ -262,7 +189,7 @@ const projectEntries = [
 
 const projectCollectionSchema = z
   .array(projectSchema)
-  .length(8)
+  .length(5)
   .superRefine((entries, context) => {
     const ids = new Set<string>();
 

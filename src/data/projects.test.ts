@@ -9,16 +9,13 @@ const expectedProjectOrder = [
   '6-dof-arm',
   'autonomous-cleaning-robot',
   'chess-bot',
-  'guber',
-  'magic-mouse',
-  'work-flow',
   'pyblock-3d',
 ];
 
 describe('project data', () => {
-  it('keeps the eight projects in recruiter-first order', () => {
+  it('keeps the selected projects in recruiter-first order', () => {
     expect(projects.map((project) => project.id)).toEqual(expectedProjectOrder);
-    expect(new Set(projects.map((project) => project.id)).size).toBe(8);
+    expect(new Set(projects.map((project) => project.id)).size).toBe(5);
     expect(
       projects.slice(0, 4).every((project) => project.category === 'hardware'),
     ).toBe(true);
@@ -29,7 +26,7 @@ describe('project data', () => {
 
   it('exposes stable category values and derived counts', () => {
     expect(projectCategories).toEqual(['all', 'hardware', 'software']);
-    expect(projectCategoryCounts).toEqual({ all: 8, hardware: 4, software: 4 });
+    expect(projectCategoryCounts).toEqual({ all: 5, hardware: 4, software: 1 });
 
     const derivedCounts = projects.reduce(
       (counts, project) => ({

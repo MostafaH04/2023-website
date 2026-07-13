@@ -106,7 +106,7 @@ test.describe('navigation and pointer safety', () => {
 
     await expect(page).toHaveURL(/\/projects\/?$/);
     await expect(
-      page.getByRole('heading', { level: 1, name: /Built to move/ }),
+      page.getByRole('heading', { level: 1, name: 'Projects.' }),
     ).toBeVisible();
   });
 
